@@ -6,7 +6,8 @@ Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le
 - Caméra : `{"type":"camera"}` **Sans caméra pour la zone le chargement va planter**
 
 ## Script Max
-Pour faciliter l
+Pour faciliter le réglage des propriétés des objets, il y a un petit script qui permet de définir les paramètres sans trop se préoccuper de la forme du code requis.
+![maxscript-description](images/maxscript-description.png)
 
 ## Stands
 ### 1. Instances
