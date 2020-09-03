@@ -3,6 +3,8 @@
 ## Outil Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a un petit script qui permet de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
+[Fichier téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
+
 ![maxscript-description](images/maxscript-description.png)
 
 - **type** :
