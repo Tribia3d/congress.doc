@@ -29,7 +29,7 @@ Pour faciliter le réglage des propriétés des objets, il y a un petit script q
 
 #### Sources
 Copier les différents modèle de stands dans un coin pour s'en servir comme source. On peut le parenter à un Dummy (ou Point), ou bien avoir un objet parent (comme dans le fichier implantation, dans lequel le sol du stand est le parent). Les propriétés du parent à régler sont :
-```
+```json
 {"type":"booth_model","boothModel":"__source_name__"}
 ```
 - `type = booth_model` Permet de savoir que cet objet est un modèle de Stand et qu'il faudra le copier sur des "cibles"
@@ -37,7 +37,7 @@ Copier les différents modèle de stands dans un coin pour s'en servir comme sou
 
 #### Cibles
 Les cibles (Dummy ou Point) doivent être positionnées et orientées à l'identique de l'implantation en respectant le point de pivot de la source (idéalement au centre en z = 0). Elles devront avoir les propriétés suivantes :
-```
+```json
 {"type":"booth","id":"__uuid__","boothModel":"__source_name__"}
 ```
 - `type = booth` Permet au viewer de savoir qu'il s'agit d'un Stand et qu'on peut interagir avec lui
@@ -46,7 +46,7 @@ Les cibles (Dummy ou Point) doivent être positionnées et orientées à l'ident
 
 ### 2. Produits
 Les produits / innovations se présenteront sous forme de Plane carré pour pouvoir gérer les formats portrait et paysages plus facilement (ça peut changer selon les problèmes techniques qui peuvent survenir). Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière (Z vers le haut, X vers la droite). Leurs propriétés sont du type :
-```
+```json
 {"type":"product","media_type":"texture","key_3d":"poster"}
 ```
 - `type = product` Permet au viewer de savoir qu'il s'agit d'un produit / innovation
