@@ -11,7 +11,7 @@ Pour faciliter le réglage des propriétés des objets, il y a un petit script q
     - `booth_model` : défini cet objet comme modèle de stand. Il faudra spécifier un nom dans `boothModel` plus bas.
     - `camera` : défini cet caméra comme caméra de zone. **Nécessaire pour le bon chargement de la zone !**
     - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `id`
-    - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone
+    - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone. **Nécessaire si on veut pouvoir se déplacer dans la zone**
     - `lightmap` : nom de la lightmap contenue dans le matériau de cet objet. L'objet ne sera pas affiché et la lightmap sera copiée sur les matériaux des objets possédant la propriété `useLightmap` avec la même nom
     - `envmap` : idem que `lightmap` mais pour les map de réflexion. Utiliser `useEnvmap` sur les objets pour appliquer la map sur son matériau.
     - `product` : défini l'objet comme un produit, il faudra spécifier `media_type` et `key_3d`
