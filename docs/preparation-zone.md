@@ -7,11 +7,25 @@ Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le
 
 ## Script Max
 Pour faciliter le réglage des propriétés des objets, il y a un petit script qui permet de définir les paramètres sans trop se préoccuper de la forme du code requis.
+
 ![maxscript-description](images/maxscript-description.png)
+
+- `type` :
+    - `booth` : défini cet objet comme un Stand. Il faudra également remplir `id` pour spécifier de quel stand il s'agit (et éventuellement `booth_model` si on veut instancier un modèle de stand sur le dummy).
+    - `booth_camera` : défini cette caméra comme caméra de stand. **Nécessaire pour pouvoir entrer sur le stand !**
+    - `booth_model` : défini cet objet comme modèle de stand. Il faudra spécifier un nom dans `boothModel` plus bas.
+    - `camera` : défini cet caméra comme caméra de zone. **Nécessaire pour le bon chargement de la zone !**
+    - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `id`
+    - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone
+    - `lightmap` : nom de la lightmap contenue dans le matériau de cet objet. L'objet ne sera pas affiché et la lightmap sera copiée sur les matériaux des objets possédant la propriété `useLightmap` avec la même nom
+    - `envmap` : idem que `lightmap` mais pour les map de réflexion. Utiliser `useEnvmap` sur les objets pour appliquer la map sur son matériau.
+    - `product` : défini l'objet comme un produit, il faudra spécifier `media_type` et `key_3d`
 
 ## Stands
 ### 1. Instances
+
 ![base-zone-objects](images/base-zone-objects.png)
+> Objets de base pour une zone : un ***sol*** (type `ground`), une ***caméra de zone*** (type `camera`), des ***modèles de stands*** en haut (type `booth_model` et `boothModel=nom_du_modèle`) avec des ***caméras de stand*** (type `booth_camera`), des ***Points*** placés à la position des stands à instancier (type `booth`, `id=uuid` et `boothModel=nom_du_modèle`).
 
 #### Sources
 Copier les différents modèle de stands dans un coin pour s'en servir comme source. On peut le parenter à un Dummy (ou Point), ou bien avoir un objet parent (comme dans le fichier implantation, dans lequel le sol du stand est le parent). Les propriétés du parent à régler sont :
