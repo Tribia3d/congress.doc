@@ -1,4 +1,3 @@
-tz
 -- (
 -- 	macroScript userPropertiesRollout
 -- 	category:"TRIBIA"
@@ -10,31 +9,31 @@ tz
 		rollout userPropertiesRollout "User Defined Properties / babylonjs_tag" width:376 height:776
 		(
 			-- GENERAL
-			label 'lbSelectedObject' "Objet sélectionné : " pos:[8,8] width:360 height:24 align:#left
+			label 'lbSelectedObject' "Objet sï¿½lectionnï¿½ : " pos:[8,8] width:360 height:24 align:#left
 			GroupBox 'grpName' "JSON / babylonjs_tag = " pos:[8,32] width:360 height:120 align:#left
-			edittext 'tbData' "" pos:[16,56] width:344 height:88 toolTip:"JSON qui sera enregistré dans la propriété 'babylonjs_tag' de l'objet" align:#left
-			button 'btGet' "Recharger" pos:[8,744] width:176 height:24 toolTip:"Recharge la propriété sans la modifier" align:#left
-			button 'btSet' "Enregistrer" pos:[192,744] width:176 height:24 toolTip:"Enregistre les modifications dans la propriété" align:#left
+			edittext 'tbData' "" pos:[16,56] width:344 height:88 toolTip:"JSON qui sera enregistrï¿½ dans la propriï¿½tï¿½ 'babylonjs_tag' de l'objet" align:#left
+			button 'btGet' "Recharger" pos:[8,744] width:176 height:24 toolTip:"Recharge la propriï¿½tï¿½ sans la modifier" align:#left
+			button 'btSet' "Enregistrer" pos:[192,744] width:176 height:24 toolTip:"Enregistre les modifications dans la propriï¿½tï¿½" align:#left
 			
 			-- PARAMETRES
-			GroupBox 'grp2' "Paramètres" pos:[8,160] width:360 height:576 align:#left
+			GroupBox 'grp2' "Paramï¿½tres" pos:[8,160] width:360 height:576 align:#left
 			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "envmap", "goto_zone", "ground", "lightmap", "product")
 			label 'lbl2' "type" pos:[16,184] width:80 height:24 align:#left
-			dropdownList 'ddType' "" pos:[96,184] width:264 height:21 items:typeList toolTip:"Type de l'objet, sera utilisé pour trier les objets dans le viewer" align:#left
+			dropdownList 'ddType' "" pos:[96,184] width:264 height:21 items:typeList toolTip:"Type de l'objet, sera utilisï¿½ pour trier les objets dans le viewer" align:#left
 
 			-- BOOTH
 			GroupBox 'grp16' "booth && goto_zone" pos:[16,216] width:344 height:80 align:#left
 			label 'lbl15' "id" pos:[24,240] width:80 height:24 align:#left
 			edittext 'tbId' "" pos:[120,240] width:232 height:24 toolTip:"Id du booth, ou de la zone vers laquelle aller (uniquement avec les types booth et goto_zone)" align:#left
 			label 'lbl25' "boothModel" pos:[24,264] width:80 height:24 align:#left
-			edittext 'tbBoothModel' "" pos:[120,264] width:232 height:24 toolTip:"Source : défini le nom de ce modèle\nCible : nom du modèle à copier sur cette cible" align:#left
+			edittext 'tbBoothModel' "" pos:[120,264] width:232 height:24 toolTip:"Source : dï¿½fini le nom de ce modï¿½le\nCible : nom du modï¿½le ï¿½ copier sur cette cible" align:#left
 			
 			-- PRODUCT
 			GroupBox 'grp17' "product" pos:[16,304] width:344 height:80 align:#left
 			label 'lbl26' "media_type" pos:[24,328] width:80 height:24 align:#left
-			edittext 'tbMediaType' "" pos:[120,328] width:232 height:24 toolTip:"Type de la donnée du produit (texture, video)" align:#left
+			edittext 'tbMediaType' "" pos:[120,328] width:232 height:24 toolTip:"Type de la donnï¿½e du produit (texture, video)" align:#left
 			label 'lbl27' "key_3d" pos:[24,352] width:80 height:24 align:#left
-			edittext 'tbKey3d' "" pos:[120,352] width:232 height:24 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
+			edittext 'tbKey3d' "" pos:[120,352] width:232 height:24 toolTip:"Identificateur de produit gï¿½nï¿½rique pour appliquer des textures ou vidï¿½os depuis la DB (ex: poster1, poster2, logo, video)" align:#left
 			
 			-- INSTANCES
 			GroupBox 'grp19' "instances" pos:[16,528] width:344 height:80 align:#left
@@ -47,19 +46,19 @@ tz
 			GroupBox 'grp18' "lightmap && envmap" pos:[16,392] width:344 height:128 align:#left
 			label 'lbl30' "lightmap" pos:[24,416] width:80 height:24 align:#left
 			edittext 'tbLightmap' "" pos:[120,416] width:168 height:24 toolTip:"Nom de la lightmap que cet objet fourni ('default')" align:#left
-			button 'btDefaultLightmap' "Défaut" pos:[290,416] width:62 height:24 align:#left
+			button 'btDefaultLightmap' "Dï¿½faut" pos:[290,416] width:62 height:24 align:#left
 			label 'lbl31' "useLightmap" pos:[24,440] width:80 height:24 align:#left
-			edittext 'tbUseLightmap' "" pos:[120,440] width:232 height:24 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
+			edittext 'tbUseLightmap' "" pos:[120,440] width:232 height:24 toolTip:"Nom de la lightmap ï¿½ appliquer ï¿½ cet objet" align:#left
 			label 'lbl32' "envmap" pos:[24,464] width:80 height:24 align:#left
 			edittext 'tbEnvmap' "" pos:[120,464] width:168 height:24 toolTip:"WIP Nom de l'envMap que cet objet fourni ('default')" align:#left
-			button 'btDefaultEnvmap' "Défaut" pos:[288,464] width:62 height:24 align:#left
+			button 'btDefaultEnvmap' "Dï¿½faut" pos:[288,464] width:62 height:24 align:#left
 			label 'lbl33' "useEnvmap" pos:[24,488] width:80 height:24 align:#left
-			edittext 'tbUseEnvmap' "" pos:[120,488] width:232 height:24 toolTip:"WIP Nom de l'envMap à appliquer à cet objet" align:#left
+			edittext 'tbUseEnvmap' "" pos:[120,488] width:232 height:24 toolTip:"WIP Nom de l'envMap ï¿½ appliquer ï¿½ cet objet" align:#left
 			
 			-- MATERIAUX
-			GroupBox 'grp20' "matériaux" pos:[16,616] width:344 height:56 align:#left
+			GroupBox 'grp20' "matï¿½riaux" pos:[16,616] width:344 height:56 align:#left
 			label 'lbl34' "material" pos:[24,640] width:80 height:24 align:#left
-			edittext 'tbMaterial' "" pos:[120,640] width:232 height:24 toolTip:"Nom du matériau tel que spécifié dans biblio (nom du matériau pas de l'objet support !)" align:#left
+			edittext 'tbMaterial' "" pos:[120,640] width:232 height:24 toolTip:"Nom du matï¿½riau tel que spï¿½cifiï¿½ dans biblio (nom du matï¿½riau pas de l'objet support !)" align:#left
 			
 			
 			local pyJSON = python.import #json
@@ -129,11 +128,11 @@ tz
 				selectedNode = selection[1]
 				
 				if selectedNode == undefined then (
-					lbSelectedObject.caption = "Objet sélectionné : Aucun"
+					lbSelectedObject.caption = "Objet sï¿½lectionnï¿½ : Aucun"
 					return undefined
 				)
 					
-				lbSelectedObject.caption = "Object sélectionné : " + selectedNode.name
+				lbSelectedObject.caption = "Object sï¿½lectionnï¿½ : " + selectedNode.name
 				parsedJSON = getNodeData selectedNode
 				
 				if (parsedJSON != undefined) then (
@@ -177,7 +176,7 @@ tz
 				append res "}"
 				
 				res = res as string
-				-- supprime la dernière virgule
+				-- supprime la derniï¿½re virgule
 				if res[res.count - 1] == "," do (
 					res[res.count - 1] = "}"
 					res[res.count] = ""
