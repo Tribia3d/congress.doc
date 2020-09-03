@@ -1,38 +1,10 @@
 # Préparation Zone
 
 ## Outil Maxscript
-Pour faciliter le réglage des propriétés des objets, il y a un petit script qui permet de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-[Fichier téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
+Utiliser l'outil maxscript pour définir les propriétés, ou bien directement dans les `User Properties` de l'objet (clic droit => `Object Properties...` => `User Defined` => `babylonjs_tag={...}`)
 
-![maxscript-description](images/maxscript-description.png)
-
-- **type** :
-    - `booth` : défini cet objet comme un Stand. Il faudra également remplir `id` pour spécifier de quel stand il s'agit (et éventuellement `booth_model` si on veut instancier un modèle de stand sur le dummy).
-    - `booth_camera` : défini cette caméra comme caméra de stand. **Nécessaire pour pouvoir entrer sur le stand !**
-    - `booth_model` : défini cet objet comme modèle de stand. Il faudra spécifier un nom dans `boothModel` plus bas.
-    - `camera` : défini cet caméra comme caméra de zone. **Nécessaire pour le bon chargement de la zone !**
-    - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `id`
-    - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone
-    - `lightmap` : nom de la lightmap contenue dans le matériau de cet objet. L'objet ne sera pas affiché et la lightmap sera copiée sur les matériaux des objets possédant la propriété `useLightmap` avec la même nom
-    - `envmap` : idem que `lightmap` mais pour les map de réflexion. Utiliser `useEnvmap` sur les objets pour appliquer la map sur son matériau.
-    - `product` : défini l'objet comme un produit, il faudra spécifier `media_type` et `key_3d`
-- **booth & goto_zone**
-    - `id` : uuid du stand (ex `5efb49ef2bac05001bf10e54`) ou uuid de la zone à charger (ex `6795ec46-b54b-46fb-9059-003a5cadca5b` pour l'accueil)
-    - `boothModel` : si `type=booth_model` alors on défini le nom de ce modèle. Si `type=booth` on va copier le modèle à la position/rotation de cet objet.
-- **product**
-    - `media_id` : défini le type de produit à afficher (texture, pdf, video)
-    - `key_3d` : clé générique pour le placement du média (`logo`, `totem`, `innovation_1_image_1`, `innovation_2_video_1`, etc.)
-- **lightmap & envmap**
-    - `lightmap` : nom de la lightmap du slot diffuse du matériau appliqué à cet objet. A utiliser si `type=lightmap` est spécifié.
-    - `useLightmap` : nom de la lightmap à utiliser sur l'objet (peu importe le type)
-    - `envmap` :  idem `lightmap`
-    - `useEnvmap` :  idem `useLightmap`
-- **instances**
-    - `instanceSource` : défini cet objet comme un modèle d'instance qui sera éventuellement cloné sur d'autres objets possédant la propriété `replaceBy`
-    - `replaceBy` : nom de l'instance par laquelle remplacer cet objet (depuis un objet `instanceSource` contenu dans ce fichier, ou depuis la biblio objets)
-- **matériaux**
-    - `material` : nom du matériau à appliquer sur cet objet. Si vide, l'objet gardera son matériau, sinon il sera remplacé.
+[Téléchargement et indications pour utiliser l'outil.](outil-maxscript.md)
 
 ## Objets propres à la Zone
 Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le sol des allées cliquable, et toutes les structures de l'espace. Il n'y pas de préparation particulière, à part pour le **sol** et la **caméra** de la Zone.
