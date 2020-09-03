@@ -10,7 +10,7 @@ Pour faciliter l
 
 ## Stands
 ### 1. Instances
-![Imgur](https://imgur.com/EezzBVY.png)
+![base-zone-objects](images/base-zone-objects.png)
 
 #### Sources
 Copier les différents modèle de stands dans un coin pour s'en servir comme source. On peut le parenter à un Dummy (ou Point), ou bien avoir un objet parent (comme dans le fichier implantation, dans lequel le sol du stand est le parent). Les propriétés du parent à régler sont :
