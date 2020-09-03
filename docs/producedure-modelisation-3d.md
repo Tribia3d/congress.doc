@@ -29,6 +29,7 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 - Eviter les multi-matériaux (ça divise les objets selon leur matériau réel à l'export). Ca ne fonctionne pas non plus avec la biblio de matériaux du viewer.
 - N'utiliser QUE les **PhysicalMat** (pas de CoronaMat)
 - N'utiliser QUE les **Bitmap** (pas de CoronaBitmap)
+- Pas de `Real-World Scale` pour les maps
 - Plus généralement NE PAS utiliser les maps spéciales de max ou corona, uniquement Bitmap
 - Ne pas utiliser CROP sur les maps, faire des UVW à la place
 - S'il y a des CoronaMultiMap, appliquer les map une par une à la main pour l'aspect aléatoire
