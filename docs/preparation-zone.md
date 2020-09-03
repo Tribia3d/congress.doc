@@ -16,6 +16,7 @@ Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le
 ### 1. Instances
 
 ![base-zone-objects](images/base-zone-objects.png)
+
 > Objets de base pour une zone : un ***sol*** (type `ground`), une ***caméra de zone*** (type `camera`), des ***modèles de stands*** en haut (type `booth_model` et `boothModel=nom_du_modèle`) avec des ***caméras de stand*** (type `booth_camera`), des ***Points*** placés à la position des stands à instancier (type `booth`, `id=uuid` et `boothModel=nom_du_modèle`).
 
 #### Sources
@@ -36,7 +37,13 @@ Les cibles (Dummy ou Point) doivent être positionnées et orientées à l'ident
 - `boothModel = __source_name__` Permet de savoir quelle "source" copier sur cette cible
 
 ### 2. Produits
-Les produits / innovations se présenteront sous forme de Plane carré pour pouvoir gérer les formats portrait et paysages plus facilement (ça peut changer selon les problèmes techniques qui peuvent survenir). Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière (Z vers le haut, X vers la droite). Leurs propriétés sont du type :
+Les produits / innovations se présenteront sous forme de Plane carré pour pouvoir gérer les formats portrait et paysages plus facilement (ça peut changer selon les problèmes techniques qui peuvent survenir). **Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière** (Z vers le haut, X vers la droite). Pour cette raison il ne faudra PAS faire de ~~`Reset XForm`~~ sur les produits, ça va reset l'orientation du pivot.
+
+![orientation-pivot-product](images/orientation-pivot-product.png)
+
+> Le pivot (en local) est orienté de telle façon que Y pointe vers l'arrière)
+
+Leurs propriétés sont du type :
 ```json
 {"type":"product","media_type":"texture","key_3d":"poster"}
 ```
