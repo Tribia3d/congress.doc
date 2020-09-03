@@ -10,7 +10,6 @@ Pour faciliter l
 
 ## Stands
 ### 1. Instances
->
 ![Imgur](https://imgur.com/EezzBVY.png)
 
 #### Sources
