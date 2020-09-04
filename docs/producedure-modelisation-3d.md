@@ -12,7 +12,7 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 
 ## Recommandations pour la modélisation
 ### Général
-- Bien nommer les objets (c'est difficile de s'y retrouver avec des Box044, et autres PlaneXXX...). C'est long, mais beaucoup plus propre et pratique...
+- Bien nommer les objets (c'est difficile de s'y retrouver avec des Box044, et autres PlaneXXX...). C'est long, mais beaucoup plus propre et pratique... C'est important pour les objets avec lesquels il y aura des interactions (sol, produits, tv, calendrier, etc.) et les objets "parents" (dummy, nom de groupes), pour les autres objets inactifs on peut laisser tel quel.
 
 ### Modé
 - PAS de scale au niveau des objets, uniquement sur la géométrie, sur les sous-objets.
