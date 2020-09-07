@@ -38,10 +38,11 @@ Voir ici pour les propriétés prises en compte par l'exporteur GLTF : [https://
 - Plus généralement NE PAS utiliser les maps spéciales de max ou corona, uniquement Bitmap
 - Ne pas utiliser CROP sur les maps, faire des UVW à la place
 - S'il y a des CoronaMultiMap, appliquer les map une par une à la main pour l'aspect aléatoire
-- Pour le bump, les maps en noir et blanc ne fonctionne pas, il faut utiliser des normal maps directement sur le slot bump du PhysicalMat, pas de CoronaNormal...
+- Pour le **bump**, les maps en noir et blanc ne fonctionne pas, il faut utiliser des **normal maps** directement sur le slot bump du PhysicalMat, pas de CoronaNormal...
 - PAS de map ColorCorrect (couleur directement dans le matériau)
-- Pour faire un miroir, la couleur diffuse doit être blanche et metalness à 1
-- Idéalement tous les objets utilisant les matériaux de la biblio (materialLibrary.glb) de devraient pas avoir de matériau appliqué, uniquement la propriété `"material":"nom matériau"`
+- Pour faire un **miroir**, la couleur diffuse doit être blanche et `metalness = 1`
+- Pour un objet **transparent**, indiquer la valeur de transparence dans la case `transparency` et choisir `Blend` dans les attributs Babylon tout en bas des propriétés du matériaux (uniquement disponible si Babylon exporter est installé !)
+- Idéalement tous les objets utilisant les matériaux de la biblio (materialLibrary.glb) de devraient pas avoir de matériau appliqué, uniquement la propriété `babylonjs_tag = { ... "material":"nom matériau"}`
 
 ## Propriétés spéciales des objets
 Afin qu'ils soient reconnus par le viewer WebGL, les objets 3d doivent avoir des propriétés au format JSON dans `User Properties`. La propriété utilisée est `babylonjs_tag = ...`, la valeur est au format JSON.
