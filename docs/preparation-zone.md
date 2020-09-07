@@ -4,7 +4,7 @@
 
 Utiliser l'outil maxscript pour définir les propriétés, ou bien directement dans les `User Properties` de l'objet (clic droit => `Object Properties...` => `User Defined` => `babylonjs_tag={...}`)
 
-[Téléchargement et indications pour utiliser l'outil.](outil-maxscript.md)
+[Téléchargement et indications pour utiliser l'outil.](outils-maxscript.md)
 
 ## Objets propres à la Zone
 Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le sol des allées cliquable, et toutes les structures de l'espace. Il n'y pas de préparation particulière, à part pour le **sol** et la **caméra** de la Zone.

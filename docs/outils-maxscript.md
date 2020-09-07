@@ -1,7 +1,9 @@
-# Outil Maxscript
-Pour faciliter le réglage des propriétés des objets, il y a un petit script qui permet de définir les paramètres sans trop se préoccuper de la forme du code requis.
+# Outils Maxscript
+Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-[Fichier téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
+# Propriétés des objets
+
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
 
 ![maxscript-description](images/maxscript-description.png)
 
@@ -31,3 +33,12 @@ Pour faciliter le réglage des propriétés des objets, il y a un petit script q
     - `replaceBy` : nom de l'instance par laquelle remplacer cet objet (depuis un objet `instanceSource` contenu dans ce fichier, ou depuis la biblio objets)
 - **matériaux**
     - `material` : nom du matériau à appliquer sur cet objet. Si vide, l'objet gardera son matériau, sinon il sera remplacé.
+
+# Vertex Colors
+
+![maxscript-vertex-colors](images/maxscript-vertex-colors.png)
+
+Pour que les matériaux apparaissent bien dans le viewer, il est nécessaire que les `vertex colors` soient blanches. Ce script permet de sélectionner tous les objets et de faire le changement en blanc.
+**Ca ne fonctionne pas sur les objets autres que `Edit Poly` et `Edit Mesh`, il faudra convertir les objets `Box`, `Plane`, etc. (en poly de préférence).
+
+[Outil téléchargeable ICI](maxscripts/TRIBIA_SetVertexColorsToWhite.ms)
