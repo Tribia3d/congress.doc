@@ -38,7 +38,7 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
 
 ![maxscript-vertex-colors](images/maxscript-vertex-colors.png)
 
-Pour que les matériaux apparaissent bien dans le viewer, il est nécessaire que les `vertex colors` soient blanches. Ce script permet de sélectionner tous les objets et de faire le changement en blanc.
+Pour que les matériaux apparaissent bien dans le viewer, il est nécessaire que les `vertex colors` soient blanches. Ce script permet de faire le changement en blanc sur tous les objets sélectionnés.
 **Ca ne fonctionne pas sur les objets autres que `Edit Poly` et `Edit Mesh`, il faudra convertir les objets `Box`, `Plane`, etc. (en poly de préférence).
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_SetVertexColorsToWhite.ms)
