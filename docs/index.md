@@ -1,4 +1,4 @@
-[Outil Maxscript](outil-maxscript.md)
+[Outils Maxscript](outils-maxscript.md)
 
 [Préparation Zone](preparation-zone.md)
 

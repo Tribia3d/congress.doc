@@ -1,7 +1,7 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-# Propriétés des objets
+## Propriétés des objets
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
 
@@ -34,7 +34,7 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
 - **matériaux**
     - `material` : nom du matériau à appliquer sur cet objet. Si vide, l'objet gardera son matériau, sinon il sera remplacé.
 
-# Vertex Colors
+## Vertex Colors
 
 ![maxscript-vertex-colors](images/maxscript-vertex-colors.png)
 

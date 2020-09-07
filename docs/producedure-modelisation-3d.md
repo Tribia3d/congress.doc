@@ -27,7 +27,7 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 
 ### Matériaux
 Voir ici pour les propriétés prises en compte par l'exporteur GLTF : [https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials](https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials)
-- **TRES IMPORTANT** Les objets doivent avoir les vertex colors blancs !
+- **TRES IMPORTANT** Les objets doivent avoir les vertex colors blancs ! [Il y a un petit outil maxscript pour changer la valeur automatiquement ICI](outils-maxscript.md)
 
 ![vertex-colors](images/vertex-colors.png)
 - Si les matériaux sont mats, mettre `roughness = 1` **même si** `reflections = 0`. L'exporteur ne prend pas en compte `reflections` mais uniquement `metalness`.
