@@ -12,7 +12,7 @@ Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le
 - Sol : `{"type":"ground"}`
 - Caméra : `{"type":"camera"}` **Sans caméra pour la zone le chargement va planter**
 
-On retrouvera également les objets support pour les lightmaps et envmap dans la zone, non parentés. [Voir ICI](#lightmaps-&-envmaps).
+On retrouvera également les objets support pour les lightmaps et envmap dans la zone, non parentés. [Voir ICI](#lightmaps--envmaps).
 
 ## Stands
 
