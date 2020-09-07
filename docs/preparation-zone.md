@@ -91,11 +91,11 @@ Dans l'exemple ci-dessous on peut voir que la lightmap `booth_a_lightmap` sera a
 
 Il est possible d'empêcher l'ajout d'une lightmap sur un objet enfant en spécifiant `"useLightmap":"none"`. Ca peut être utile pour le verre, des objets lumineux, ou des objets sur lesquels on ne veut pas d'ombre (produits ?).
 
-### 2. Envmaps
+### 2. Envmap / Map d'environnement
 
 #### Création & objet support
 
-Pour l'instant **une seule envmap est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support placé dans la zone, sur lequel on applique un matériau avec l'envmap sur le slot `Base Color Map`. La map doit être **équirectangulaire**, et au format `2:1`, une dimension en puissance de 2 est recommandée  (4096x2048, 2048x1024, etc.).
+Pour l'instant **une seule map d'environnement est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support placé dans la zone, sur lequel on applique un matériau avec l'envmap sur le slot `Base Color Map`. La map doit être **équirectangulaire**, et au format `2:1`, une dimension en puissance de 2 est recommandée  (4096x2048, 2048x1024, etc.).
 
 ![envmap-material](images/envmap-material.png)
 
@@ -103,11 +103,11 @@ Les propriétés de l'objet support sont les suivantes :
 ```json
 {"type":"envmap","envmap":"default"}
 ```
-- `type = lightmap` Permet au viewer de savoir qu'il s'agit d'une lightmap
-- `lightmap = default` Nom de l'envmap. **Pour l'instant seul le nom** `default` **est pris en compte**
+- `type = envmap` Permet au viewer de savoir qu'il s'agit d'une map d'environnement
+- `envmap = default` Nom de la map d'environnement. **Pour l'instant seul le nom** `default` **est pris en compte**
 
 #### Application sur des objets
 
-Comme écrit juste au dessus, pour l'instant il ne peut y avoir qu'une seule envmap par zone, si le besoin s'en fait ressentir il sera possible d'en spécifier plusieurs comme pour les lightmaps. Donc l'unique envmap est appliquée à TOUS les objets de la zone.
+Comme écrit juste au dessus, pour l'instant il ne peut y avoir qu'une seule map d'environnement par zone, si le besoin s'en fait ressentir il sera possible d'en spécifier plusieurs comme pour les lightmaps. Donc l'unique envmap est appliquée à TOUS les objets de la zone.
 
 Le seul cas où l'envmap ne sera PAS appliquée à un objet, est si cet objet possède la propriété `"useEnvmap":"none"`. Alors aucune envmap ne lui sera appliqué. Ca peut être utile pour des objets lumineux.
