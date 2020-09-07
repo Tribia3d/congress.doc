@@ -26,6 +26,8 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 
 
 ### Matériaux
+Voir ici pour les propriétés prises en compte par l'exporteur GLTF : [https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials](https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials)
+- Si les matériaux sont mats, mettre `roughness = 1` **même si** `reflections = 0`. L'exporteur ne prend pas en compte `reflections` mais uniquement `metalness`.
 - Eviter les multi-matériaux (ça divise les objets selon leur matériau réel à l'export). Ca ne fonctionne pas non plus avec la biblio de matériaux du viewer.
 - N'utiliser QUE les **PhysicalMat** (pas de CoronaMat)
 - N'utiliser QUE les **Bitmap** (pas de CoronaBitmap)
