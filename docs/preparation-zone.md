@@ -12,6 +12,7 @@ Tous les objets qui n'appartiennent pas à un Stand ou une Conférence, comme le
 - Sol : `{"type":"ground"}`
 - Caméra : `{"type":"camera"}` **Sans caméra pour la zone le chargement va planter**
 
+On retrouvera également les objets support pour les lightmaps et envmap dans la zone, non parentés. [Voir ICI](#lightmaps-&-envmaps).
 
 ## Stands
 
@@ -58,17 +59,17 @@ Leurs propriétés sont du type :
 
 **Ne pas se focaliser là dessus pour l'instant, ça va changer avec les nouveaux `key_3d` introduits par Kinoba...**
 
-### 3. Lightmaps & Envmaps
+## Lightmaps & Envmaps
 
-#### Lightmaps
+### 1. Lightmaps
 
-##### Création
+#### Création
 
 Il peut y avoir plusieurs lightmaps dans une même zone, par exemple une lightmap par modèle de Stand, et une lightmap globale (ou plusieurs) pour le sol et les objets de la zone (poteaux, etc.). Afin de garder une résolution assez bonne, sans pour autant avoir des fichiers énormes. Pour baker les lightmaps facilement, il faut utiliser [flatiron](https://www.texturebaking.com/), qui va déplier les `UV2` automatiquement et baker tous les objets en meme temps.
 
-##### Objets supports
+#### Objets supports
 
-Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la lightmap sur le slot `Base Color` (diffuse map).
+Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la lightmap sur le slot `Base Color Map` (diffuse). Ces objets seront placés dans la zone (peu importe où, ils ne seront pas affichés).
 
 ![lightmap-material](images/lightmap-material.png)
 
@@ -79,22 +80,22 @@ Ces objets doivent avoir les propriétés suivantes :
 - `type = lightmap` Permet au viewer de savoir qu'il s'agit d'une lightmap
 - `lightmap = __nom_lightmap__` Nom de la lightmap que cet objet contient
 
-##### Application sur des objets
+#### Application sur des objets
 
 Pour utiliser telle ou telle lightmap sur un objet ou hiérarchie d'objets, il faut définir la propriété `useLightmap` avec le nom de la lightmap en question. Pas besoin de définir cette propriété sur chaque objets, si l'objet parent possède la propriété alors la lightmap sera appliquée à tous les enfants. Par exemple, dans le cas des Stands il faudra définir `"useLightmap":"nom_lightmap"` uniquement sur l'objet parent (dummy ou sol).
 
-Dans l'exemple ci-dessous on peut voir que la lightmap `booth_a_lightmap` sera appliquée sur le modèle de Stand `booth_A` (et donc sur toutes les instances clonées par la suite et tous les objets enfants)
+Dans l'exemple ci-dessous on peut voir que la lightmap `booth_a_lightmap` sera appliquée sur le modèle de Stand `booth_A` (et donc sur toutes les instances clonées par la suite et tous les objets enfants).
 ```json
 {"type":"booth_model","boothModel":"booth_A","useLightmap":"booth_a_lightmap"}
 ```
 
 Il est possible d'empêcher l'ajout d'une lightmap sur un objet enfant en spécifiant `"useLightmap":"none"`. Ca peut être utile pour le verre, des objets lumineux, ou des objets sur lesquels on ne veut pas d'ombre (produits ?).
 
-#### Envmaps
+### 2. Envmaps
 
-##### Création & objet support
+#### Création & objet support
 
-Pour l'instant **une seule envmap est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support sur lequel on applique un matériau avec l'envmap sur le slot diffuse. La map doit être **équirectangulaire**, et au format `2:1` (4096x2048, etc.), une dimension en puissance de 2 est recommandée.
+Pour l'instant **une seule envmap est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support placé dans la zone, sur lequel on applique un matériau avec l'envmap sur le slot `Base Color Map`. La map doit être **équirectangulaire**, et au format `2:1`, une dimension en puissance de 2 est recommandée  (4096x2048, 2048x1024, etc.).
 
 ![envmap-material](images/envmap-material.png)
 
@@ -105,7 +106,7 @@ Les propriétés de l'objet support sont les suivantes :
 - `type = lightmap` Permet au viewer de savoir qu'il s'agit d'une lightmap
 - `lightmap = default` Nom de l'envmap. **Pour l'instant seul le nom** `default` **est pris en compte**
 
-##### Application sur des objets
+#### Application sur des objets
 
 Comme écrit juste au dessus, pour l'instant il ne peut y avoir qu'une seule envmap par zone, si le besoin s'en fait ressentir il sera possible d'en spécifier plusieurs comme pour les lightmaps. Donc l'unique envmap est appliquée à TOUS les objets de la zone.
 
