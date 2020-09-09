@@ -113,3 +113,8 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 - La lightmap sera connectée au slot `diffuse` du PhysicalMat appliqué à l'objet
 - Les objets utilisant les lightmaps auront la lightmap par défaut appliquée, s'ils possèdent une propriété `lightmap` indiquant un nom différent, alors la lightmap de ce nom leur sera appliquée. `{"type":"whatever", "useLightmap":"default | lightmap_name"}`
 - Si sur un objet `useLightmap` = `none` alors on n'appliquera pas de lightmap sur cet objet
+
+Tests...
+<p>Some paragraph text.</p>
+<center>Some paragraph text.</center>
+<div style="color:red;">Some paragraph text.</div>
