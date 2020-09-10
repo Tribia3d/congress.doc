@@ -23,7 +23,7 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 - Un cas spécial est les objets instanciés. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
 - Une caméra devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
 - Bien placer les pivots à la base des objets
-- <div style="color:red;"><b>Rassembler les objets statiques avec les mêmes matériaux</b> sur chaque Stand pour limiter le nombre de draw calls. <b>Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !</b></div>
+- <span style="color:red;">**Rassembler les objets statiques ayant les mêmes matériaux**</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;"><b>Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !</b></span>
 
 
 ### Matériaux
