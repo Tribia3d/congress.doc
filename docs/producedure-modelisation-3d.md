@@ -19,11 +19,11 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 - PAS de modificateurs miroir, ça inverse l'échelle à -100. Avec des échelles négatives, les normales sont inversées et l'objet devient transparent.
 - Parenter les objet correctement (à des `Point` de préférence, les groupes fonctionnent mais peuvent poser des problèmes).
 - Les objets appartenant à une **zone** (tout ce qui ne fait pas parti d'un stand) peuvent n'être parentés à rien. Le sol sur lequel on pourra se déplacer devra posséder la propriété `"type":"ground"`.
-- Les objets des **stands** doivent être parentés à un `Point` avec comme propriété `type=booth` (idem pour les conférences, le fonctionnement sera le même que pour les stands). Si les objets faisant parti du stand ne sont pas parentés à un parent ayant le type `booth` alors il sera interprété comme un objet de la zone.
+- Les objets des **stands** doivent être parentés à un `Point` avec comme propriété `type=booth` (idem pour les conférences avec `type=conference`, le fonctionnement sera le même que pour les stands). Si les objets faisant parti du stand ne sont pas parentés à un parent ayant le type `booth` alors il sera interprété comme un objet de la zone.
 - Un cas spécial est les objets instanciés. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
 - Une caméra devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
 - Bien placer les pivots à la base des objets
-- <span style="color:red;">**Rassembler les objets statiques ayant les mêmes matériaux**</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;"><b>Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !</b></span>
+- <span style="color:red;">**Rassembler les objets statiques ayant les mêmes matériaux**</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;">**Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !**</span>
 
 
 ### Matériaux
