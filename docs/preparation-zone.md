@@ -67,9 +67,15 @@ Leurs propriétés sont du type :
 
 Il peut y avoir plusieurs lightmaps dans une même zone, par exemple une lightmap par modèle de Stand, et une lightmap globale (ou plusieurs) pour le sol et les objets de la zone (poteaux, etc.). Afin de garder une résolution assez bonne, sans pour autant avoir des fichiers énormes. Pour baker les lightmaps facilement, il faut utiliser [flatiron](https://www.texturebaking.com/), qui va déplier les `UV2` automatiquement et baker tous les objets en meme temps.
 
+Il n'y a pas de passe Lightmap à proprement parler dans Corona, mais il y a une astuce pour obtenir à peu près le même résultat :
+- Appliquer un `Mtl. Override`sur la scène avec un matériau blanc (ou presque blanc) et mat
+- Exclure les objets lumineux ou transparents de cet override
+- Dans `Choose Bake Elements` choisir `Corona_Beauty` (et éventuellement `Corona_AO`)
+- Il faudra peut-être arranger l'intensité des ombres en post => Mais le faire de manière homogène sur toutes les LM...
+
 #### Objets supports
 
-Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la lightmap sur le slot `Base Color Map` (diffuse). Ces objets seront placés dans la zone (peu importe où, ils ne seront pas affichés).
+Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la lightmap sur le slot `Base Color Map` (diffuse). Ces objets seront placés dans la zone (ou bien dans bibliothèque de matériaux), peu importe où, ils ne seront pas affichés.
 
 ![lightmap-material](images/lightmap-material.png)
 
@@ -95,7 +101,7 @@ Il est possible d'empêcher l'ajout d'une lightmap sur un objet enfant en spéci
 
 #### Création & objet support
 
-Pour l'instant **une seule map d'environnement est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support placé dans la zone, sur lequel on applique un matériau avec l'envmap sur le slot `Base Color Map`. La map doit être **équirectangulaire**, et au format `2:1`, une dimension en puissance de 2 est recommandée  (4096x2048, 2048x1024, etc.).
+Pour l'instant **une seule map d'environnement est possible par zone**. Le fonctionnement est quasi similaire à celui des lightmaps, un objet support placé dans la bibliothèque de matériaux (ou directement dans la zone), sur lequel on applique un matériau avec l'envmap sur le slot `Base Color Map`. La map doit être **équirectangulaire**, et au format `2:1`, une dimension en puissance de 2 est recommandée  (4096x2048, 2048x1024, etc.).
 
 ![envmap-material](images/envmap-material.png)
 
