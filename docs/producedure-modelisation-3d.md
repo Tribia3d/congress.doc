@@ -23,7 +23,7 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 - Un cas spécial est les objets instanciés. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
 - Une caméra devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
 - Bien placer les pivots à la base des objets
-- <div style="color:red;">**Rassembler les objets statiques avec les mêmes matériaux** sur chaque Stand pour limiter le nombre de draw calls. ***Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !***</div>
+- <div style="color:red;"><b>Rassembler les objets statiques avec les mêmes matériaux</b> sur chaque Stand pour limiter le nombre de draw calls. <b>Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !</b></div>
 
 
 ### Matériaux
@@ -113,8 +113,3 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 - La lightmap sera connectée au slot `diffuse` du PhysicalMat appliqué à l'objet
 - Les objets utilisant les lightmaps auront la lightmap par défaut appliquée, s'ils possèdent une propriété `lightmap` indiquant un nom différent, alors la lightmap de ce nom leur sera appliquée. `{"type":"whatever", "useLightmap":"default | lightmap_name"}`
 - Si sur un objet `useLightmap` = `none` alors on n'appliquera pas de lightmap sur cet objet
-
-Tests...
-<p>Some paragraph text.</p>
-<center>Some paragraph text.</center>
-<div style="color:red;">Some paragraph text.</div>
