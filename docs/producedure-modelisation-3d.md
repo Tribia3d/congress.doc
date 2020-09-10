@@ -15,36 +15,37 @@ Les zones seront nommées par leur UUID. Pour la première zone (zone région) l
 - Bien nommer les objets (c'est difficile de s'y retrouver avec des Box044, et autres PlaneXXX...). C'est long, mais beaucoup plus propre et pratique... C'est important pour les objets avec lesquels il y aura des interactions (sol, produits, tv, calendrier, etc.) et les objets "parents" (dummy, nom de groupes), pour les autres objets inactifs on peut laisser tel quel.
 
 ### Modé
-- PAS de scale au niveau des objets, uniquement sur la géométrie, sur les sous-objets.
-- PAS de modificateurs miroir, ça inverse l'échelle à -100. Avec des échelles négatives, les normales sont inversées et l'objet devient transparent.
+- <span style="color:red;">**PAS de scale au niveau des objets**</span>, uniquement sur la géométrie, sur les sous-objets.
+- <span style="color:red;">**PAS de modificateur miroir**</span>, ça inverse l'échelle à -100. Avec des échelles négatives, les normales sont inversées et l'objet devient transparent.
 - Parenter les objet correctement (à des `Point` de préférence, les groupes fonctionnent mais peuvent poser des problèmes).
 - Les objets appartenant à une **zone** (tout ce qui ne fait pas parti d'un stand) peuvent n'être parentés à rien. Le sol sur lequel on pourra se déplacer devra posséder la propriété `"type":"ground"`.
 - Les objets des **stands** doivent être parentés à un `Point` avec comme propriété `type=booth` (idem pour les conférences avec `type=conference`, le fonctionnement sera le même que pour les stands). Si les objets faisant parti du stand ne sont pas parentés à un parent ayant le type `booth` alors il sera interprété comme un objet de la zone.
-- Un cas spécial est les objets instanciés. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
-- Une caméra devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
+- Un cas spécial est les **objets instanciés**. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
+- Une **caméra** devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
 - Bien placer les pivots à la base des objets
 - <span style="color:red;">**Rassembler les objets statiques ayant les mêmes matériaux**</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;">**Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !**</span>
 
 
 ### Matériaux
 Voir ici pour les propriétés prises en compte par l'exporteur GLTF : [https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials](https://doc.babylonjs.com/resources/3dsmax_to_gltf#pbr-materials)
-- **TRES IMPORTANT** Les objets doivent avoir les vertex colors blancs ! [Il y a un petit outil maxscript pour changer la valeur automatiquement ICI](outils-maxscript.md)
+- <span style="color:red;">**TRES IMPORTANT** Les objets doivent avoir les vertex colors blancs !</span> [Il y a un petit outil maxscript pour changer la valeur automatiquement ICI](outils-maxscript.md)
 
 ![vertex-colors](images/vertex-colors.png)
 - Si les matériaux sont mats, mettre `roughness = 1` **même si** `reflections = 0`. L'exporteur ne prend pas en compte `reflections` mais uniquement `metalness`.
 - Eviter les multi-matériaux (ça divise les objets selon leur matériau réel à l'export). Ca ne fonctionne pas non plus avec la biblio de matériaux du viewer.
-- N'utiliser QUE les **PhysicalMat** (pas de CoronaMat)
-- N'utiliser QUE les **Bitmap** (pas de CoronaBitmap)
-- Pas de `Real-World Scale` pour les maps
+- N'utiliser QUE les <span style="color:red;">**PhysicalMat**</span> (pas de CoronaMat)
+- N'utiliser QUE les <span style="color:red;">**Bitmap**</span> (pas de CoronaBitmap)
+- PAS de `Real-World Scale` pour les maps
 - Plus généralement NE PAS utiliser les maps spéciales de max ou corona, uniquement Bitmap
 - Ne pas utiliser CROP sur les maps, faire des UVW à la place
 - S'il y a des CoronaMultiMap, appliquer les map une par une à la main pour l'aspect aléatoire
-- Pour le **bump**, les maps en noir et blanc ne fonctionne pas, il faut utiliser des **normal maps** directement sur le slot bump du PhysicalMat, pas de CoronaNormal...
+- Pour le **bump**, les maps en noir et blanc ne fonctionne pas, il faut utiliser des **normal maps directement sur le slot bump du PhysicalMat**, pas de CoronaNormal...
 - PAS de map ColorCorrect (couleur directement dans le matériau)
-- Pour faire un **miroir**, la couleur diffuse doit être blanche et `metalness = 1`
+- Pour faire un **miroir**, la couleur diffuse doit être blanche, `metalness = 1` et `roughness = 0`
 - Pour un objet **transparent**, indiquer la valeur de transparence dans la case `transparency`, ou une map de transparence (inverse de l'alpha, noir = opaque) dans le slot `Transparency Map/Weight`. Ou bien encore une map transparente (png) directement dans `Base Color Map` et choisir `Blend` dans les attributs Babylon tout en bas des propriétés du matériaux (uniquement disponible si Babylon exporter est installé !)
 - Pour un objet qui ne **réagit pas à la lumière** (pas de shading) il faut cocher `Unlit` dans les attributs Babylon tout en bas des propriétés du matériaux (uniquement disponible si Babylon exporter est installé !). Et lors de l'export cocher `KHR_materials_unlit` dans les options de l'exporteur, cela va créer un `MeshBasicMaterial` au lieu d'un `MeshPhysicalMaterial` au chargement du gltf dans le viewer.
-- Idéalement tous les objets utilisant les matériaux de la biblio (materialLibrary.glb) de devraient pas avoir de matériau appliqué, uniquement la propriété `babylonjs_tag = { ... "material":"nom matériau"}`
+- Idéalement tous les objets utilisant les matériaux de la biblio (materialLibrary.glb) ne devraient pas avoir de matériau appliqué, uniquement la propriété `babylonjs_tag = { ... "material":"nom matériau"}`
+- Il n'y a pas forcément besoin d'ajouter un matériau dans la biblio s'il n'est utilisé que dans une seule zone. On peut l'appliquer directement aux objets de la zone...
 
 ## Propriétés spéciales des objets
 Afin qu'ils soient reconnus par le viewer WebGL, les objets 3d doivent avoir des propriétés au format JSON dans `User Properties`. La propriété utilisée est `babylonjs_tag = ...`, la valeur est au format JSON.
@@ -56,21 +57,25 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
 ### Type
 - **booth** : `{"type":"booth", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`
     - **id** : requis, permet de déterminer de quel stand il s'agit
-- **product** : `{"type":"product", "media_type": "texture", "key_3d":"poster n"}`
+- ~~**conference** : `{"type":"~conference", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`~~
+    - ~~**id** : requis, permet de déterminer de quel stand il s'agit~~
+    - <span style="color:orange;">Pas encore implémenté</span>
+- **product** : `{"type":"product", "media_type": "texture", "key_3d":"poster N"}`
     - **media_type** : requis, type d'objet, `texture`, `video`, `pdf` (possible `image`au lieu de `texture` à vérifier)
     - **key_3d** : requis, identifiant permettant de placer les ressources chargées depuis la bdd
+    - <span style="color:orange;">Ces propriétés vont changer suites aux modifications faites par Kinoba...</span>
 - **boothCamera** : `{"type":"boothCamera", "limits":"TODO..."}` Position, rotation, fov Caméra quand on entre dans un stand
-    - **limits** : TODO: ajouter limites rotations (verticales / horizontales)
+    - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:orange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
 - **camera** : `{"type":"camera"}` Caméra de la zone (PhysicalCam)
 - **goto_zone** : `{"type":"goto_zone", "id":"865324a2-34cf-4274-833f-2657ede13fa5"}` A mettre sur les objets permettant d'accéder à d'autres zones
     - **id** : requis, permet de déterminer sur quel stand aller
-- **lightmap** : `{"type":"lightmap", "name":"default"}`
-    - **name** : nom de la lightmap, la principale se nomme "default", les autres devront être nommées avec un nom différent
+- **lightmap** : `{"type":"lightmap", "name":"nom-lightmap"}`
+    - **name** : nom de la lightmap
 - **envmap** : idem lightmap, mais pour la réflexion / réfraction (TODO)
 
 ### Autres propriétés
-Elles sont détaillées dans les paragraphes suivants. En plus du type de l'objet, il est possible de spécifier d'autres paramètres, le matériau à utiliser (`"material":"nom du matériau"`), l'instance par laquelle remplacer l'objet (`"replaceBy" = "nom-source"`), la lightmap à utiliser (`"useLightmap":"default | lightmap_name"`), etc.
+Elles sont détaillées dans les paragraphes suivants. En plus du type de l'objet, il est possible de spécifier d'autres paramètres, le matériau à utiliser (`"material":"nom du matériau"`), l'instance par laquelle remplacer l'objet (`"replaceBy" = "nom-source"`), la lightmap à utiliser (`"useLightmap":"nom-lightmap | lightmap_name"`), etc.
 
 ## Bibliothèque de matériaux
 La bibliothèque de matériaux se présente sous la forme d'un fichier `.glb` présent dans `public/assets/models/`. Elle regroupe tous les matériaux (et textures) qui se répètent sur plusieurs zones. Les matériaux doivent être appliqués sur des objets quelconques dans Max (limiter le nombre de triangles, donc idéalement un cube ou un simple triangle) afin de pouvoir être exportés par *Babylon.js Exporter*. Les matériaux garderont leur nom, c'est celui-ci qu'il faudra indiquer dans les propriétés des objets sur lesquels les appliquer : `{"material":"nom du matériau"}`.
@@ -107,9 +112,9 @@ Il y aura un mouvement de caméra lors du click sur ceux-ci, afin de placer la c
 Les objets supports pour affiches / logos devront avoir des dimensions carrés (ce sera redimensionné à la volée par le viewer en fonction des dimensions de la texture). Les vidéos devront avoir des dimensions 16/9.
 
 ## Lightmap
-- Les lightmaps de zone utilisent l'`UV2`
-- Besoin d'un objet support pour la map (sera supprimé par le viewer)
-- Objet support nécessite `userProp` telle que : `{"type" = "lightmap", "name":"default"}` (si plus d'une lightmap, changer le nom de `"name":"autre_nom"`)
+- Les lightmaps de zone utilisent l'`UV2` (sera ajouté directement avec Flatiron)
+- Besoin d'un objet support pour la map (sera supprimé par le viewer) dans la biblio de matériau ou directement dans la zone
+- Objet support nécessite `userProp` telle que : `{"type" = "lightmap", "name":"nom-lightmap"}` (si plus d'une lightmap, changer le nom de `"name":"autre_nom"`)
 - La lightmap sera connectée au slot `diffuse` du PhysicalMat appliqué à l'objet
-- Les objets utilisant les lightmaps auront la lightmap par défaut appliquée, s'ils possèdent une propriété `lightmap` indiquant un nom différent, alors la lightmap de ce nom leur sera appliquée. `{"type":"whatever", "useLightmap":"default | lightmap_name"}`
+- Les objets utilisant les lightmaps auront la lightmap par défaut appliquée, s'ils possèdent une propriété `lightmap` indiquant un nom différent, alors la lightmap de ce nom leur sera appliquée. `{"type":"whatever", "useLightmap":"nom-lightmap | lightmap_name"}`
 - Si sur un objet `useLightmap` = `none` alors on n'appliquera pas de lightmap sur cet objet
