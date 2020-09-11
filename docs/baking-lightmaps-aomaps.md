@@ -2,10 +2,10 @@
 
 On va utiliser Flatiron pour déplier les UV2 et baker les maps.
 
-Etapes :
+### Etapes :
 - Préparation des objets
 - Dépliage UV2
-- Choix des maps à baker
+- Choix des passes et baking
 - Baking
 - Retouche
 - Utilisation au sein du projet
@@ -34,19 +34,31 @@ Paramètres à utiliser pour le dépliage :
 - `Unwrap Group Name` : nom qui sera utilisé plus tard pour choisir quel groupe baker. Sera utilisé automatiquement pour les noms de fichiers générés (ex. `booth_a_Corona_Beauty.png`)
 
 
-<center>![flatiron-depliage-uv2](images/flatiron-depliage-uv2.png)</center>
+![flatiron-depliage-uv2](images/flatiron-depliage-uv2.png)
 
 Une fois cliqué sur `Unwrap`, un aperçu du dépliage sera affiché si `Show Unwrap Preview` est coché.
 
-## Choix et réglage des maps
-Réglages dans le rollout `Baking` :
+## Choix des passes et baking
+### Réglages dans le rollout `Baking` :
 - `Baked Map Path` : **ça ne fonctionne pas !** Il faut régler le chemin d'enregistrement des maps dans la fenêtre `Render To Texture (touche 0)` de Max...
 - `Overlap` : 4 (la moitié de `Gutter Padding`)
 
-<center>![max-rtt-path](images/max-rtt-path.png)
+![max-rtt-path](images/max-rtt-path.png)
 Choix du chemin d'enregistrement des passes
-</center>
 
-On va utiliser la passe `Corona`
+### Choix des passes
+On va utiliser les passes suivantes :
+- `Corona_Beauty` : la lightmap
+- `Corona_AO` : passe d'AO, régler `Background` en blanc
+- `Corona_Light` : objets auto-illum
+
+Pour chacune d'elles, cocher si possible `Apply denoising also to this render element`. *Il y a un bug d'interface qui fait qu'il peut-être masqué, passer la souris par dessus pour le faire apparaître.*
+
+Les noms de fichiers indiqués sont affichés sans le nom du groupe réglé dans `Unwrap Group Name`, mais il sera bien ajouté au moment de l'enregistrement, pas besoin de toucher aux noms normalement. Par exemple si dans la colonne `File Name` il est indiqué `Corona_AO.png`, le fichier enregistré aura bien le nom `booth_a_Corona_AO.png`.
+
+C'est ici également qu'on va régler la **résolution des maps**.
 
 ![flatiron-bake-elements](images/flatiron-bake-elements.png)
+
+### Baking
+
