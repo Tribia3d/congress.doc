@@ -34,7 +34,7 @@ Paramètres à utiliser pour le dépliage :
 - `Unwrap Group Name` : nom qui sera utilisé plus tard pour choisir quel groupe baker. Sera utilisé automatiquement pour les noms de fichiers générés (ex. `booth_a_Corona_Beauty.png`)
 
 
-![flatiron-depliage-uv2](images/flatiron-depliage-uv2.png)
+<center>![flatiron-depliage-uv2](images/flatiron-depliage-uv2.png)</center>
 
 Une fois cliqué sur `Unwrap`, un aperçu du dépliage sera affiché si `Show Unwrap Preview` est coché.
 
@@ -43,6 +43,9 @@ Réglages dans le rollout `Baking` :
 - `Baked Map Path` : **ça ne fonctionne pas !** Il faut régler le chemin d'enregistrement des maps dans la fenêtre `Render To Texture (touche 0)` de Max...
 - `Overlap` : 4 (la moitié de `Gutter Padding`)
 
+<center>![max-rtt-path](images/max-rtt-path.png)
+Choix du chemin d'enregistrement des passes
+</center>
 
 On va utiliser la passe `Corona`
 
