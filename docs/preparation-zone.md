@@ -41,7 +41,10 @@ Les cibles (Dummy ou Point) doivent être positionnées et orientées à l'ident
 - `id = __uuid__` Permet de savoir de quel Stand il s'agit (uuid stockés en base)
 - `boothModel = __source_name__` Nom du modèle de Stand (source) à copier sur cette cible (sera "enfant" de cet objet)
 
-### 2. Produits
+### 2. Caméra
+Pour pouvoir pénétrer sur un stand, celui-ci doit posséder une caméra dans sa hiérarchie possédant la propriété `"type":"booth_camera"`.
+
+### 3. Produits
 
 Les produits / innovations se présenteront sous forme de Plane carré pour pouvoir gérer les formats portrait et paysages plus facilement (ça peut changer selon les problèmes techniques qui peuvent survenir). **Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière** (Z vers le haut, X vers la droite). Pour cette raison il ne faudra PAS faire de ~~`Reset XForm`~~ sur les produits, ça va reset l'orientation du pivot.
 
@@ -58,6 +61,9 @@ Leurs propriétés sont du type :
 - `key_3d = poster` Clé générique qui permet au viewer de savoir quelle texture afficher (lien directement fourni par la bdd)
 
 **Ne pas se focaliser là dessus pour l'instant, ça va changer avec les nouveaux `key_3d` introduits par Kinoba...**
+
+### 4. Tooltips
+Avant de pénétrer sur les stands, on affichera un tooltip avec des informations. L'ouverture se fera lors du clic sur le totem et le logo du Stand. Pour pouvoir les repérer, il faut définir la propriété `booth_tooltip` à `true`. Cela fonctionne de manière récursive donc si un parent possède cette propriété, le clic sur un objet enfant déclenchera aussi l'ouverture du tooltip.
 
 ## Lightmaps & Envmaps
 
