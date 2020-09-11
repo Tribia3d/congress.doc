@@ -4,10 +4,12 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
+		local version = "0.3.1"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
-		rollout congressObjectPropertiesRollout "Congress Object Properties / babylonjs_tag" width:376 height:776
+		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
+
 			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "envmap", "goto_zone", "ground", "lightmap", "product")
 			local mediaTypeList = #("", "texture", "video", "pdf") -- TODO
 			local key3dList = #("","poster","logo","video","pdf") -- TODO
@@ -16,11 +18,11 @@
 			label 'lbSelectedObject' "Objet sélectionné : " pos:[8,8] width:360 height:24 align:#left
 			GroupBox 'grpName' "JSON / babylonjs_tag = " pos:[8,32] width:360 height:120 align:#left
 			edittext 'tbData' "" pos:[16,56] width:344 height:88 toolTip:"JSON qui sera enregistré dans la propriété 'babylonjs_tag' de l'objet" align:#left
-			button 'btGet' "Recharger" pos:[8,744] width:176 height:24 toolTip:"Recharge la propriété sans la modifier" align:#left
-			button 'btSet' "Enregistrer" pos:[192,744] width:176 height:24 toolTip:"Enregistre les modifications dans la propriété" align:#left
+			button 'btGet' "Recharger" pos:[8,752] width:176 height:24 toolTip:"Recharge la propriété sans la modifier" align:#left
+			button 'btSet' "Enregistrer" pos:[192,752] width:176 height:24 toolTip:"Enregistre les modifications dans la propriété" align:#left
 			
 			-- PARAMETRES
-			GroupBox 'grp2' "Paramètres" pos:[8,160] width:360 height:576 align:#left
+			GroupBox 'grp2' "Paramètres" pos:[8,160] width:360 height:584 align:#left
 			label 'lbl2' "type" pos:[16,184] width:80 height:24 align:#left
 			dropdownList 'ddType' "" pos:[96,184] width:264 height:21 items:typeList toolTip:"Type de l'objet, sera utilisé pour trier les objets dans le viewer" align:#left
 
@@ -35,10 +37,10 @@
 			GroupBox 'grp17' "product" pos:[16,304] width:344 height:80 align:#left
 			label 'lbl26' "media_type" pos:[24,328] width:80 height:24 align:#left
 -- 			edittext 'tbMediaType' "" pos:[120,328] width:232 height:24 toolTip:"Type de la donnée du produit (texture, video)" align:#left
-			dropdownList 'ddMediaType' "" pos:[120,328] width:232 height:21 toolTip:"Type de la donnée du produit (texture, video)" align:#left items:mediaTypeList
+			dropdownList 'ddMediaType' "" pos:[120,328] width:232 height:21 items:mediaTypeList toolTip:"Type de la donnée du produit (texture, video)" align:#left
 			label 'lbl27' "key_3d" pos:[24,352] width:80 height:24 align:#left
 -- 			edittext 'tbKey3d' "" pos:[120,352] width:232 height:24 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
-			dropdownList 'ddKey3d' "" pos:[120,352] width:232 height:21 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left items:key3dList
+			dropdownList 'ddKey3d' "" pos:[120,352] width:232 height:21 items:key3dList toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
 			
 			-- INSTANCES
 			GroupBox 'grp19' "instances" pos:[16,528] width:344 height:80 align:#left
@@ -65,6 +67,9 @@
 			label 'lbl34' "material" pos:[24,640] width:80 height:24 align:#left
 			edittext 'tbMaterial' "" pos:[120,640] width:232 height:24 toolTip:"Nom du matériau tel que spécifié dans biblio (nom du matériau pas de l'objet support !)" align:#left
 			
+			-- DIVERS
+			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
+			checkbox 'chkTooltip' "booth_tooltip" pos:[24,704] width:135 height:24 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
 			
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -103,6 +108,8 @@
 				tbReplaceBy.text = ""
 				
 				tbMaterial.text = ""
+				
+				chkTooltip.checked = false
 			)
 			
 			function initRollout parsedJSON = (
@@ -133,6 +140,8 @@
 				tbReplaceBy.text = valOrEmpty parsedJSON["replaceBy"]
 				
 				tbMaterial.text = valOrEmpty parsedJSON["material"]
+				
+				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
 			)
 			
 			function selectionChanged = (
@@ -191,6 +200,8 @@
 				-- material
 				if (tbMaterial.text != "") do append res ("\"material\":\"" + tbMaterial.text + "\"," )
 				
+				-- divers
+				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
 				
 				append res "}"
 				
@@ -219,6 +230,11 @@
 				callbacks.removeScripts id:#congressObjectPropertiesRollout
 			)
 			
+-- 			on tbMediaType changed value do
+-- 				generateJSON()
+-- 			on tbKey3d changed value do
+-- 				generateJSON()
+
 			on congressObjectPropertiesRollout open do
 			(
 				unregCallbacks()
@@ -237,12 +253,8 @@
 				generateJSON()
 			on tbBoothModel changed value do
 				generateJSON()
--- 			on tbMediaType changed value do
--- 				generateJSON()
 			on ddMediaType selected selId do
 				generateJSON()
--- 			on tbKey3d changed value do
--- 				generateJSON()
 			on ddKey3d selected selId do
 				generateJSON()
 			on tbInstanceSource changed value do
@@ -263,9 +275,10 @@
 				generateJSON()
 			on tbMaterial changed value do
 				generateJSON()
-			on tbBoothType changed value do
+			on chkTooltip changed state do
 				generateJSON()
 		)
 		createDialog congressObjectPropertiesRollout
 	)
+
 )
