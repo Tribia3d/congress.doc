@@ -75,7 +75,7 @@ Il n'y a pas de passe Lightmap à proprement parler dans Corona, mais il y a une
 
 #### Objets supports
 
-Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la lightmap sur le slot `Base Color Map` (diffuse). Ces objets seront placés dans la zone (ou bien dans bibliothèque de matériaux), peu importe où, ils ne seront pas affichés.
+Il faut créer des objets "support" pour les différentes lightmaps, et leur appliquer un matériau avec un `Bitmap` contenant la **lightmap** sur le slot `Base Color Map` (diffuse) et l'**AOmap** sur le slot `Diffuse Roughness Map` (interprété comme AO par l'exporteur). Ces objets seront placés dans la zone (ou bien dans bibliothèque de matériaux), peu importe où, ils ne seront pas affichés.
 
 ![lightmap-material](images/lightmap-material.png)
 
