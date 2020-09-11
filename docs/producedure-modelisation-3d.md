@@ -23,7 +23,7 @@ Les zones seront nommées selon leur UUID. Par exemple, pour la première zone (
 - Un cas spécial est les **objets instanciés**. Comme on rassemble les instances en un seul mesh spécial, si l'objet à remplacer est parenté à un stand, le lien est cassé et l'objet se retrouve dans la zone, mais ça ne devrait pas poser de problème puisqu'on va instancier des chaises, tables, poteaux, il n'y a pas besoin d'interagir avec...
 - Une **caméra** devra être positionnée pour chaque stand, elle sera utilisée comme caméra fixe une fois entré dans un stand. Elle devra avoir les propriétés `"type":"boothCamera"` et `"limits":"..."` (reste encore à déterminer) qui permettront de la repérer et de connaître les rotations autorisées (ne pas pouvoir regarder derrière à l'opposer du stand par exemple).
 - Bien placer les pivots à la base des objets
-- <span style="color:red;">**Rassembler les objets statiques ayant les mêmes matériaux**</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;">**Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !**</span>
+- <span style="color:red;">Rassembler les objets **non-interactifs** ayant les mêmes matériaux</span> sur chaque Stand pour limiter le nombre de draw calls. <span style="color:red;">Les objets des 3 stands détachés = 170 fps, une fois attachés = 390 fps !</span> Attention à ce que ces objets soient bien non-interactifs, par exemple pour ouvrir le tooltip du stand on va cliquer sur le totem ou le logo au dessus.
 
 
 ### Matériaux
@@ -75,7 +75,7 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
 - **envmap** : idem lightmap, mais pour la réflexion / réfraction (TODO)
 
 ### Autres propriétés
-Elles sont détaillées dans les paragraphes suivants. En plus du type de l'objet, il est possible de spécifier d'autres paramètres, le matériau à utiliser (`"material":"nom du matériau"`), l'instance par laquelle remplacer l'objet (`"replaceBy" = "nom-source"`), la lightmap à utiliser (`"useLightmap":"nom-lightmap | lightmap_name"`), etc.
+Elles sont détaillées dans les paragraphes suivants. En plus du type de l'objet, il est possible de spécifier d'autres paramètres, le matériau à utiliser (`"material":"nom du matériau"`), l'instance par laquelle remplacer l'objet (`"replaceBy":"nom-source"`), la lightmap à utiliser (`"useLightmap":"nom-lightmap | lightmap_name"`), ouverture du tooltip du stand avec `{"booth_tooltip":true}`, etc.
 
 ## Bibliothèque de matériaux
 La bibliothèque de matériaux se présente sous la forme d'un fichier `.glb` présent dans `public/assets/models/`. Elle regroupe tous les matériaux (et textures) qui se répètent sur plusieurs zones. Les matériaux doivent être appliqués sur des objets quelconques dans Max (limiter le nombre de triangles, donc idéalement un cube ou un simple triangle) afin de pouvoir être exportés par *Babylon.js Exporter*. Les matériaux garderont leur nom, c'est celui-ci qu'il faudra indiquer dans les propriétés des objets sur lesquels les appliquer : `{"material":"nom du matériau"}`.
