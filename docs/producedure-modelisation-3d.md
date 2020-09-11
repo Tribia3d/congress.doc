@@ -4,11 +4,11 @@
 Tout d'abord il y a les **fichiers bibliothèques**, pour les objets et les matériaux se répétant sur l'ensemble du salon. Ensuite il y a un **fichier par zone**, qui contiendra les modèles spécifiques à chaque zone (sol, structures, etc.), ainsi que les modèles spécifiques aux stands présents dans cette zone (sols, cloisons, kakemonos, etc.). On a donc :
 - materialLibrary.glb
 - objectLibrary.glb
-- zone_a.glb
-- zone_b.glb
+- zone_uuid.glb
+- zone_uuid.glb
 - ...
 
-Les zones seront nommées par leur UUID. Pour la première zone (zone région) le fichier se nommera `6795ec46-b54b-46fb-9059-003a5cadca5b.glb`.
+Les zones seront nommées selon leur UUID. Par exemple, pour la première zone (zone région) le fichier se nommera `6795ec46-b54b-46fb-9059-003a5cadca5b.glb`.
 
 ## Recommandations pour la modélisation
 ### Général
