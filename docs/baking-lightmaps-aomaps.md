@@ -51,11 +51,11 @@ On va utiliser les passes suivantes :
 - `Corona_Beauty` : la lightmap
 - `Corona_AO` : passe d'AO, régler `Background` en blanc et laisser la distance à 50
 
-Pour chacune d'elles, cocher si possible `Apply denoising also to this render element`. *Il y a un bug d'interface qui fait qu'il peut-être masqué, passer la souris par dessus pour le faire apparaître.*
+~~Pour chacune d'elles, cocher si possible `Apply denoising also to this render element`. *Il y a un bug d'interface qui fait qu'il peut-être masqué, passer la souris par dessus pour le faire apparaître.*~~ Pour l'instant ne pas appliquer de denoising, ça ajoute des artefacts, et le viewer gère tout seul pour diminuer le bruit des maps.
 
 Les noms de fichiers indiqués sont affichés sans le nom du groupe réglé dans `Unwrap Group Name`, mais il sera bien ajouté au moment de l'enregistrement, pas besoin de toucher aux noms normalement. Par exemple si dans la colonne `File Name` il est indiqué `Corona_AO.png`, le fichier enregistré aura bien le nom `booth_a_Corona_AO.png`.
 
-C'est ici également qu'on va régler la **résolution des maps**. Pour limiter le bruit, soit on peut augmenter le nombre de passes de rendu, soit augmenter le denoising (mais ça va faire apparaître des artefacts).
+C'est ici également qu'on va régler la **résolution des maps**.
 
 ![flatiron-bake-elements](images/flatiron-bake-elements.png)
 
