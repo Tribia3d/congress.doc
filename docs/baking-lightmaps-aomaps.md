@@ -50,15 +50,28 @@ Choix du chemin d'enregistrement des passes
 On va utiliser les passes suivantes :
 - `Corona_Beauty` : la lightmap
 - `Corona_AO` : passe d'AO, régler `Background` en blanc
-- `Corona_Light` : objets auto-illum
 
 Pour chacune d'elles, cocher si possible `Apply denoising also to this render element`. *Il y a un bug d'interface qui fait qu'il peut-être masqué, passer la souris par dessus pour le faire apparaître.*
 
 Les noms de fichiers indiqués sont affichés sans le nom du groupe réglé dans `Unwrap Group Name`, mais il sera bien ajouté au moment de l'enregistrement, pas besoin de toucher aux noms normalement. Par exemple si dans la colonne `File Name` il est indiqué `Corona_AO.png`, le fichier enregistré aura bien le nom `booth_a_Corona_AO.png`.
 
-C'est ici également qu'on va régler la **résolution des maps**.
+C'est ici également qu'on va régler la **résolution des maps**. Pour limiter le bruit, soit on peut augmenter le nombre de passes de rendu, soit augmenter le denoising (mais ça va faire apparaître des artefacts).
 
 ![flatiron-bake-elements](images/flatiron-bake-elements.png)
 
 ### Baking
+Si il y a plusieurs groupes d'objets qui ont été dépliés, il faudra choisir lequel on veut baker avec le dropdown `Choose Unwrap Group`.
 
+Une fois les réglages effectués il n'y a plus qu'a cliquer sur `Bake Group`.
+
+**Attention, si les fichiers existent déjà, ils seront écrasés (à la fin du rendu) sans avertissement !** Il est possible d'annuler le rendu sans enregistrer (avant la fin bien sûr) en cliquant sur `Cancel` (et pas `Stop`) dans la fenêtre de rendu.
+
+## Retouche
+Il va falloir retoucher un peu les lightmaps et aomaps avant de pouvoir les utiliser. En effet l'aomap ne prend pas en compte l'éclairage ni la transparence, donc des zones éclairées seront quand même affectées par l'AO. Il faut "peindre" les zones sensées être éclairées pour supprimer l'effet de l'AO...
+
+Pour booster un peu la lightmap, on peut régler les niveau pour augmenter le contraste et faire plus ressortir les zones claires et sombres. Attention aux artefacts invisibles avec un faible contraste, qui vont ressortir beaucoup plus.
+
+Les fichiers `png` sont généralement enregistrés en 16 bits avec alpha, leur poids est donc conséquent. Pour le réduire, il faut dans Photoshop les convertir en 8 bits (de ~4 Mo on passe à ~1 Mo). On peut aussi les convertir en `jpeg` (de préférence en qualité max pour limiter les artefacts) pour réduire encore un peu plus le poids.
+
+## Utilisation au sein du projet
+Se reporter ici : [Préparation Zone / Lightmaps & Envmaps](preparation-zone.md#lightmaps--envmaps)
