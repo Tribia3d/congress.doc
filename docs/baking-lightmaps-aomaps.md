@@ -49,7 +49,7 @@ Choix du chemin d'enregistrement des passes
 ### Choix des passes
 On va utiliser les passes suivantes :
 - `Corona_Beauty` : la lightmap
-- `Corona_AO` : passe d'AO, régler `Background` en blanc
+- `Corona_AO` : passe d'AO, régler `Background` en blanc et laisser la distance à 50
 
 Pour chacune d'elles, cocher si possible `Apply denoising also to this render element`. *Il y a un bug d'interface qui fait qu'il peut-être masqué, passer la souris par dessus pour le faire apparaître.*
 
@@ -71,7 +71,7 @@ Il va falloir retoucher un peu les lightmaps et aomaps avant de pouvoir les util
 
 Pour booster un peu la lightmap, on peut régler les niveau pour augmenter le contraste et faire plus ressortir les zones claires et sombres. Attention aux artefacts invisibles avec un faible contraste, qui vont ressortir beaucoup plus.
 
-Les fichiers `png` sont généralement enregistrés en 16 bits avec alpha, leur poids est donc conséquent. Pour le réduire, il faut dans Photoshop les convertir en 8 bits (de ~4 Mo on passe à ~1 Mo). On peut aussi les convertir en `jpeg` (de préférence en qualité max pour limiter les artefacts) pour réduire encore un peu plus le poids.
+Les fichiers `png` sont généralement enregistrés en 16 bits avec alpha (à moins de régler en RGB 24 bits avec alpha décoché), leur poids est donc conséquent. Pour le réduire, il faut dans Photoshop les convertir en 8 bits (de ~4 Mo on passe à ~1 Mo). On peut aussi les convertir en `jpeg` (de préférence en qualité max pour limiter les artefacts) pour réduire encore un peu plus le poids.
 
 ## Utilisation au sein du projet
 Se reporter ici : [Préparation Zone / Lightmaps & Envmaps](preparation-zone.md#lightmaps--envmaps)
