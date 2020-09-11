@@ -118,3 +118,16 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 - La lightmap sera connectée au slot `diffuse` du PhysicalMat appliqué à l'objet
 - Les objets utilisant les lightmaps auront la lightmap par défaut appliquée, s'ils possèdent une propriété `lightmap` indiquant un nom différent, alors la lightmap de ce nom leur sera appliquée. `{"type":"whatever", "useLightmap":"nom-lightmap | lightmap_name"}`
 - Si sur un objet `useLightmap` = `none` alors on n'appliquera pas de lightmap sur cet objet
+
+## Export GLTF
+### Activer la compression Draco
+
+De base, la case `Use Draco compression` est grisée, il est nécessaire d'installer [`Node.js`](https://nodejs.org/en/) et le module [`gltf-pipeline`](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) pour pouvoir la cocher.
+
+L'installeur de `Node.js` se trouve sur leur site. Ensuite pour installer `gltf-pipeline`, il faut ouvrir un terminal (`cmd`, `powershell`, etc.) et exécuter la commande suivante :
+
+```
+npm install -g gltf-pipeline
+```
+
+Une fois installés la case ne sera plus grisée et il sera possible d'exporter des modèles compressés.
