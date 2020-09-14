@@ -65,6 +65,8 @@ Leurs propriétés sont du type :
 ### 4. Tooltips
 Avant de pénétrer sur les stands, on affichera un tooltip avec des informations. L'ouverture se fera lors du clic sur le totem et le logo du Stand. Pour pouvoir les repérer, il faut définir la propriété `booth_tooltip` à `true`. Cela fonctionne de manière récursive donc si un parent possède cette propriété, le clic sur un objet enfant déclenchera aussi l'ouverture du tooltip.
 
+Paramétrer cette propriété à l'aide de l'outil maxscript, en cochant (ou non) la case en bas `booth_tooltip`.
+
 ## Lightmaps & Envmaps
 
 ### 1. Lightmaps
