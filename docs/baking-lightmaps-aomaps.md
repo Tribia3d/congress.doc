@@ -19,7 +19,14 @@ Si il y a des objets **lumineux** ou **transparents**, il faut les **exclure de 
 
 **Régler l'éclairage de la scène** à l'aide du rendu interactif de Corona. S'assurer qu'il n'y a pas d'ombres trop marquées qui dépassent du sol du Stand, autrement ça va faire bizarre puisque ces ombres ne seront pas visibles sur le sol de la Zone qui possèdera une lightmap différente.
 
-Pour les objets `produits`, on ne va pas les inclure du tout dans la lightmap, voir ci-dessous
+Pour les objets `produits`, on ne va pas les inclure du tout dans la lightmap, **voir ci-dessous**.
+
+Par défaut les objets sont dépliés proportionnellement à leur dimensions dans la scène. Il est possible de réduire (ou augmenter) l'échelle d'un objet particulier, afin qu'il occupe plus ou moins d'espace UV. Par exemple, un sol très grand va prendre beaucoup de place et les objets plus petits n'occuperont que quelques pixels. Pour modifier l'échelle prise en compte par Flatiron, il faut rajouter la ligne suivante dans les propriétés de l'objet :
+```
+FlatironScale=0.5
+```
+
+Pour plus d'infos, voir [http://doc.texturebaking.com/Scaling.html](http://doc.texturebaking.com/Scaling.html)
 
 ## Dépliage UV2
 Pour accéder à l'interface de Flatiron, aller dans l'onglet `Utilities`. S'il n'apparaît pas, cliquer sur `More` et le chercher dans la liste.
