@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.3.1"
+		local version = "0.3.2"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -55,7 +55,8 @@
 			edittext 'tbLightmap' "" pos:[120,416] width:168 height:24 toolTip:"Nom de la lightmap que cet objet fourni ('default')" align:#left
 			button 'btDefaultLightmap' "Défaut" pos:[290,416] width:62 height:24 align:#left
 			label 'lbl31' "useLightmap" pos:[24,440] width:80 height:24 align:#left
-			edittext 'tbUseLightmap' "" pos:[120,440] width:232 height:24 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
+-- 			edittext 'tbUseLightmap' "" pos:[120,440] width:232 height:24 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
+			dotNetControl cbUseLightmap "System.Windows.Forms.ComboBox" pos:[120,442] width:232 height:21 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
 			label 'lbl32' "envmap" pos:[24,464] width:80 height:24 align:#left
 			edittext 'tbEnvmap' "" pos:[120,464] width:168 height:24 toolTip:"WIP Nom de l'envMap que cet objet fourni ('default')" align:#left
 			button 'btDefaultEnvmap' "Défaut" pos:[288,464] width:62 height:24 align:#left
@@ -88,6 +89,16 @@
 				return parsedJSON
 			)
 			
+			function fillUseLightmapCombobox = (
+				-- parse tous les objets a la recherche d'un type lightmap
+				for obj in objects do (
+					parsedJSON = getNodeData obj
+					if (parsedJSON != undefined AND parsedJSON["type"] == "lightmap") then (
+						cbUseLightmap.items.add(parsedJSON["lightmap"])
+					)
+				)
+			)
+			
 			function resetRollout = (
 				ddType.selection = 1
 				
@@ -100,7 +111,7 @@
 				ddKey3d.selection = 1
 				
 				tbLightmap.text = ""
-				tbUseLightmap.text = ""
+				cbUseLightmap.text = ""
 				tbEnvmap.text = ""
 				tbUseEnvmap.text = ""
 				
@@ -132,7 +143,7 @@
 				ddKey3d.selection = key3dId
 				
 				tbLightmap.text = valOrEmpty parsedJSON["lightmap"]
-				tbUseLightmap.text = valOrEmpty parsedJSON["useLightmap"]
+				cbUseLightmap.text = valOrEmpty parsedJSON["useLightmap"]
 				tbEnvmap.text = valOrEmpty parsedJSON["envmap"]
 				tbUseEnvmap.text = valOrEmpty parsedJSON["useEnvmap"]
 				
@@ -189,7 +200,7 @@
 				
 				--lightmap & envmap
 				if (tbLightmap.text != "") do append res ("\"lightmap\":\"" + tbLightmap.text + "\"," )
-				if (tbUseLightmap.text != "") do append res ("\"useLightmap\":\"" + tbUseLightmap.text + "\"," )
+				if (cbUseLightmap.text != "") do append res ("\"useLightmap\":\"" + cbUseLightmap.text + "\"," )
 				if (tbEnvmap.text != "") do append res ("\"envmap\":\"" + tbEnvmap.text + "\"," )
 				if (tbUseEnvmap.text != "") do append res ("\"useEnvmap\":\"" + tbUseEnvmap.text + "\"," )
 				
@@ -230,6 +241,18 @@
 				callbacks.removeScripts id:#congressObjectPropertiesRollout
 			)
 			
+			function setupDotnetControls = (
+				mcolor = dotnetclass "System.drawing.color" 
+				maxBackColor = colorMan.getColor #background
+				maxForeColor = colorMan.getColor #text
+				dotnetBackColor = mColor.FromArgb (maxBackColor[1] * 255.0f) (maxBackColor[2] * 255.0f) (maxBackColor[3] * 255.0f)
+				dotnetForeColor = mColor.FromArgb (maxForeColor[1] * 255.0f) (maxForeColor[2] * 255.0f) (maxForeColor[3] * 255.0f)
+				cbUseLightmap.backColor = dotnetBackColor
+				cbUseLightmap.foreColor = dotnetForeColor
+				
+				cbUseLightmap.AutoCompleteMode = (dotNetClass "System.Windows.Forms.AutoCompleteMode").SuggestAppend
+			)
+			
 -- 			on tbMediaType changed value do
 -- 				generateJSON()
 -- 			on tbKey3d changed value do
@@ -239,6 +262,10 @@
 			(
 				unregCallbacks()
 				regCallbacks()
+				
+				setupDotnetControls()
+				fillUseLightmapCombobox()
+				
 				selectionChanged()
 			)
 			on congressObjectPropertiesRollout close do
@@ -265,8 +292,6 @@
 				generateJSON()
 			on btDefaultLightmap pressed do
 				tbLightmap.text = "default"
-			on tbUseLightmap changed value do
-				generateJSON()
 			on tbEnvmap changed value do
 				generateJSON()
 			on btDefaultEnvmap pressed do
@@ -276,6 +301,10 @@
 			on tbMaterial changed value do
 				generateJSON()
 			on chkTooltip changed state do
+				generateJSON()
+			on cbUseLightmap textupdate value do
+				generateJSON()
+			on cbUseLightmap SelectedValueChanged value do
 				generateJSON()
 		)
 		createDialog congressObjectPropertiesRollout
