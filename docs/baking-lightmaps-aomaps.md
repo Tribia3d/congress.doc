@@ -11,27 +11,32 @@ On va utiliser Flatiron pour déplier les UV2 et baker les maps.
 - Utilisation au sein du projet
 
 ## Préparation des objets
+### Matériaux
 Comme Corona ne propose pas de passe lightmap de base, il va falloir tricher un peu. On va appliquer un `Material Override` (`Render Settings (F10) => Scene => Render Overrides`) avec un **matériau mat presque blanc** (220 dans mon cas pour que ça ne crame pas trop).
 
 ![flatiron-mtl-ovr](images/flatiron-mtl-ovr.png)
 
 Si il y a des objets **lumineux** ou **transparents**, il faut les **exclure de l'override** pour garder leur impact sur la lightmap, éclairage si lumineux et ombres atténuées si transparent. Pour ça il faut sélectionner les objets à exclure et cliquer sur le `+` pour les ajouter à la liste.
 
+### Eclairage
 **Régler l'éclairage de la scène** à l'aide du rendu interactif de Corona. S'assurer qu'il n'y a pas d'ombres trop marquées qui dépassent du sol du Stand, autrement ça va faire bizarre puisque ces ombres ne seront pas visibles sur le sol de la Zone qui possèdera une lightmap différente.
 
-Pour les objets `produits`, on ne va pas les inclure du tout dans la lightmap, **voir ci-dessous**.
-
-Par défaut les objets sont dépliés proportionnellement à leur dimensions dans la scène. Il est possible de réduire (ou augmenter) l'échelle d'un objet particulier, afin qu'il occupe plus ou moins d'espace UV. Par exemple, un sol très grand va prendre beaucoup de place et les objets plus petits n'occuperont que quelques pixels. Pour modifier l'échelle prise en compte par Flatiron, il faut rajouter la ligne suivante dans les propriétés de l'objet :
+### Echelle
+Par défaut les objets sont dépliés proportionnellement à leur dimension dans la scène. Il est possible de réduire (ou augmenter) l'échelle d'un objet particulier, afin qu'il occupe plus ou moins d'espace UV. Par exemple, un sol très grand va prendre beaucoup de place et les objets plus petits n'occuperont que quelques pixels. Pour modifier l'échelle prise en compte par Flatiron, il faut rajouter la ligne suivante dans les propriétés de l'objet :
 ```
 FlatironScale=0.5
 ```
 
 Pour plus d'infos, voir [http://doc.texturebaking.com/Scaling.html](http://doc.texturebaking.com/Scaling.html)
 
+### Objets à exclure de la lightmap
+Les objets `produits` et **lumineux**, ne seront pas inclus dans la lightmap, **voir ci-dessous**.
+Les objets **transparents** sont à gérer au cas par cas, selon leur degré de transparence...
+
 ## Dépliage UV2
 Pour accéder à l'interface de Flatiron, aller dans l'onglet `Utilities`. S'il n'apparaît pas, cliquer sur `More` et le chercher dans la liste.
 
-Sélectionner les objets à inclure dans la lightmap (on ne sélectionnera pas les `produits`).
+Sélectionner les objets à inclure dans la lightmap (on ne sélectionnera pas les `produits` ni les objets objets **lumineux**).
 
 Paramètres à utiliser pour le dépliage :
 - Type de dépliage : `hard surface`
