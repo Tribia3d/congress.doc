@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.3.2"
+		local version = "0.3.3"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -70,7 +70,8 @@
 			
 			-- DIVERS
 			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
-			checkbox 'chkTooltip' "booth_tooltip" pos:[24,704] width:135 height:24 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
+			checkbox 'chkTooltip' "booth_tooltip" pos:[24,704] width:100 height:24 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
+			checkbox 'chkTransparent' "transparent" pos:[124,704] width:100 height:24 align:#left toolTip:"Cet objet sera traité comme transparent"
 			
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -121,6 +122,7 @@
 				tbMaterial.text = ""
 				
 				chkTooltip.checked = false
+				chkTransparent.checked = false
 			)
 			
 			function initRollout parsedJSON = (
@@ -153,6 +155,7 @@
 				tbMaterial.text = valOrEmpty parsedJSON["material"]
 				
 				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
+				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
 			)
 			
 			function selectionChanged = (
@@ -213,6 +216,7 @@
 				
 				-- divers
 				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
+				if (chkTransparent.checked) do append res ("\"transparent\":true,")
 				
 				append res "}"
 				
@@ -250,7 +254,7 @@
 				cbUseLightmap.backColor = dotnetBackColor
 				cbUseLightmap.foreColor = dotnetForeColor
 				
-				cbUseLightmap.AutoCompleteMode = (dotNetClass "System.Windows.Forms.AutoCompleteMode").SuggestAppend
+				--cbUseLightmap.AutoCompleteMode = (dotNetClass "System.Windows.Forms.AutoCompleteMode").SuggestAppend -- doesn't work
 			)
 			
 -- 			on tbMediaType changed value do
@@ -301,6 +305,8 @@
 			on tbMaterial changed value do
 				generateJSON()
 			on chkTooltip changed state do
+				generateJSON()
+			on chkTransparent changed state do
 				generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()
