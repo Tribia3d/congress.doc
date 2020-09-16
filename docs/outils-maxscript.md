@@ -3,7 +3,7 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
 
 ## Propriétés des objets
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms)
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.3.3 le 16/06/2020)
 
 ![maxscript-description](images/maxscript-description.png)
 
