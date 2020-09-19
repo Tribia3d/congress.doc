@@ -1,3 +1,91 @@
+// LATO => Rubik
+
+.btn {
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+input[type=color],
+input[type=date],
+input[type=datetime-local],
+input[type=datetime],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week] {
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+textarea {
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif
+}
+
 body {
-    color: blue;
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+.rst-versions {
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+}
+
+// ROBOTO => Rubik
+
+.rst-content .toctree-wrapper>p.caption,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+legend {
+    font-family: Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif
+}
+
+.rst-content .sidebar .sidebar-title {
+    font-family: Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif;
+}
+
+// LIENS
+
+@font-face {
+    font-family : 'Rubik';
+    font-style  : normal;
+    font-weight : 300;
+    font-display: swap;
+    src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Rubik';
+    font-style  : italic;
+    font-weight : 300;
+    font-display: swap;
+    src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWEBXyIfDnIV7nEnX661A.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Rubik';
+    font-style  : normal;
+    font-weight : 700;
+    font-display: swap;
+    src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Rubik';
+    font-style  : italic;
+    font-weight : 700;
+    font-display: swap;
+    src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWEBXyIfDnIV7nEnX661A.woff2) format('woff2');
 }
