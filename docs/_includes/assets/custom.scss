@@ -2,7 +2,6 @@
 
 .btn {
     font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
-    // font-weight: 300; // 400
 }
 
 input[type=button],
@@ -34,7 +33,6 @@ textarea {
 
 body {
     font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
-    // font-weight: 300; // 400
 }
 
 .rst-versions {
@@ -52,12 +50,10 @@ h5,
 h6,
 legend {
     font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif;
-    // font-weight: 600; // 700
 }
 
 .rst-content .sidebar .sidebar-title {
     font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif;
-    // font-weight: 600; // 700
 }
 
 // LIENS
@@ -65,7 +61,7 @@ legend {
 @font-face {
     font-family : 'Rubik';
     font-style  : normal;
-    font-weight : 300;
+    font-weight : 400;
     font-display: swap;
     src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWKBXyIfDnIV7nBrXw.woff2) format('woff2');
 }
@@ -73,7 +69,7 @@ legend {
 @font-face {
     font-family : 'Rubik';
     font-style  : italic;
-    font-weight : 300;
+    font-weight : 400;
     font-display: swap;
     src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWEBXyIfDnIV7nEnX661A.woff2) format('woff2');
 }
