@@ -1,2 +1,5 @@
 #theme: jekyll-theme-cayman
 remote_theme: rundocs/jekyll-rtd-theme
+
+scss: |
+  body {color:red};
