@@ -4,15 +4,15 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.3.3"
+		local version = "0.4.0"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
 
 			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "envmap", "goto_zone", "ground", "lightmap", "product")
-			local mediaTypeList = #("", "texture", "video", "pdf") -- TODO
-			local key3dList = #("","poster","logo","video","pdf") -- TODO
+			local mediaTypeList = #("", "image","logo", "video", "pdf") -- TODO
+			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3") -- TODO
 			
 			-- GENERAL
 			label 'lbSelectedObject' "Objet sélectionné : " pos:[8,8] width:360 height:24 align:#left
@@ -36,11 +36,9 @@
 			-- PRODUCT
 			GroupBox 'grp17' "product" pos:[16,304] width:344 height:80 align:#left
 			label 'lbl26' "media_type" pos:[24,328] width:80 height:24 align:#left
--- 			edittext 'tbMediaType' "" pos:[120,328] width:232 height:24 toolTip:"Type de la donnée du produit (texture, video)" align:#left
-			dropdownList 'ddMediaType' "" pos:[120,328] width:232 height:21 items:mediaTypeList toolTip:"Type de la donnée du produit (texture, video)" align:#left
+			dotNetControl cbMediaType "System.Windows.Forms.ComboBox" pos:[120,328] width:232 height:21 toolTip:"Type de la donnée du produit (texture, video)" align:#left
 			label 'lbl27' "key_3d" pos:[24,352] width:80 height:24 align:#left
--- 			edittext 'tbKey3d' "" pos:[120,352] width:232 height:24 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
-			dropdownList 'ddKey3d' "" pos:[120,352] width:232 height:21 items:key3dList toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
+			dotNetControl cbKey3d "System.Windows.Forms.ComboBox" pos:[120,352] width:232 height:21 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
 			
 			-- INSTANCES
 			GroupBox 'grp19' "instances" pos:[16,528] width:344 height:80 align:#left
@@ -55,7 +53,6 @@
 			edittext 'tbLightmap' "" pos:[120,416] width:168 height:24 toolTip:"Nom de la lightmap que cet objet fourni ('default')" align:#left
 			button 'btDefaultLightmap' "Défaut" pos:[290,416] width:62 height:24 align:#left
 			label 'lbl31' "useLightmap" pos:[24,440] width:80 height:24 align:#left
--- 			edittext 'tbUseLightmap' "" pos:[120,440] width:232 height:24 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
 			dotNetControl cbUseLightmap "System.Windows.Forms.ComboBox" pos:[120,442] width:232 height:21 toolTip:"Nom de la lightmap à appliquer à cet objet" align:#left
 			label 'lbl32' "envmap" pos:[24,464] width:80 height:24 align:#left
 			edittext 'tbEnvmap' "" pos:[120,464] width:168 height:24 toolTip:"WIP Nom de l'envMap que cet objet fourni ('default')" align:#left
@@ -90,7 +87,14 @@
 				return parsedJSON
 			)
 			
-			function fillUseLightmapCombobox = (
+			function fillComboboxes = (
+				-- MEDIATYPE
+				for item in mediaTypeList do cbMediaType.items.add(item)
+				
+				-- KEY3D
+				for item in key3dList do cbKey3d.items.add(item)
+				
+				-- LIGHTMAP
 				-- parse tous les objets a la recherche d'un type lightmap
 				for obj in objects do (
 					parsedJSON = getNodeData obj
@@ -106,10 +110,8 @@
 				tbId.text = ""
 				tbBoothModel.text = ""
 				
-				--tbMediaType.text = ""
-				ddMediaType.selection = 1
-				--tbKey3d.text = ""
-				ddKey3d.selection = 1
+				cbMediaType.text = ""
+				cbKey3d.text = ""
 				
 				tbLightmap.text = ""
 				cbUseLightmap.text = ""
@@ -135,14 +137,8 @@
 				tbId.text = valOrEmpty parsedJSON["id"]
 				tbBoothModel.text = valOrEmpty parsedJSON["boothModel"]
 				
-				--tbMediaType.text = valOrEmpty parsedJSON["media_type"]
-				mediaType = parsedJSON["media_type"]
-				mediaTypeId = findItem ddMediaType.items mediaType
-				ddMediaType.selection = mediaTypeId
-				--tbKey3d.text = valOrEmpty parsedJSON["key_3d"]
-				key3d = parsedJSON["key_3d"]
-				key3dId = findItem ddKey3d.items key3d
-				ddKey3d.selection = key3dId
+				cbMediaType.text = valOrEmpty parsedJSON["media_type"]
+				cbKey3d.text = valOrEmpty parsedJSON["key_3d"]
 				
 				tbLightmap.text = valOrEmpty parsedJSON["lightmap"]
 				cbUseLightmap.text = valOrEmpty parsedJSON["useLightmap"]
@@ -192,14 +188,8 @@
 				if (tbBoothModel.text != "") do append res ("\"boothModel\":\"" + tbBoothModel.text + "\"," )
 				
 				-- product
-				--if (tbMediaType.text != "") do append res ("\"media_type\":\"" + tbMediaType.text + "\"," )
-				if (ddMediaType.selection > 1) do (
-					append res ("\"media_type\":\"" + ddMediaType.items[ddMediaType.selection] + "\"," )
-				)
-				--if (tbKey3d.text != "") do append res ("\"key_3d\":\"" + tbKey3d.text + "\"," )
-				if (ddKey3d.selection > 1) do (
-					append res ("\"key_3d\":\"" + ddKey3d.items[ddKey3d.selection] + "\"," )
-				)
+				if (cbMediaType.text != "") do append res ("\"media_type\":\"" + cbMediaType.text + "\"," )
+				if (cbKey3d.text != "") do append res ("\"key_3d\":\"" + cbKey3d.text + "\"," )
 				
 				--lightmap & envmap
 				if (tbLightmap.text != "") do append res ("\"lightmap\":\"" + tbLightmap.text + "\"," )
@@ -251,16 +241,17 @@
 				maxForeColor = colorMan.getColor #text
 				dotnetBackColor = mColor.FromArgb (maxBackColor[1] * 255.0f) (maxBackColor[2] * 255.0f) (maxBackColor[3] * 255.0f)
 				dotnetForeColor = mColor.FromArgb (maxForeColor[1] * 255.0f) (maxForeColor[2] * 255.0f) (maxForeColor[3] * 255.0f)
+				
+				cbMediaType.backColor = dotnetBackColor
+				cbMediaType.foreColor = dotnetForeColor
+				cbKey3d.backColor = dotnetBackColor
+				cbKey3d.foreColor = dotnetForeColor
 				cbUseLightmap.backColor = dotnetBackColor
 				cbUseLightmap.foreColor = dotnetForeColor
 				
 				--cbUseLightmap.AutoCompleteMode = (dotNetClass "System.Windows.Forms.AutoCompleteMode").SuggestAppend -- doesn't work
 			)
-			
--- 			on tbMediaType changed value do
--- 				generateJSON()
--- 			on tbKey3d changed value do
--- 				generateJSON()
+
 
 			on congressObjectPropertiesRollout open do
 			(
@@ -268,7 +259,7 @@
 				regCallbacks()
 				
 				setupDotnetControls()
-				fillUseLightmapCombobox()
+				fillComboboxes()
 				
 				selectionChanged()
 			)
@@ -284,9 +275,13 @@
 				generateJSON()
 			on tbBoothModel changed value do
 				generateJSON()
-			on ddMediaType selected selId do
+			on cbMediaType textupdate value do
 				generateJSON()
-			on ddKey3d selected selId do
+			on cbMediaType SelectedValueChanged value do
+				generateJSON()
+			on cbKey3d textupdate value do
+				generateJSON()
+			on cbKey3d SelectedValueChanged value do
 				generateJSON()
 			on tbInstanceSource changed value do
 				generateJSON()
