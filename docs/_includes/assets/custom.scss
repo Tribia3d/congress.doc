@@ -39,6 +39,16 @@ legend {
     font-family: Asap, "Roboto-Slab", sans-serif !important;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700 !important;
+    font-style : italic !important;
+}
+
 // LIENS
 
 @font-face {
@@ -90,11 +100,11 @@ legend {
 // }
 
 @font-face {
-    font-family  : 'Asap';
-    font-style   : normal;
-    font-weight  : 400;
-    font-display : swap;
-    src          : local('Asap Regular'), local('Asap-Regular'), url(https://fonts.gstatic.com/s/asap/v12/KFOoCniXp96ayzse4A.woff2) format('woff2');
+    font-family : 'Asap';
+    font-style  : normal;
+    font-weight : 400;
+    font-display: swap;
+    src         : local('Asap Regular'), local('Asap-Regular'), url(https://fonts.gstatic.com/s/asap/v12/KFOoCniXp96ayzse4A.woff2) format('woff2');
 }
 
 @font-face {
