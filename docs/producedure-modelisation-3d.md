@@ -133,7 +133,11 @@ De base, la case `Use Draco compression` est grisée, il est nécessaire d'insta
 
 L'installeur de `Node.js` se trouve sur leur site. Ensuite pour installer `gltf-pipeline`, il faut ouvrir un terminal (`cmd`, `powershell`, etc.) et exécuter la commande suivante :
 
+```console
+npm install -g gltf-pipeline
 ```
+
+```shell
 npm install -g gltf-pipeline
 ```
 
