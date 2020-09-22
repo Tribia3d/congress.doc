@@ -45,9 +45,9 @@ Pour que les matériaux apparaissent bien dans le viewer, il est nécessaire que
 
 ## Récupération UUIDs depuis fichier max (v0.1)
 
-![maxscript-get-uuids](images/maxscript-get-uuids.png)
-
 Permet de récupérer les UUIDs déjà spécifiés pour les stands d'une zone. Le script va sortir toute la liste des UUIDs présents dans les propriétés de tous les objets de la scène max.
+
+![maxscript-get-uuids](images/maxscript-get-uuids.png)
 
 ```warning
 Comme le champ `uuid` est également utilisé pour indiquer l'id de la zone vers laquelle se diriger dans le cas d'un objet `type=goto_zone`. Penser à vérifier la validité des uuids (les stands ne possèdent pas de tiret `-`)
