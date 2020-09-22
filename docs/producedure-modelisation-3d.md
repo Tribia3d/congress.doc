@@ -57,13 +57,15 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
 ### Type
 - **booth** : `{"type":"booth", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`
     - **id** : requis, permet de déterminer de quel stand il s'agit
+    - **boothModel** : facultatif, si cet objet est un dummy sur lequel on va instancier un modèle de stand, indiquer le nom du modèle
+- **booth_model** : indique que cet objet est un modèle de stand, il faudra indiquer également
+    - **boothModel** : nom du modèle de stand (à indiquer pour la source, et les cibles)
 - ~~**conference** : `{"type":"~conference", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`~~
     - ~~**id** : requis, permet de déterminer de quel stand il s'agit~~
     - <span style="color:orange;">Pas encore implémenté</span>
 - **product** : `{"type":"product", "media_type": "texture", "key_3d":"poster N"}`
-    - **media_type** : requis, type d'objet, `texture`, `video`, `pdf` (possible `image`au lieu de `texture` à vérifier)
-    - **key_3d** : requis, identifiant permettant de placer les ressources chargées depuis la bdd
-    - <span style="color:orange;">Ces propriétés vont changer suites aux modifications faites par Kinoba...</span>
+    - **media_type** : ~~requis~~, type d'objet, `image`, `logo`, `video`, `pdf` => **PAS utilisé pour l'instant**
+    - **key_3d** : requis, permet de placer les produits issus de la bdd, `company_logo`, `company_totem`, `company_video_X`, `company_pdf_X`, `innovation_1`, `innovation_2`, `innovation_3`...
 - **boothCamera** : `{"type":"boothCamera", "limits":"TODO..."}` Position, rotation, fov Caméra quand on entre dans un stand
     - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:orange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
