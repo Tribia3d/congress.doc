@@ -122,6 +122,7 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 - Si sur un objet `useLightmap` = `none` alors on n'appliquera pas de lightmap sur cet objet
 
 ## Export GLTF
+
 ```warning
 **La compression draco peut poser des problèmes de précision, particulièrement lorsque l'objet est loin du centre.** Les nombre à virgule flotante (float) possèdent un  nombre limité de chiffres significatifs. Pour les petits nombre pas de problème, la majorité se trouve après la virgule, on a donc une grande précision (par ex. 1.234567e1 = 12.34567 soit 5 chiffres après la virgule). Par contre dès qu'on s'éloigne du 0, alors les problèmes de précision appraissent (ex. 1.234567e5 = 123456.7 soit 1 chiffre après la virgule). Si l'unité de mesure est le mètre, alors lorsqu'on a un seul chiffre après la virgule, on aura une précision de 10 cm...
 ```
