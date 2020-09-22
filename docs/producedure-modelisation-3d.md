@@ -62,12 +62,12 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
     - **boothModel** : nom du modèle de stand (à indiquer pour la source, et les cibles)
 - ~~**conference** : `{"type":"~conference", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`~~
     - ~~**id** : requis, permet de déterminer de quel stand il s'agit~~
-    - <span style="color:orange;">Pas encore implémenté</span>
+    - <span style="color:darkorange;">Pas encore implémenté</span>
 - **product** : `{"type":"product", "media_type": "texture", "key_3d":"poster N"}`
     - **media_type** : ~~requis~~, type d'objet, `image`, `logo`, `video`, `pdf` => **PAS utilisé pour l'instant**
     - **key_3d** : requis, permet de placer les produits issus de la bdd, `company_logo`, `company_totem`, `company_video_X`, `company_pdf_X`, `innovation_1`, `innovation_2`, `innovation_3`...
 - **boothCamera** : `{"type":"boothCamera", "limits":"TODO..."}` Position, rotation, fov Caméra quand on entre dans un stand
-    - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:orange;">Pas encore implémenté</span>
+    - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:darkorange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
 - **camera** : `{"type":"camera"}` Caméra de la zone (PhysicalCam)
 - **goto_zone** : `{"type":"goto_zone", "id":"865324a2-34cf-4274-833f-2657ede13fa5"}` A mettre sur les objets permettant d'accéder à d'autres zones
@@ -123,19 +123,15 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 
 ## Export GLTF
 
-```warning
-**La compression draco peut poser des problèmes de précision, particulièrement lorsque l'objet est loin du centre.** Les nombre à virgule flotante (float) possèdent un  nombre limité de chiffres significatifs. Pour les petits nombre pas de problème, la majorité se trouve après la virgule, on a donc une grande précision (par ex. 1.234567e1 = 12.34567 soit 5 chiffres après la virgule). Par contre dès qu'on s'éloigne du 0, alors les problèmes de précision appraissent (ex. 1.234567e5 = 123456.7 soit 1 chiffre après la virgule). Si l'unité de mesure est le mètre, alors lorsqu'on a un seul chiffre après la virgule, on aura une précision de 10 cm...
-```
+### Avertissement
+
+<span style="color:darkorange;">**La compression draco peut poser des problèmes de précision, particulièrement lorsque l'objet est loin du centre.** Les nombre à virgule flotante (float) possèdent un  nombre limité de chiffres significatifs. Pour les petits nombre pas de problème, la majorité se trouve après la virgule, on a donc une grande précision (par ex. 1.234567e1 = 12.34567 soit 5 chiffres après la virgule). Par contre dès qu'on s'éloigne du 0, alors les problèmes de précision appraissent (ex. 1.234567e5 = 123456.7 soit 1 chiffre après la virgule). Si l'unité de mesure est le mètre, alors lorsqu'on a un seul chiffre après la virgule, on aura une précision de 10 cm...</span>
 
 ### Activer la compression Draco
 
 De base, la case `Use Draco compression` est grisée, il est nécessaire d'installer [`Node.js`](https://nodejs.org/en/) et le module [`gltf-pipeline`](https://github.com/AnalyticalGraphicsInc/gltf-pipeline) pour pouvoir la cocher.
 
 L'installeur de `Node.js` se trouve sur leur site. Ensuite pour installer `gltf-pipeline`, il faut ouvrir un terminal (`cmd`, `powershell`, etc.) et exécuter la commande suivante :
-
-```console
-npm install -g gltf-pipeline
-```
 
 ```shell
 npm install -g gltf-pipeline
