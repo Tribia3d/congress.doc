@@ -3,13 +3,13 @@
 // LATO => Rubik
 
 .btn {
-    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 input[type=button],
 input[type=reset],
 input[type=submit] {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 input[type=color],
@@ -26,20 +26,19 @@ input[type=text],
 input[type=time],
 input[type=url],
 input[type=week] {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 textarea {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 body {
-    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
-    color: red !important;
+    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 .rst-versions {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif;
+    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
 }
 
 // ROBOTO => Rubik
@@ -52,11 +51,11 @@ h4,
 h5,
 h6,
 legend {
-    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif;
+    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
 }
 
 .rst-content .sidebar .sidebar-title {
-    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif;
+    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
 }
 
 // LIENS
