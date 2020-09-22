@@ -1,7 +1,7 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets
+## Propriétés des objets (v0.4.0)
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.4.0 le 21/09/2020)
 
@@ -42,3 +42,15 @@ Pour que les matériaux apparaissent bien dans le viewer, il est nécessaire que
 **Ca ne fonctionne pas sur les objets autres que `Edit Poly` et `Edit Mesh`, il faudra convertir les objets `Box`, `Plane`, etc. (en poly de préférence).
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_SetVertexColorsToWhite.ms)
+
+## Récupération UUIDs depuis fichier max (v0.1)
+
+![maxscript-get-uuids](images/maxscript-get-uuids.png)
+
+Permet de récupérer les UUIDs déjà spécifiés pour les stands d'une zone. Le script va sortir toute la liste des UUIDs présents dans les propriétés de tous les objets de la scène max.
+
+```warning
+Comme le champ `uuid` est également utilisé pour indiquer l'id de la zone vers laquelle se diriger dans le cas d'un objet `type=goto_zone`. Penser à vérifier la validité des uuids (les stands ne possèdent pas de tiret `-`)
+```
+
+[Outil téléchargeable ICI](maxscripts/TRIBIA_GetBoothUUIDs.ms)
