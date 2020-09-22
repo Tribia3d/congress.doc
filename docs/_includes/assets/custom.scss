@@ -2,16 +2,9 @@
 // titres : https://fonts.google.com/specimen/Asap
 // LATO => Rubik
 
-.btn {
-    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
 input[type=button],
 input[type=reset],
-input[type=submit] {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
+input[type=submit],
 input[type=color],
 input[type=date],
 input[type=datetime-local],
@@ -25,37 +18,25 @@ input[type=tel],
 input[type=text],
 input[type=time],
 input[type=url],
-input[type=week] {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
-textarea {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
-body {
-    font-family   : Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
-.rst-versions {
-    font-family: Rubik, Lato, proxima-nova, Helvetica Neue, Arial, sans-serif !important;
-}
-
-// ROBOTO => Rubik
-
+input[type=week],
+textarea,
+body,
+.btn,
+.markdown-body,
+.rst-versions,
 .rst-content .toctree-wrapper>p.caption,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+.rst-content .sidebar .sidebar-title,
 legend {
-    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+    font-family: Rubik, Lato, sans-serif !important;
 }
 
-.rst-content .sidebar .sidebar-title {
-    font-family   : Rubik, Roboto Slab, ff-tisa-web-pro, Georgia, Arial, sans-serif !important;
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    font-family: Asap, "Roboto-Slab", sans-serif !important;
 }
 
 // LIENS
@@ -107,3 +88,51 @@ legend {
 //     font-display: swap;
 //     src         : url(https://fonts.gstatic.com/s/rubik/v10/iJWEBXyIfDnIV7nEnX661A.woff2) format('woff2');
 // }
+
+@font-face {
+    font-family  : 'Asap';
+    font-style   : normal;
+    font-weight  : 400;
+    font-display : swap;
+    src          : local('Asap Regular'), local('Asap-Regular'), url(https://fonts.gstatic.com/s/asap/v12/KFOoCniXp96ayzse4A.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Asap';
+    font-style  : normal;
+    font-weight : 600;
+    font-display: swap;
+    src         : local('Asap SemiBold'), local('Asap-SemiBold'), url(https://fonts.gstatic.com/s/asap/v12/KFOnCniXp96aw-Q69UtvBg.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Asap';
+    font-style  : normal;
+    font-weight : 700;
+    font-display: swap;
+    src         : local('Asap Bold'), local('Asap-Bold'), url(https://fonts.gstatic.com/s/asap/v12/KFOnCniXp96aw4A79UtvBg.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Asap';
+    font-style  : italic;
+    font-weight : 400;
+    font-display: swap;
+    src         : local('Asap Italic'), local('Asap-Italic'), url(https://fonts.gstatic.com/s/asap/v12/KFOmCniXp96ayz4u4mxK.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Asap';
+    font-style  : italic;
+    font-weight : 600;
+    font-display: swap;
+    src         : local('Asap SemiBold Italic'), local('Asap-SemiBoldItalic'), url(https://fonts.gstatic.com/s/asap/v12/KFOlCniXp96ayz4mPUhfBBc4.woff2) format('woff2');
+}
+
+@font-face {
+    font-family : 'Asap';
+    font-style  : italic;
+    font-weight : 700;
+    font-display: swap;
+    src         : local('Asap Bold Italic'), local('Asap-BoldItalic'), url(https://fonts.gstatic.com/s/asap/v12/KFOlCniXp96ayz4mWUlfBBc4.woff2) format('woff2');
+}
