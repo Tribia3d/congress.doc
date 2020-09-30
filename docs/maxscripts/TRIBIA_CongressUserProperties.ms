@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.2"
+		local version = "0.4.3"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -67,10 +67,11 @@
 			
 			-- DIVERS
 			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
-			checkbox 'chkTooltip' "booth_tooltip" pos:[24,704] width:100 height:24 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
-			checkbox 'chkTransparent' "transparent" pos:[124,704] width:100 height:24 align:#left toolTip:"Cet objet sera traité comme transparent"
-            checkbox 'chkDoNotScale' "do_not_scale" pos:[224,704] width:100 height:24 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
-			
+			checkbox 'chkTooltip' "booth_tooltip" pos:[24,693] width:80 height:18 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
+			checkbox 'chkTransparent' "transparent" pos:[104,693] width:74 height:18 align:#left toolTip:"Cet objet sera traité comme transparent"
+            checkbox 'chkDoNotScale' "do_not_scale" pos:[178,693] width:80 height:18 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
+			checkbox 'chkContact' "booth_contact" pos:[24,711] width:80 height:18 align:#left toolTip:"Affichera le layer de contact au clic sur cet objet et ses enfants"
+            
 			local pyJSON = python.import #json
 			local selectedNode = undefined
 			
@@ -127,6 +128,7 @@
 				chkTooltip.checked = false
 				chkTransparent.checked = false
                 chkDoNotScale.checked = false
+                chkContact.checked = false
 			)
             
 			function generateJSON = (
@@ -163,6 +165,7 @@
 				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
 				if (chkTransparent.checked) do append res ("\"transparent\":true,")
                 if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
+                if (chkContact.checked) do append res ("\"booth_contact\":true,")
 				
 				append res "}"
 				
@@ -204,6 +207,7 @@
 				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
 				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
                 try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
+                try ( chkContact.checked = parsedJSON["booth_contact"] ) catch ( chkContact.checked = false )
                 
                 generateJSON()
 			)
@@ -257,8 +261,7 @@
 				
 				--cbUseLightmap.AutoCompleteMode = (dotNetClass "System.Windows.Forms.AutoCompleteMode").SuggestAppend -- doesn't work
 			)
-
-
+            
 			on congressObjectPropertiesRollout open do
 			(
 				unregCallbacks()
@@ -310,6 +313,8 @@
 			on chkTransparent changed state do
 				generateJSON()
             on chkDoNotScale changed state do
+                generateJSON()
+            on chkContact changed state do
                 generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()
