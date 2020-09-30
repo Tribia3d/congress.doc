@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.0"
+		local version = "0.4.1"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -69,6 +69,7 @@
 			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
 			checkbox 'chkTooltip' "booth_tooltip" pos:[24,704] width:100 height:24 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
 			checkbox 'chkTransparent' "transparent" pos:[124,704] width:100 height:24 align:#left toolTip:"Cet objet sera traité comme transparent"
+            checkbox 'chkDoNotScale' "do_not_scale" pos:[224,704] width:100 height:24 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
 			
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -125,6 +126,7 @@
 				
 				chkTooltip.checked = false
 				chkTransparent.checked = false
+                chkDoNotScale.checked = false
 			)
 			
 			function initRollout parsedJSON = (
@@ -152,6 +154,7 @@
 				
 				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
 				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
+                try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
 			)
 			
 			function selectionChanged = (
@@ -207,6 +210,7 @@
 				-- divers
 				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
 				if (chkTransparent.checked) do append res ("\"transparent\":true,")
+                if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
 				
 				append res "}"
 				
@@ -303,6 +307,8 @@
 				generateJSON()
 			on chkTransparent changed state do
 				generateJSON()
+            on chkDoNotScale changed state do
+                generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()
 			on cbUseLightmap SelectedValueChanged value do
