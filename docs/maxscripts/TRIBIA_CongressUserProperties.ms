@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.1"
+		local version = "0.4.2"
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -128,55 +128,7 @@
 				chkTransparent.checked = false
                 chkDoNotScale.checked = false
 			)
-			
-			function initRollout parsedJSON = (
-				if (parsedJSON == undefined) then return undefined
-
-				type = parsedJSON["type"]
-				typeId = findItem ddType.items type
-				ddType.selection = typeId
-				
-				tbId.text = valOrEmpty parsedJSON["id"]
-				tbBoothModel.text = valOrEmpty parsedJSON["boothModel"]
-				
-				cbMediaType.text = valOrEmpty parsedJSON["media_type"]
-				cbKey3d.text = valOrEmpty parsedJSON["key_3d"]
-				
-				tbLightmap.text = valOrEmpty parsedJSON["lightmap"]
-				cbUseLightmap.text = valOrEmpty parsedJSON["useLightmap"]
-				tbEnvmap.text = valOrEmpty parsedJSON["envmap"]
-				tbUseEnvmap.text = valOrEmpty parsedJSON["useEnvmap"]
-				
-				tbInstanceSource.text = valOrEmpty parsedJSON["instanceSource"]
-				tbReplaceBy.text = valOrEmpty parsedJSON["replaceBy"]
-				
-				tbMaterial.text = valOrEmpty parsedJSON["material"]
-				
-				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
-				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
-                try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
-			)
-			
-			function selectionChanged = (
-				selectedNode = selection[1]
-				
-				if selectedNode == undefined then (
-					lbSelectedObject.caption = "Objet sélectionné : Aucun"
-					return undefined
-				)
-					
-				lbSelectedObject.caption = "Object sélectionné : " + selectedNode.name
-				parsedJSON = getNodeData selectedNode
-				
-				if (parsedJSON != undefined) then (
-					
-					initRollout parsedJSON
-					
-				) else (
-					resetRollout()
-				)
-			)
-			
+            
 			function generateJSON = (
 				res = stringStream ""
 				append res "{"
@@ -224,6 +176,56 @@
 				if res != "{}" then tbData.text = res --json.dumps(dict)
 				else tbData.text = ""
 				
+			)
+			
+			function initRollout parsedJSON = (
+				if (parsedJSON == undefined) then return undefined
+
+				type = parsedJSON["type"]
+				typeId = findItem ddType.items type
+				ddType.selection = typeId
+				
+				tbId.text = valOrEmpty parsedJSON["id"]
+				tbBoothModel.text = valOrEmpty parsedJSON["boothModel"]
+				
+				cbMediaType.text = valOrEmpty parsedJSON["media_type"]
+				cbKey3d.text = valOrEmpty parsedJSON["key_3d"]
+				
+				tbLightmap.text = valOrEmpty parsedJSON["lightmap"]
+				cbUseLightmap.text = valOrEmpty parsedJSON["useLightmap"]
+				tbEnvmap.text = valOrEmpty parsedJSON["envmap"]
+				tbUseEnvmap.text = valOrEmpty parsedJSON["useEnvmap"]
+				
+				tbInstanceSource.text = valOrEmpty parsedJSON["instanceSource"]
+				tbReplaceBy.text = valOrEmpty parsedJSON["replaceBy"]
+				
+				tbMaterial.text = valOrEmpty parsedJSON["material"]
+				
+				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
+				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
+                try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
+                
+                generateJSON()
+			)
+			
+			function selectionChanged = (
+				selectedNode = selection[1]
+				
+				if selectedNode == undefined then (
+					lbSelectedObject.caption = "Objet sélectionné : Aucun"
+					return undefined
+				)
+					
+				lbSelectedObject.caption = "Object sélectionné : " + selectedNode.name
+				parsedJSON = getNodeData selectedNode
+				
+				if (parsedJSON != undefined) then (
+					
+					initRollout parsedJSON
+					
+				) else (
+					resetRollout()
+				)
 			)
 			
 			function saveProperties = (
