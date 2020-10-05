@@ -10,7 +10,7 @@
 5f74843cb2b4f30023570374|Repensons ensemble nos usages des plages !|29/10 15h15-17h00
 5f71f514d2e078002211baf8|S'inspirer du vivant pour innover !|29/10 15h15-17h00
 5f75a31715ef7c0025a59206|La massification de la rénovation des bâtiments|29/10 15h15-17h00
-5f71f20c22ac9f00a368b92a|Comment favoriser les relations entre Producteurs et Riverains?|30/10 – 9h00-10h45
+5f71f20c22ac9f00a368b92a|Comment favoriser les relations entre Producteurs et Riverains?|30/10 9h00-10h45
 5f74990c6cc96400215e00e4|Pourquoi le risque côtier nous concerne tous ?|30/10 9h00-10h45
 5f74a12091e8472a2fc0ee76|Révolution du travail à distance, la nouvelle géographie du travail|30/10 11h15-13h00
 5f74864591e8472a2fc0c597|Quelle stratégie pour muscler son territoire ?|30/10 11h15-13h00
