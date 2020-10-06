@@ -4,13 +4,13 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.5" -- add goto_position & camera_position
+		local version = "0.4.6" -- add lab
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
 
-			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "camera_position", "envmap", "goto_position", "goto_zone", "ground", "lightmap", "product", "product_standalone")
+			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "camera_position", "envmap", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_standalone")
 			local mediaTypeList = #("", "image","logo", "video", "pdf") -- TODO
 			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3") -- TODO
 			
@@ -27,9 +27,9 @@
 			dropdownList 'ddType' "" pos:[96,184] width:264 height:21 items:typeList toolTip:"Type de l'objet, sera utilisé pour trier les objets dans le viewer" align:#left
 
 			-- BOOTH
-			GroupBox 'grp16' "booth && goto_zone" pos:[16,216] width:344 height:80 align:#left
+			GroupBox 'grp16' "booth & goto_zone & goto_position & lab" pos:[16,216] width:344 height:80 align:#left
 			label 'lbl15' "UUID" pos:[24,240] width:80 height:24 align:#left
-			edittext 'tbId' "" pos:[120,240] width:232 height:24 toolTip:"UUID du booth, ou de la zone vers laquelle aller (uniquement avec les types booth et goto_zone)" align:#left
+			edittext 'tbId' "" pos:[120,240] width:232 height:24 toolTip:"UUID du booth, ou de la zone vers laquelle aller (uniquement avec les types booth, goto_zone, goto_position et lab)" align:#left
 			label 'lbl25' "boothModel" pos:[24,264] width:80 height:24 align:#left
 			edittext 'tbBoothModel' "" pos:[120,264] width:232 height:24 toolTip:"Source : défini le nom de ce modèle\nCible : nom du modèle à copier sur cette cible" align:#left
 			
