@@ -4,15 +4,15 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.6" -- add lab
+		local version = "0.4.7" -- add lab_button
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
 
 			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "camera_position", "envmap", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_standalone")
-			local mediaTypeList = #("", "image","logo", "video", "pdf") -- TODO
-			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3") -- TODO
+			local labButtonList = #("", "infos","image", "video")
+			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3")
 			
 			-- GENERAL
 			label 'lbSelectedObject' "Objet sélectionné : " pos:[8,8] width:360 height:24 align:#left
@@ -27,19 +27,22 @@
 			dropdownList 'ddType' "" pos:[96,184] width:264 height:21 items:typeList toolTip:"Type de l'objet, sera utilisé pour trier les objets dans le viewer" align:#left
 
 			-- BOOTH
-			GroupBox 'grp16' "booth & goto_zone & goto_position & lab" pos:[16,216] width:344 height:80 align:#left
+			GroupBox 'grp16' "booth && goto_zone && goto_position && lab" pos:[16,216] width:344 height:80 align:#left
 			label 'lbl15' "UUID" pos:[24,240] width:80 height:24 align:#left
 			edittext 'tbId' "" pos:[120,240] width:232 height:24 toolTip:"UUID du booth, ou de la zone vers laquelle aller (uniquement avec les types booth, goto_zone, goto_position et lab)" align:#left
 			label 'lbl25' "boothModel" pos:[24,264] width:80 height:24 align:#left
 			edittext 'tbBoothModel' "" pos:[120,264] width:232 height:24 toolTip:"Source : défini le nom de ce modèle\nCible : nom du modèle à copier sur cette cible" align:#left
 			
 			-- PRODUCT
-			GroupBox 'grp17' "product" pos:[16,304] width:344 height:80 align:#left
-			label 'lbl26' "media_type" pos:[24,328] width:80 height:24 align:#left
-			dotNetControl cbMediaType "System.Windows.Forms.ComboBox" pos:[120,328] width:232 height:21 toolTip:"Type de la donnée du produit (texture, video)" align:#left
-			label 'lbl27' "key_3d" pos:[24,352] width:80 height:24 align:#left
-			dotNetControl cbKey3d "System.Windows.Forms.ComboBox" pos:[120,352] width:232 height:21 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
+			GroupBox 'grp17' "product" pos:[16,304] width:344 height:40 align:#left
+			label 'lbl27' "key_3d" pos:[24,320] width:80 height:21 align:#left
+			dotNetControl cbKey3d "System.Windows.Forms.ComboBox" pos:[120,320] width:232 height:21 toolTip:"Identificateur de produit générique pour appliquer des textures ou vidéos depuis la DB (ex: poster1, poster2, logo, video)" align:#left
 			
+            -- LABS
+            GroupBox 'grp177' "labs" pos:[16,348] width:344 height:40 align:#left
+            label 'lbl26' "lab_button" pos:[24,362] width:80 height:21 align:#left
+			dotNetControl cbLabButton "System.Windows.Forms.ComboBox" pos:[120,362] width:232 height:21 toolTip:"Type de bouton pour les labs (infos, video, image)" align:#left
+            
 			-- INSTANCES
 			GroupBox 'grp19' "instances" pos:[16,528] width:344 height:80 align:#left
 			label 'lbl23' "instanceSource" pos:[24,552] width:96 height:24 align:#left
@@ -91,7 +94,7 @@
 			
 			function fillComboboxes = (
 				-- MEDIATYPE
-				for item in mediaTypeList do cbMediaType.items.add(item)
+				for item in labButtonList do cbLabButton.items.add(item)
 				
 				-- KEY3D
 				for item in key3dList do cbKey3d.items.add(item)
@@ -112,7 +115,7 @@
 				tbId.text = ""
 				tbBoothModel.text = ""
 				
-				cbMediaType.text = ""
+				cbLabButton.text = ""
 				cbKey3d.text = ""
 				
 				tbLightmap.text = ""
@@ -145,7 +148,7 @@
 				if (tbBoothModel.text != "") do append res ("\"boothModel\":\"" + tbBoothModel.text + "\"," )
 				
 				-- product
-				if (cbMediaType.text != "") do append res ("\"media_type\":\"" + cbMediaType.text + "\"," )
+				if (cbLabButton.text != "") do append res ("\"lab_button\":\"" + cbLabButton.text + "\"," )
 				if (cbKey3d.text != "") do append res ("\"key_3d\":\"" + cbKey3d.text + "\"," )
 				
 				--lightmap & envmap
@@ -191,7 +194,7 @@
 				tbId.text = valOrEmpty parsedJSON["id"]
 				tbBoothModel.text = valOrEmpty parsedJSON["boothModel"]
 				
-				cbMediaType.text = valOrEmpty parsedJSON["media_type"]
+				cbLabButton.text = valOrEmpty parsedJSON["lab_button"]
 				cbKey3d.text = valOrEmpty parsedJSON["key_3d"]
 				
 				tbLightmap.text = valOrEmpty parsedJSON["lightmap"]
@@ -252,8 +255,8 @@
 				dotnetBackColor = mColor.FromArgb (maxBackColor[1] * 255.0f) (maxBackColor[2] * 255.0f) (maxBackColor[3] * 255.0f)
 				dotnetForeColor = mColor.FromArgb (maxForeColor[1] * 255.0f) (maxForeColor[2] * 255.0f) (maxForeColor[3] * 255.0f)
 				
-				cbMediaType.backColor = dotnetBackColor
-				cbMediaType.foreColor = dotnetForeColor
+				cbLabButton.backColor = dotnetBackColor
+				cbLabButton.foreColor = dotnetForeColor
 				cbKey3d.backColor = dotnetBackColor
 				cbKey3d.foreColor = dotnetForeColor
 				cbUseLightmap.backColor = dotnetBackColor
@@ -284,9 +287,9 @@
 				generateJSON()
 			on tbBoothModel changed value do
 				generateJSON()
-			on cbMediaType textupdate value do
+			on cbLabButton textupdate value do
 				generateJSON()
-			on cbMediaType SelectedValueChanged value do
+			on cbLabButton SelectedValueChanged value do
 				generateJSON()
 			on cbKey3d textupdate value do
 				generateJSON()
