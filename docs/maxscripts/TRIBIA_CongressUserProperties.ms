@@ -4,13 +4,13 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.4" -- add product_standalone
+		local version = "0.4.5" -- add goto_position & camera_position
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
 
-			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "envmap", "goto_zone", "ground", "lightmap", "product", "product_standalone")
+			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "camera_position", "envmap", "goto_position", "goto_zone", "ground", "lightmap", "product", "product_standalone")
 			local mediaTypeList = #("", "image","logo", "video", "pdf") -- TODO
 			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3") -- TODO
 			

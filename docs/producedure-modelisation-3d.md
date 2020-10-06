@@ -70,8 +70,12 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
     - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:darkorange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
 - **camera** : `{"type":"camera"}` Caméra de la zone (PhysicalCam)
+- **camera_position** : `{"type":"camera_position", "id":"camera_labs"}` Caméra cible pour des déplacements directs à l'intérieur d'une zone (PhysicalCam)
+    - **id** : requis, permet de déterminer de quelle caméra il s'agit
 - **goto_zone** : `{"type":"goto_zone", "id":"865324a2-34cf-4274-833f-2657ede13fa5"}` A mettre sur les objets permettant d'accéder à d'autres zones
     - **id** : requis, permet de déterminer sur quel stand aller
+- **goto_position** : `{"type":"goto_position", "id":"camera_labs"}` A mettre sur les objets permettant d'accéder à d'autres zones
+    - **id** : requis, permet de déterminer vers quelle caméra se déplacer
 - **lightmap** : `{"type":"lightmap", "name":"nom-lightmap"}`
     - **name** : nom de la lightmap
 - **envmap** : idem lightmap, mais pour la réflexion / réfraction (TODO)
