@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.7" -- add lab_button
+		local version = "0.4.8" -- add no_title
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -71,7 +71,7 @@
 			-- DIVERS
 			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
 			checkbox 'chkTooltip' "booth_tooltip" pos:[24,693] width:80 height:18 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
-			checkbox 'chkTransparent' "transparent" pos:[104,693] width:74 height:18 align:#left toolTip:"Cet objet sera traité comme transparent"
+			checkbox 'chkNoTitle' "no_title" pos:[104,693] width:74 height:18 align:#left toolTip:"Ce produit n'aura pas de titre (uniquement innovation)"
             checkbox 'chkDoNotScale' "do_not_scale" pos:[178,693] width:80 height:18 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
 			checkbox 'chkContact' "booth_contact" pos:[24,711] width:80 height:18 align:#left toolTip:"Affichera le layer de contact au clic sur cet objet et ses enfants"
             
@@ -129,7 +129,7 @@
 				tbMaterial.text = ""
 				
 				chkTooltip.checked = false
-				chkTransparent.checked = false
+				chkNoTitle.checked = false
                 chkDoNotScale.checked = false
                 chkContact.checked = false
 			)
@@ -166,7 +166,7 @@
 				
 				-- divers
 				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
-				if (chkTransparent.checked) do append res ("\"transparent\":true,")
+				if (chkNoTitle.checked) do append res ("\"no_title\":true,")
                 if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
                 if (chkContact.checked) do append res ("\"booth_contact\":true,")
 				
@@ -208,7 +208,7 @@
 				tbMaterial.text = valOrEmpty parsedJSON["material"]
 				
 				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
-				try ( chkTransparent.checked = parsedJSON["transparent"] ) catch ( chkTransparent.checked = false )
+				try ( chkNoTitle.checked = parsedJSON["no_title"] ) catch ( chkNoTitle.checked = false )
                 try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
                 try ( chkContact.checked = parsedJSON["booth_contact"] ) catch ( chkContact.checked = false )
                 
@@ -313,7 +313,7 @@
 				generateJSON()
 			on chkTooltip changed state do
 				generateJSON()
-			on chkTransparent changed state do
+			on chkNoTitle changed state do
 				generateJSON()
             on chkDoNotScale changed state do
                 generateJSON()
