@@ -15,10 +15,11 @@
 |||||
 5f71f20c22ac9f00a368b92a|Comment favoriser les relations entre Producteurs et Riverains?|30/10 9h00-10h45|D
 5f74990c6cc96400215e00e4|Pourquoi le risque côtier nous concerne tous ?|30/10 9h00-10h45|D
-5f74a12091e8472a2fc0ee76|Révolution du travail à distance, la nouvelle géographie du travail|30/10 11h15-13h00|D
-5f74864591e8472a2fc0c597|Quelle stratégie pour muscler son territoire ?|30/10 11h15-13h00|D
 |||||
-5f7485f3b14dbb001c728f42|Emballage biosourcé : quels leviers ? la crise sanitaire peut-elle lever des freins ?|30/10 14h00-15h45|E
-5f748570ed279100191bcff1|Comment créer de la valeur à partir de déchets ?|30/10 14h00-15h45|E
-5f7483cec35362001e1bbb0f|L'agroécologie : pourquoi ? comment ? pour tous ?|30/10 14h00-15h45|E
-5f74a02bed27910af71bd90a|L'innovation sociale en partage : comment faire bouger les lignes ?|30/10 14h00-15h45|E
+5f74a12091e8472a2fc0ee76|Révolution du travail à distance, la nouvelle géographie du travail|30/10 11h15-13h00|E
+5f74864591e8472a2fc0c597|Quelle stratégie pour muscler son territoire ?|30/10 11h15-13h00|E
+|||||
+5f7485f3b14dbb001c728f42|Emballage biosourcé : quels leviers ? la crise sanitaire peut-elle lever des freins ?|30/10 14h00-15h45|F
+5f748570ed279100191bcff1|Comment créer de la valeur à partir de déchets ?|30/10 14h00-15h45|F
+5f7483cec35362001e1bbb0f|L'agroécologie : pourquoi ? comment ? pour tous ?|30/10 14h00-15h45|F
+5f74a02bed27910af71bd90a|L'innovation sociale en partage : comment faire bouger les lignes ?|30/10 14h00-15h45|F
