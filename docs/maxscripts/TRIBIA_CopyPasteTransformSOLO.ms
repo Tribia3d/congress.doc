@@ -1,5 +1,5 @@
 (
-	macroScript congressObjectPropertiesRollout
+	macroScript CopyPasteTransformRollout
 	category:"TRIBIA"
 	toolTip:"Copy Paste Object Transform"
 	buttontext:"CpyPstTrans"
