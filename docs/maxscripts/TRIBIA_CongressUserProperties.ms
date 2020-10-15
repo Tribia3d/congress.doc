@@ -4,13 +4,13 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.8" -- add no_title
+		local version = "0.4.11" -- add conference
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
 		(
 
-			local typeList = #("", "booth", "booth_camera", "booth_model", "camera", "camera_position", "envmap", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_standalone")
+			local typeList = #("", "billboard", "booth", "booth_camera", "booth_model", "camera", "camera_position", "conference", "envmap", "goto_booth", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_standalone")
 			local labButtonList = #("", "infos","image", "video")
 			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3")
 			
@@ -74,6 +74,7 @@
 			checkbox 'chkNoTitle' "no_title" pos:[104,693] width:74 height:18 align:#left toolTip:"Ce produit n'aura pas de titre (uniquement innovation)"
             checkbox 'chkDoNotScale' "do_not_scale" pos:[178,693] width:80 height:18 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
 			checkbox 'chkContact' "booth_contact" pos:[24,711] width:80 height:18 align:#left toolTip:"Affichera le layer de contact au clic sur cet objet et ses enfants"
+            checkbox 'chkBillboard' "billboard" pos:[110,711] width:80 height:18 align:#left toolTip:"L'objet suivra la camera"
             
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -132,6 +133,7 @@
 				chkNoTitle.checked = false
                 chkDoNotScale.checked = false
                 chkContact.checked = false
+                chkBillboard.checked = false
 			)
             
 			function generateJSON = (
@@ -169,6 +171,7 @@
 				if (chkNoTitle.checked) do append res ("\"no_title\":true,")
                 if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
                 if (chkContact.checked) do append res ("\"booth_contact\":true,")
+                if (chkBillboard.checked) do append res ("\"billboard\":true,")
 				
 				append res "}"
 				
@@ -211,6 +214,7 @@
 				try ( chkNoTitle.checked = parsedJSON["no_title"] ) catch ( chkNoTitle.checked = false )
                 try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
                 try ( chkContact.checked = parsedJSON["booth_contact"] ) catch ( chkContact.checked = false )
+                try ( chkBillboard.checked = parsedJSON["billboard"] ) catch ( chkBillboard.checked = false )
                 
                 generateJSON()
 			)
@@ -318,6 +322,8 @@
             on chkDoNotScale changed state do
                 generateJSON()
             on chkContact changed state do
+                generateJSON()
+            on chkBillboard changed state do
                 generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()
