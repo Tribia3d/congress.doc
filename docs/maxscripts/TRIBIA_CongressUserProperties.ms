@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.11" -- add conference
+		local version = "0.4.12" -- add booth_information
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
@@ -71,10 +71,11 @@
 			-- DIVERS
 			GroupBox 'grp8' "divers" pos:[16,680] width:344 height:56 align:#left
 			checkbox 'chkTooltip' "booth_tooltip" pos:[24,693] width:80 height:18 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
-			checkbox 'chkNoTitle' "no_title" pos:[104,693] width:74 height:18 align:#left toolTip:"Ce produit n'aura pas de titre (uniquement innovation)"
+			checkbox 'chkNoTitle' "no_title" pos:[110,693] width:64 height:18 align:#left toolTip:"Ce produit n'aura pas de titre (uniquement innovation)"
             checkbox 'chkDoNotScale' "do_not_scale" pos:[178,693] width:80 height:18 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
 			checkbox 'chkContact' "booth_contact" pos:[24,711] width:80 height:18 align:#left toolTip:"Affichera le layer de contact au clic sur cet objet et ses enfants"
-            checkbox 'chkBillboard' "billboard" pos:[110,711] width:80 height:18 align:#left toolTip:"L'objet suivra la camera"
+            checkbox 'chkBillboard' "billboard" pos:[110,711] width:58 height:18 align:#left toolTip:"L'objet suivra la camera"
+            checkbox 'chkBoothInformation' "booth_information" pos:[178,711] width:80 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
             
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -134,6 +135,7 @@
                 chkDoNotScale.checked = false
                 chkContact.checked = false
                 chkBillboard.checked = false
+                chkBoothInformation.checked = false
 			)
             
 			function generateJSON = (
@@ -172,6 +174,7 @@
                 if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
                 if (chkContact.checked) do append res ("\"booth_contact\":true,")
                 if (chkBillboard.checked) do append res ("\"billboard\":true,")
+                if (chkBoothInformation.checked) do append res ("\"booth_information\":true,")
 				
 				append res "}"
 				
@@ -215,6 +218,7 @@
                 try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
                 try ( chkContact.checked = parsedJSON["booth_contact"] ) catch ( chkContact.checked = false )
                 try ( chkBillboard.checked = parsedJSON["billboard"] ) catch ( chkBillboard.checked = false )
+                try ( chkBoothInformation.checked = parsedJSON["booth_information"] ) catch ( chkBoothInformation.checked = false )
                 
                 generateJSON()
 			)
@@ -324,6 +328,8 @@
             on chkContact changed state do
                 generateJSON()
             on chkBillboard changed state do
+                generateJSON()
+            on chkBoothInformation changed state do
                 generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()
