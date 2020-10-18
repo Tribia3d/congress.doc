@@ -4,10 +4,10 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.4.12" -- add booth_information
+		local version = "0.5.00" -- add btSaveAll
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
-		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:784
+		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:816
 		(
 
 			local typeList = #("", "billboard", "booth", "booth_camera", "booth_model", "camera", "camera_position", "conference", "envmap", "goto_booth", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_standalone")
@@ -20,6 +20,7 @@
 			edittext 'tbData' "" pos:[16,56] width:344 height:88 toolTip:"JSON qui sera enregistré dans la propriété 'babylonjs_tag' de l'objet" align:#left
 			button 'btGet' "Recharger" pos:[8,752] width:176 height:24 toolTip:"Recharge la propriété sans la modifier" align:#left
 			button 'btSet' "Enregistrer" pos:[192,752] width:176 height:24 toolTip:"Enregistre les modifications dans la propriété" align:#left
+            button 'btSetAll' "Enregistrer Sur Sélection" pos:[192,784] width:176 height:24 toolTip:"Enregistre les modifications dans la propriété" align:#left
 			
 			-- PARAMETRES
 			GroupBox 'grp2' "Paramètres" pos:[8,160] width:360 height:584 align:#left
@@ -247,6 +248,15 @@
 				if (selectedNode != undefined) do
 					setUserProp selectedNode "babylonjs_tag" tbData.text
 			)
+            
+            function savePropertiesOnSelection = (
+                local res = queryBox "Va appliquer les mêmes paramètres à tous les objets sélectionnés.\nSi des objets possèdent déjà des propriétés, elles seront écrasées.\nContinuer ?" title:"Confirmation"  
+                
+                if res == true do (
+                    for obj in selection do
+                        setUserProp obj "babylonjs_tag" tbData.text
+                )
+            )
 			
 			function regCallbacks = (
 				callbacks.addScript #selectionSetChanged "try(congressObjectPropertiesRollout.selectionChanged()) catch(messageBox (getCurrentException()))" id:#congressObjectPropertiesRollout
@@ -289,6 +299,8 @@
 				selectionChanged()
 			on btSet pressed do
 				saveProperties()
+            on btSetAll pressed do
+                savePropertiesOnSelection()
 			on ddType selected selId do
 				generateJSON()
 			on tbId changed value do

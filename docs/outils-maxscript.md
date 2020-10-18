@@ -1,9 +1,9 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets (v0.4.12)
+## Propriétés des objets (v0.5.00)
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.4.12 le 17/10/2020)
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.00 le 18/10/2020)
 
 ![maxscript-description](images/maxscript-description.png)
 
