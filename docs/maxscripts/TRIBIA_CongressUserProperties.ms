@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.5.00" -- add btSaveAll
+		local version = "0.5.03" -- add goto_pos
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:816
@@ -74,9 +74,11 @@
 			checkbox 'chkTooltip' "booth_tooltip" pos:[24,693] width:80 height:18 align:#left toolTip:"Affichera le tooltip du stand lorsqu'on cliquera sur cet objet ou un de ses enfants"
 			checkbox 'chkNoTitle' "no_title" pos:[110,693] width:64 height:18 align:#left toolTip:"Ce produit n'aura pas de titre (uniquement innovation)"
             checkbox 'chkDoNotScale' "do_not_scale" pos:[178,693] width:80 height:18 align:#left toolTip:"Cette 'innovation' ne sera pas redimensionnée selon son format de texture"
+            checkbox 'chkLimitDistance' "limit_distance" pos:[264,693] width:80 height:18 align:#left toolTip:"Cet objet sera interactif que lorsque la camera sera à une certaine distance de celui-ci"
 			checkbox 'chkContact' "booth_contact" pos:[24,711] width:80 height:18 align:#left toolTip:"Affichera le layer de contact au clic sur cet objet et ses enfants"
-            checkbox 'chkBillboard' "billboard" pos:[110,711] width:58 height:18 align:#left toolTip:"L'objet suivra la camera"
-            checkbox 'chkBoothInformation' "booth_information" pos:[178,711] width:80 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
+            checkbox 'chkGotoPos' "goto_pos" pos:[110,711] width:58 height:18 align:#left toolTip:"L'objet cliqué positionnera la camera sur la caméra avec l'uuid spécifié"
+            checkbox 'chkBoothInformation' "booth_information" pos:[178,711] width:100 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
+            checkbox 'chkNoMarker' "no_marker" pos:[280,711] width:80 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
             
 			local pyJSON = python.import #json
 			local selectedNode = undefined
@@ -134,9 +136,11 @@
 				chkTooltip.checked = false
 				chkNoTitle.checked = false
                 chkDoNotScale.checked = false
+                chkLimitDistance.checked = false
                 chkContact.checked = false
-                chkBillboard.checked = false
+                chkGotoPos.checked = false
                 chkBoothInformation.checked = false
+                chkNoMarker.checked = false
 			)
             
 			function generateJSON = (
@@ -173,9 +177,11 @@
 				if (chkTooltip.checked) do append res ("\"booth_tooltip\":true," ) -- si false on ne marque rien
 				if (chkNoTitle.checked) do append res ("\"no_title\":true,")
                 if (chkDoNotScale.checked) do append res ("\"do_not_scale\":true,")
+                if (chkLimitDistance.checked) do append res ("\"limit_distance\":true,")
                 if (chkContact.checked) do append res ("\"booth_contact\":true,")
-                if (chkBillboard.checked) do append res ("\"billboard\":true,")
+                if (chkGotoPos.checked) do append res ("\"goto_pos\":true,")
                 if (chkBoothInformation.checked) do append res ("\"booth_information\":true,")
+                if (chkNoMarker.checked) do append res ("\"no_marker\":true,")
 				
 				append res "}"
 				
@@ -217,9 +223,11 @@
 				try ( chkTooltip.checked = parsedJSON["booth_tooltip"] ) catch ( chkTooltip.checked = false )
 				try ( chkNoTitle.checked = parsedJSON["no_title"] ) catch ( chkNoTitle.checked = false )
                 try ( chkDoNotScale.checked = parsedJSON["do_not_scale"] ) catch ( chkDoNotScale.checked = false )
+                try ( chkLimitDistance.checked = parsedJSON["limit_distance"] ) catch ( chkLimitDistance.checked = false )
                 try ( chkContact.checked = parsedJSON["booth_contact"] ) catch ( chkContact.checked = false )
-                try ( chkBillboard.checked = parsedJSON["billboard"] ) catch ( chkBillboard.checked = false )
+                try ( chkGotoPos.checked = parsedJSON["goto_pos"] ) catch ( chkGotoPos.checked = false )
                 try ( chkBoothInformation.checked = parsedJSON["booth_information"] ) catch ( chkBoothInformation.checked = false )
+                try ( chkNoMarker.checked = parsedJSON["no_marker"] ) catch ( chkNoMarker.checked = false )
                 
                 generateJSON()
 			)
@@ -337,11 +345,15 @@
 				generateJSON()
             on chkDoNotScale changed state do
                 generateJSON()
+            on chkLimitDistance changed state do
+                generateJSON()
             on chkContact changed state do
                 generateJSON()
-            on chkBillboard changed state do
+            on chkGotoPos changed state do
                 generateJSON()
             on chkBoothInformation changed state do
+                generateJSON()
+            on chkNoMarker changed state do
                 generateJSON()
 			on cbUseLightmap textupdate value do
 				generateJSON()

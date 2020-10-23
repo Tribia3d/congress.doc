@@ -36,6 +36,10 @@ Les objets **transparents** sont à gérer au cas par cas, selon leur degré de 
 ## Dépliage UV2
 Pour accéder à l'interface de Flatiron, aller dans l'onglet `Utilities`. S'il n'apparaît pas, cliquer sur `More` et le chercher dans la liste.
 
+```note
+Les presets d'unwrap et de passes sont enregistrés dans ce fichier : [flatiron_settings.fi](maxscripts/flatiron_settings.fi)
+```
+
 Sélectionner les objets à inclure dans la lightmap (on ne sélectionnera pas les `produits` ni les objets objets **lumineux**).
 
 Paramètres à utiliser pour le dépliage :

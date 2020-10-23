@@ -2,7 +2,7 @@
 
 |UUID|Nom&nbsp;du&nbsp;LaB|Date&nbsp;Heure&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Groupe
 |---|---|---|---|
-5f71f02022ac9f00a368b7bf|Bien manger, tout un programme !|29/10 9h00-10h45|A
+~~5f71f02022ac9f00a368b7bf~~|~~Bien manger, tout un programme !~~|~~29/10 9h00-10h45~~|~~A~~
 5f759e8a99c5ea0019dc35d6|Mobilité du futur : regards croisés sur les nouveaux comportements, les nouveaux usages, et les nouveaux vecteurs énergétiques|29/10 9h30-11h15|A
 5f74a0c717498f2423eac34e|Et si l'agriculture gagnait du terrain... en ville|29/10 9h30-11h15|A
 |||||
@@ -13,7 +13,7 @@
 5f71f514d2e078002211baf8|S'inspirer du vivant pour innover !|29/10 15h15-17h00|C
 5f75a31715ef7c0025a59206|La massification de la rénovation des bâtiments|29/10 15h15-17h00|C
 |||||
-5f71f20c22ac9f00a368b92a|Comment favoriser les relations entre Producteurs et Riverains?|30/10 9h00-10h45|D
+5f71f20c22ac9f00a368b92a|Comment favoriser les relations entre Producteurs et Riverains? (Annulé)|30/10 9h00-10h45|D
 5f74990c6cc96400215e00e4|Pourquoi le risque côtier nous concerne tous ?|30/10 9h00-10h45|D
 |||||
 5f74a12091e8472a2fc0ee76|Révolution du travail à distance, la nouvelle géographie du travail|30/10 11h15-13h00|E
