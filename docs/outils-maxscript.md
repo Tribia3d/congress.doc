@@ -1,18 +1,23 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets (v0.5.03)
+## Propriétés des objets (v0.5.05)
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.03 le 22/10/2020)
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.05 le 19/11/2020)
 
 ![maxscript-description](images/maxscript-description.png)
 
 - **type** :
+    - `billboard` : (= silhouettes)
     - `booth` : défini cet objet comme un Stand. Il faudra également remplir `id` pour spécifier de quel stand il s'agit (et éventuellement `booth_model` si on veut instancier un modèle de stand sur le dummy).
     - `booth_camera` : défini cette caméra comme caméra de stand. **Nécessaire pour pouvoir entrer sur le stand !**
     - `booth_model` : défini cet objet comme modèle de stand. Il faudra spécifier un nom dans `boothModel` plus bas.
     - `camera` : défini cette caméra comme caméra de zone. **Nécessaire pour le bon chargement de la zone !**
     - `camera_position` : défini cette caméra comme cible pour un déplacement direct dans la zone. Il faudra également remplir `id` pour spécifier de quel caméra il s'agit
+    - `conference` : 
+    - `elevator` : 
+    - `elevator_camera` : 
+    - `goto_booth` : deplace la caméra sur un stand (= signalétique à l'entrée des zones)
     - `goto_position` : défini cet objet comme cliquable pour se déplacer vers la caméra définie dans `id`
     - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `id`
     - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone. **Nécessaire si on veut pouvoir se déplacer dans la zone**
@@ -20,6 +25,8 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `lightmap` : nom de la lightmap contenue dans le matériau de cet objet. L'objet ne sera pas affiché et la lightmap sera copiée sur les matériaux des objets possédant la propriété `useLightmap` avec la même nom
     - `envmap` : idem que `lightmap` mais pour les map de réflexion. Utiliser `useEnvmap` sur les objets pour appliquer la map sur son matériau.
     - `product` : défini l'objet comme un produit, il faudra spécifier `media_type` et `key_3d`
+    - `product_animated` : WIP
+    - `product_standalone` : permet de deplacer la camera face à l'axe -y de l'objet (= thèses novaq)
 - **booth & goto_zone & goto_position & lab**
     - `id` : uuid du stand (ex `5efb49ef2bac05001bf10e54`) ou uuid de la zone à charger (ex `6795ec46-b54b-46fb-9059-003a5cadca5b` pour l'accueil), ou id caméra (`camera_position`), ou uuid lab
     - `boothModel` : si `type=booth_model` alors on défini le nom de ce modèle. Si `type=booth` on va copier le modèle à la position/rotation de cet objet.
