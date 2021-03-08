@@ -113,9 +113,18 @@ Permet de se déplacer vers une position caméra prédéfinie lors du clic sur c
 <span class="space"/>
 
 ### goto_zone
+Permet de charger une Zone différente lors du clic sur cet objet.
+
+Il est nécessaire de renseigner le champ `UUID` avec l'uuid de la Zone en question.
+
 <span class="space"/>
 
 ### ground
+![](images/props-ground.png)
+Lors du clic sur un objet de ce type, la caméra se déplace à la position cliquée à une hauteur de 150 cm. De plus sur desktop un sprite s'affiche à la position du curseur.
+
+Afin de mieux gérer les zones où il est possible de se déplacer, il est préférable d'appliquer ce type à un objet invisible (le matériau "invisible" est chargé au runtime depuis matLib.glb), se trouvant à peine au dessus (0.5 ou 1 cm) du sol visible. Comme on peut le voir sur l'image ci-dessus entourée en jaune.
+
 <span class="space"/>
 
 ### lab
