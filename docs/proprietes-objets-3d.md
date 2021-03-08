@@ -96,12 +96,15 @@ Dans le cas où on utilise un modèle de stand, on trouve à gauche les proprié
 
 En ce qui concerne le **modèle** :
 - <span class="color-box" style="background-color: #0055c8"/> Type [booth_model](#booth_model)
-- <span class="color-box" style="background-color: #00881a"/> On indique le nom du modèle dans `boothModel`
+- <span class="color-box" style="background-color: #00881a"/> Nom du modèle dans `boothModel`
 - On ne spécifie **pas** d'`UUID` puisque ce modèle sera instancié sur plusieurs **stands** qui auront des `UUID` différents.
 - <span class="color-box" style="background-color: #570288"/> Si une [lightmap](#lightmap) a été baké pour ce stand indiquer son nom dans le champ `useLightmap` (une liste déroulante indique les noms des lightmaps présentes dans la scène max)
 - <span class="color-box" style="background-color: #570288"/> On coche `booth_tooltip` afin d'ouvrir le tooltip Kinoba. On aurait pu le cocher au niveau du stand lui même, mais il faudrait alors le cocher pous tous les stands, c'est plus simple ici)
 
-
+Et pour le **stand** :
+- <span class="color-box" style="background-color: #c87a00"/> Type [booth](#booth)
+- <span class="color-box" style="background-color: #c87a00"/> UUID du stand
+- <span class="color-box" style="background-color: #00881a"/> Nom du modèle dans `boothModel`
 
 
 
