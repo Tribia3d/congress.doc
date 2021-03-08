@@ -57,6 +57,8 @@ Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la 
 
 **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
+<div class="space"/>
+
 ### booth_silhouette
 ![](images/props-booth_silhouette.png)
 Cet objet sera remplacé au runtime par un billboard représentant une silhouette (si un exposant est disponible). On utilisera un objet Point/Dummy positionné au niveau du sol et aux emplacements où l'on souhaite voir apparaître une silhouette.
@@ -76,9 +78,20 @@ S'applique sur une caméra positionnée dans la Zone.
 **Fonctionne en relation avec les objets du type [goto_position](#goto_position).**
 
 ### conference
-### envmap
+
+
 ### goto_booth
+Le clic sur cet objet aura la même action que "Accéder au stand" depuis le tooltip, ou depuis la page du stand (hors 3D). La caméra va se diriger vers le stand et on pourra interagir avec les produits etc.
+
+Il est nécessaire de renseigner le champ `UUID` avec l'uuid du stand en question.
+
+C'est ce qui est utilisé pour accéder aux stands depuis les signalétiques en entrée de Zone par exemple.
+
 ### goto_position
+Permet de se déplacer vers une position caméra prédéfinie lors du clic sur cet objet.
+
+**Utilisé en relation avec [camera_position](#camera_position).**
+
 ### goto_zone
 ### ground
 ### lab
@@ -86,6 +99,7 @@ S'applique sur une caméra positionnée dans la Zone.
 ### product
 ### product_standalone
 ### autres
+- envmap
 - elevator
 - elevator_camera
 - product_animated
