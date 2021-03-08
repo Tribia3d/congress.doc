@@ -72,7 +72,7 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 ## 3. Mise en place d'un stand
 
-### 3.1 Présentation
+### 3.1 Fonctionnement
 En général, la mise en place d'un stand se déroule en deux temps. On crée un *modèle de stand* auquel sont parentés tous les éléments de ce stand (meshes, caméras, etc.). Ensuite on positionne les stands sous forme de Points aux positions réelles où doivent se trouver les stands dans la zone. Au runtime les points seront remplacés par les modèles. Cela permet de réduire la taille du fichier 3d exporté, l'instanciation est réalisée par l'appli web.
 
 Pour les stands particuliers (stands premium personnalisés) il n'est pas nécessaire d'utiliser de "modèle de stand" puisqu'ils seront uniques.
@@ -82,10 +82,9 @@ L'utilisation des [booth_model](#booth_model) n'est pas du tout obligatoire.
 
 Mais lorsqu'il y a beaucoup de stands identiques, en plus de réduire le poids des fichiers exportés, cela permet de n'effectuer qu'une seule fois les modifications, le baking et les réglages des objets enfants.
 ```
-Pour illustrer les 2 cas de figure :
-
-![](images/props-booth-without-model.png)
-
+> Pour illustrer les 2 cas de figure :
+> ![](images/props-booth-without-model.png)
+> 
 > Ici le cas où on n'utilise pas de modèle. Le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas
 
 
