@@ -57,7 +57,7 @@ Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la 
 
 **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
-<div class="space"/>
+<div class="space"></div>
 
 ### booth_silhouette
 ![](images/props-booth_silhouette.png)
