@@ -84,15 +84,15 @@ Mais lorsqu'il y a beaucoup de stands identiques, en plus de réduire le poids d
 ```
 Pour illustrer les 2 cas de figure :
 
-### Sans modèle
+#### 3.1.1 Sans modèle
 ![](images/props-booth-without-model.png)
 
-Dans le cas où on n'utilise pas de modèle, le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas, ce qui permettra d'afficher le tooltip Kinoba avec la description et le bouton pour "accéder" au stand.
+Dans le cas où on n'utilise **pas** de modèle, le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas, ce qui permettra d'afficher le tooltip Kinoba avec la description et le bouton pour "accéder" au stand.
 
-### Avec modèle
+#### 3.1.2 Avec modèle
 ![](images/props-booth-with-model.png)
 
-Dans le cas où on utilise un modèle de stand
+Dans le cas où on utilise un modèle de stand, on trouve à gauche les propriétés du modèle, et à droite les propriétés du stand sur lequel on va instancier le modèle.
 
 
 
