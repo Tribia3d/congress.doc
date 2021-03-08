@@ -49,7 +49,7 @@ Il est nécessaire de remplir le champ `UUID` pour pouvoir interagir avec le sta
 
 Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par l'objet 3d de type [booth_model](#booth_model) dont le champ `boothModel` est identique.
 
-**Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
+**Voir [2. Mise en place d'un stand](#2-mise-en-place-dun-stand) pour plus d'informations.**
 
 <span class="space"/>
 
@@ -61,7 +61,7 @@ Point de vue lors de l'entrée sur un stand.
 
 Une ou plusieurs caméras peuvent être définies pour un stand. En cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées.
 
-Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model). **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
+Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model). **Voir [2. Mise en place d'un stand](#2-mise-en-place-dun-stand) pour plus d'informations.**
 
 <span style="color:darkorange;">Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.</span>
 
@@ -78,7 +78,7 @@ Il y aura normalement une lightmap bakée pour ce stand, donc il est intéressan
 
 Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la case `booth_tooltip` dans *divers* en bas.
 
-**Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
+**Voir [2. Mise en place d'un stand](#2-mise-en-place-dun-stand) pour plus d'informations.**
 
 <span class="space"/>
 
