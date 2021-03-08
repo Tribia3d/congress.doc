@@ -1,11 +1,16 @@
+// infos
 // https://rundocs.io/configuring/custom.html
+// mis a jour: https://github.com/rundocs/jekyll-rtd-theme/issues/84
+
+// POLICES
 // titres : https://fonts.google.com/specimen/Asap
 // LATO => Rubik
 
 .color-box {
-    content: '&nbsp;';
-    display: inline-block;
-    background-color: red;
+    height        : 1rem;
+    width         : 1rem;
+    vertical-align: middle;
+    display       : inline-block;
 }
 
 input[type=button],
