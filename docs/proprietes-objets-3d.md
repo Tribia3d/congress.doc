@@ -28,9 +28,7 @@ Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaq
 
 ### billboard
 A utiliser avec une plane qui sera orientée en permanence vers la caméra. Ex: les panneaux au dessus du démonstrateur.
-```warning
-Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.
-```
+<span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
 
 ### booth
 ![](images/props-booth.png)
@@ -40,16 +38,14 @@ Il est nécessaire de remplir le champ `UUID` pour pouvoir interagir avec le sta
 
 Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par l'objet 3d de type [booth_model](#booth_model) dont le champ `boothModel` est identique.
 
-Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.
+**Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
 ### booth_camera
 Une ou plusieurs caméras peuvent être définies pour un stand (en cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées).
 
 Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model).
 
-```warning
-Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.
-```
+<span style="color:darkorange;">Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.</span>
 
 ### booth_model
 ![](images/props-booth_model.png)
@@ -59,9 +55,10 @@ Il y aura normalement une lightmap bakée pour ce stand, donc il est intéressan
 
 Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la case `booth_tooltip` dans *divers* en bas.
 
-Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.
+**Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
 ### booth_silhouette
+![](images/props-booth_silhouette.png)
 Cet objet sera remplacé au runtime par un billboard représentant une silhouette (si un exposant est disponible). On utilisera un objet Point/Dummy positionné au niveau du sol et aux emplacements où l'on souhaite voir apparaître une silhouette.
 
 Il peut y en avoir plusieurs par stand.
@@ -69,11 +66,15 @@ Il peut y en avoir plusieurs par stand.
 ### camera
 C'est la caméra utilisée comme point de vue de départ lors de l'arrivée dans une Zone.
 
-```warning
-Elle est unique, et INDISPENSABLE au bon chargement de la Zone !
-```
+<span style="color:red;">**Elle est unique, et INDISPENSABLE au bon chargement de la Zone !**</span>
 
 ### camera_position
+Permet de définir une position caméra prédéfinie qui sera accessible lors du clic sur un objet du type [goto_position](#goto_position).
+
+S'applique sur une caméra positionnée dans la Zone.
+
+**Fonctionne en relation avec les objets du type [goto_position](#goto_position).**
+
 ### conference
 ### envmap
 ### goto_booth
