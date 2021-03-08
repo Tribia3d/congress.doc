@@ -1,7 +1,13 @@
 # Congress : Propriétés des objets 3D
 
-## Types d'objets possibles
-![](images/props-types.png)
+[1. Types d'objets](#1-types-dobjets)
+<!-- [2. ] -->
+
+## 1. Types d'objets
+<div style="float: right; clear: right;">
+<img src="images/props-types.png"/>
+</div>
+
 - [billboard](#billboard)
 - [booth](#booth)
 - [booth_camera](#booth_camera)
@@ -23,8 +29,14 @@
 
 ### billboard
 A utiliser avec une plane qui sera orientée en permanence vers la caméra. Ex: les panneaux au dessus du démonstrateur.
+```warning
+Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.
+```
 
 ### booth
+L'objet sera traité comme un Booth. 
+![](images/props-booth.png)
+
 
 ### booth_camera
 ### booth_model
