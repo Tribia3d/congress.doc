@@ -1,18 +1,15 @@
+<style>img {
+  float:right;
+}
+h1, h2, h3, h4, h5, h6 { clear:both;}
+</style>
 # Congress : Propriétés des objets 3D
 
 [1. Types d'objets](#1-types-dobjets)
 <!-- [2. ] -->
 
 ## 1. Types d'objets
-<!-- <div style="float: right; clear: both;">
-<img src="images/props-types.png"/>
-</div> -->
-
-.. figure:: images/props-types.png
-    :align: right
-    :figwidth: 200px
-
-    This is a caption for a figure. Text should wrap around the caption.
+![](images/props-types.png)
 
 - [billboard](#billboard)
 - [booth](#booth)
@@ -40,8 +37,8 @@ Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'
 ```
 
 ### booth
-L'objet sera traité comme un Booth. 
 ![](images/props-booth.png)
+L'objet sera traité comme un Booth. 
 
 
 ### booth_camera
