@@ -31,6 +31,7 @@ Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaq
 A utiliser avec une plane qui sera orientée en permanence vers la caméra. Ex: les panneaux au dessus du démonstrateur.
 ```warning
 Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.
+![](images/props-pivot.png)
 ```
 
 ### booth
@@ -43,6 +44,14 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 
 ### booth_camera
+Une ou plusieurs caméras peuvent être définies pour un stand (en cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées).
+
+Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model).
+
+```warning
+Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.
+```
+
 ### booth_model
 ### booth_silhouette
 ### camera
