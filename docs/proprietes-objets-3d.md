@@ -76,7 +76,7 @@ En généra, la mise en place d'un stand se déroule en deux temps. On crée un 
 Pour les stands particuliers (stands premium personnalisés) il n'est pas nécessaire d'utiliser de "modèle de stand".
 
 ```note
-Ce qu'il faut bien comprendre c'est que le 
+Au moment du chargement d'une Zone (fichier GLB) les objets ayant le type [booth](#booth) 
 ```
 
 ### Le modèle du stand
