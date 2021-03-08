@@ -4,9 +4,15 @@
 <!-- [2. ] -->
 
 ## 1. Types d'objets
-<div style="float: right; clear: right;">
+<!-- <div style="float: right; clear: both;">
 <img src="images/props-types.png"/>
-</div>
+</div> -->
+
+.. figure:: images/props-types.png
+    :align: right
+    :figwidth: 200px
+
+    This is a caption for a figure. Text should wrap around the caption.
 
 - [billboard](#billboard)
 - [booth](#booth)
