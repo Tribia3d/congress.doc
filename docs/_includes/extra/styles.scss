@@ -13,6 +13,11 @@
     display       : inline-block;
 }
 
+.space {
+    content: '';
+    line-height: 3rem;
+}
+
 input[type=button],
 input[type=reset],
 input[type=submit],
