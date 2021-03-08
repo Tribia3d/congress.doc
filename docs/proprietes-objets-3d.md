@@ -20,7 +20,7 @@ Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaq
 - [goto_booth](#goto_booth)
 - [goto_position](#goto_position)
 - [goto_zone](#goto_zone)
-- [gound](#gound)
+- [ground](#ground)
 - [lab](#lab)
 - [lightmap](#lightmap)
 - [product](#product)
@@ -39,7 +39,7 @@ L'objet sera traité comme un Booth par l'appli web, il sera cliquable (si l'uui
 
 Il est nécessaire de remplir le champ `UUID` pour pouvoir interagir avec le stand durant la visite. Cette donnée est à récupérer depuis la base de donnée.
 
-Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par l'objet 3d ayant le type [booth_model](#booth_model) et le même "nom" spécifié dans `boothModel` si il existe.
+Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par l'objet 3d de type [booth_model](#booth_model) dont le champ `boothModel` est identique.
 
 
 ### booth_camera
@@ -52,7 +52,7 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 ### goto_booth
 ### goto_position
 ### goto_zone
-### gound
+### ground
 ### lab
 ### lightmap
 ### product
@@ -71,25 +71,22 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 
 ## 3. Mise en place d'un stand
-### Résumé
+
+### 3.1 Présentation
 En général, la mise en place d'un stand se déroule en deux temps. On crée un *modèle de stand* auquel sont parentés tous les éléments de ce stand (meshes, caméras, etc.). Ensuite on positionne les stands sous forme de Points aux positions réelles où doivent se trouver les stands dans la zone. Au runtime les points seront remplacés par les modèles. Cela permet de réduire la taille du fichier 3d exporté, l'instanciation est réalisée par l'appli web.
 
-Pour les stands particuliers (stands premium personnalisés) il n'est pas nécessaire d'utiliser de "modèle de stand".
+Pour les stands particuliers (stands premium personnalisés) il n'est pas nécessaire d'utiliser de "modèle de stand" puisqu'ils seront uniques.
 
 ```note
-Au moment du chargement d'une Zone, les objets ayant le type [booth](#booth) ou le type [booth_model](#booth_model), sont triés. Pour chaque [booth](#booth), on cherche un objet [booth_model](#booth_model) ayant le même nom dans le champ `boothModel`. Si on trouve une correspondance, le modèle est instancié sur la cible. Si il n'y a pas de correspondance, l'objet [booth](#booth) reste tel quel.
-L'utilisation des [booth_model](#booth_model) n'est pas du tout obligatoire, elle permet juste de réduire le poids des fichiers lorsqu'il y a beaucoup de stands identiques. Accessoirement ça permet de réutiliser les lightmaps/aomaps du stand.
+L'utilisation des [booth_model](#booth_model) n'est pas du tout obligatoire.
+
+Mais lorsqu'il y a beaucoup de stands identiques, en plus de réduire le poids des fichiers exportés, cela permet de n'effectuer qu'une seule fois les modifications, le baking et les réglages des objets enfants.
 ```
+Pour illustrer les 2 cas de figure :
 
-### Le modèle du stand
-Le modèle de stand [booth_model](#booth_model) sera instancié par dessus les objets [booth](#booth) ayant référencé ce modèle.
+![](images/props-booth-without-model.png)
 
-### Le stand
-Pour être reconnu en tant que stand, un objet doit être typé comme [booth](#booth).
-
-
-
-
+> Ici le cas où on n'utilise pas de modèle. Le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas
 
 
 
