@@ -92,7 +92,14 @@ Dans le cas où on n'utilise **pas** de modèle, le parent (Point) est directeme
 #### 3.1.2 Avec modèle
 ![](images/props-booth-with-model.png)
 
-Dans le cas où on utilise un modèle de stand, on trouve à gauche les propriétés du modèle, et à droite les propriétés du stand sur lequel on va instancier le modèle.
+Dans le cas où on utilise un modèle de stand, on trouve à gauche les propriétés du modèle (type [booth_model](#booth_model)), et à droite les propriétés du stand (type [booth](#booth)) sur lequel on va instancier le modèle. On voit tout de suite (en vert) que la propriété `boothModel` est identique.
+
+En ce qui concerne le **modèle** :
+- <span class="color-box "/> Type [booth_model](#booth_model)
+- <span class="color-box"></span>On indique le nom du modèle dans `boothModel`
+- On ne spécifie **pas** d'`UUID` puisque ce modèle sera instancié sur plusieurs **stands** qui auront des `UUID` différents.
+- Si une [lightmap](#lightmap) a été baké pour ce stand indiquer son nom dans le champ `useLightmap` (une liste déroulante indique les noms des lightmaps présentes dans la scène max)
+
 
 
 

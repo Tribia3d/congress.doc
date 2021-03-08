@@ -2,6 +2,12 @@
 // titres : https://fonts.google.com/specimen/Asap
 // LATO => Rubik
 
+.color-box {
+    content: '&nbsp;';
+    display: inline-block;
+    background-color: red;
+}
+
 input[type=button],
 input[type=reset],
 input[type=submit],
