@@ -26,9 +26,13 @@ Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaq
 - [product_standalone](#product_standalone)
 - [autres](#autres)
 
+<span class="space"/>
+
 ### billboard
 A utiliser avec une plane qui sera orientée en permanence vers la caméra. Ex: les panneaux au dessus du démonstrateur.
 <span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
+
+<span class="space"/>
 
 ### booth
 ![](images/props-booth.png)
@@ -40,12 +44,16 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
+<span class="space"/>
+
 ### booth_camera
 Une ou plusieurs caméras peuvent être définies pour un stand (en cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées).
 
 Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model).
 
 <span style="color:darkorange;">Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.</span>
+
+<span class="space"/>
 
 ### booth_model
 ![](images/props-booth_model.png)
@@ -57,7 +65,7 @@ Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la 
 
 **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
-<div class="space"></div>
+<span class="space"/>
 
 ### booth_silhouette
 ![](images/props-booth_silhouette.png)
@@ -65,10 +73,14 @@ Cet objet sera remplacé au runtime par un billboard représentant une silhouett
 
 Il peut y en avoir plusieurs par stand.
 
+<span class="space"/>
+
 ### camera
 C'est la caméra utilisée comme point de vue de départ lors de l'arrivée dans une Zone.
 
 <span style="color:red;">**Elle est unique, et INDISPENSABLE au bon chargement de la Zone !**</span>
+
+<span class="space"/>
 
 ### camera_position
 Permet de définir une position caméra prédéfinie qui sera accessible lors du clic sur un objet du type [goto_position](#goto_position).
@@ -77,8 +89,12 @@ S'applique sur une caméra positionnée dans la Zone.
 
 **Fonctionne en relation avec les objets du type [goto_position](#goto_position).**
 
+<span class="space"/>
+
 ### conference
 
+
+<span class="space"/>
 
 ### goto_booth
 Le clic sur cet objet aura la même action que "Accéder au stand" depuis le tooltip, ou depuis la page du stand (hors 3D). La caméra va se diriger vers le stand et on pourra interagir avec les produits etc.
@@ -87,17 +103,33 @@ Il est nécessaire de renseigner le champ `UUID` avec l'uuid du stand en questio
 
 C'est ce qui est utilisé pour accéder aux stands depuis les signalétiques en entrée de Zone par exemple.
 
+<span class="space"/>
+
 ### goto_position
 Permet de se déplacer vers une position caméra prédéfinie lors du clic sur cet objet.
 
 **Utilisé en relation avec [camera_position](#camera_position).**
 
+<span class="space"/>
+
 ### goto_zone
+<span class="space"/>
+
 ### ground
+<span class="space"/>
+
 ### lab
+<span class="space"/>
+
 ### lightmap
+<span class="space"/>
+
 ### product
+<span class="space"/>
+
 ### product_standalone
+<span class="space"/>
+
 ### autres
 - envmap
 - elevator
