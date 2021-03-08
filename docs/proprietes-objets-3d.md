@@ -28,11 +28,18 @@ Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaq
 
 <span class="space"/>
 
+
+
+
 ### billboard
 A utiliser avec une plane qui sera orientée en permanence vers la caméra. Ex: les panneaux au dessus du démonstrateur.
+
 <span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
 
 <span class="space"/>
+
+
+
 
 ### booth
 ![](images/props-booth.png)
@@ -46,14 +53,22 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 <span class="space"/>
 
-### booth_camera
-Une ou plusieurs caméras peuvent être définies pour un stand (en cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées).
 
-Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model).
+
+
+### booth_camera
+Point de vue lors de l'entrée sur un stand.
+
+Une ou plusieurs caméras peuvent être définies pour un stand. En cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées.
+
+Ces caméras doivent être parentées à un objet de type [booth](#booth) ou [booth_model](#booth_model). **Voir [3. Mise en place d'un stand](#3-mise-en-place-dun-stand) pour plus d'informations.**
 
 <span style="color:darkorange;">Si aucune caméra n'est définie pour un stand, il sera impossible d'y accéder.</span>
 
 <span class="space"/>
+
+
+
 
 ### booth_model
 ![](images/props-booth_model.png)
@@ -67,6 +82,9 @@ Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la 
 
 <span class="space"/>
 
+
+
+
 ### booth_silhouette
 ![](images/props-booth_silhouette.png)
 Cet objet sera remplacé au runtime par un billboard représentant une silhouette (si un exposant est disponible). On utilisera un objet Point/Dummy positionné au niveau du sol et aux emplacements où l'on souhaite voir apparaître une silhouette.
@@ -75,12 +93,18 @@ Il peut y en avoir plusieurs par stand.
 
 <span class="space"/>
 
+
+
+
 ### camera
 C'est la caméra utilisée comme point de vue de départ lors de l'arrivée dans une Zone.
 
 <span style="color:red;">**Elle est unique, et INDISPENSABLE au bon chargement de la Zone !**</span>
 
 <span class="space"/>
+
+
+
 
 ### camera_position
 Permet de définir une position caméra prédéfinie qui sera accessible lors du clic sur un objet du type [goto_position](#goto_position).
@@ -91,10 +115,16 @@ S'applique sur une caméra positionnée dans la Zone.
 
 <span class="space"/>
 
+
+
+
 ### conference
 <!-- TODO -->
 
 <span class="space"/>
+
+
+
 
 ### goto_booth
 Le clic sur cet objet aura la même action que "Accéder au stand" depuis le tooltip, ou depuis la page du stand (hors 3D). La caméra va se diriger vers le stand et on pourra interagir avec les produits etc.
@@ -105,6 +135,9 @@ C'est ce qui est utilisé pour accéder aux stands depuis les signalétiques en 
 
 <span class="space"/>
 
+
+
+
 ### goto_position
 Permet de se déplacer vers une position caméra prédéfinie lors du clic sur cet objet.
 
@@ -112,12 +145,18 @@ Permet de se déplacer vers une position caméra prédéfinie lors du clic sur c
 
 <span class="space"/>
 
+
+
+
 ### goto_zone
 Permet de charger une Zone différente lors du clic sur cet objet.
 
 Il est nécessaire de renseigner le champ `UUID` avec l'uuid de la Zone en question.
 
 <span class="space"/>
+
+
+
 
 ### ground
 ![](images/props-ground.png)
@@ -127,18 +166,51 @@ Afin de mieux gérer les zones où il est possible de se déplacer, il est préf
 
 <span class="space"/>
 
+
+
+
 ### lab
 <!-- TODO -->
+
 <span class="space"/>
+
+
+
 
 ### lightmap
+![](images/props-lightmap.png)
+Permet de définir cet objet (et plus particulièrement 2 maps de son matériau) comme support d'une lightmap (Base Color Map) et d'une aomap (Diffuse Roughness Map).
+
+Le nom donné dans le champ `lightmap` sera le nom à indiquer dans le champ `useLightmap` des objets utilisant cette lightmap.
+
+Dans l'image ci-dessus on voit à gauche les propriétés et le matériau de l'objet porteur de la lightmap, et à droite les propriétés du sol du stand. *On notera qu'ici il n'y a pas de dummy comme parent, tous les objets du stand sont parentés au sol, ça fonctionne de la même manière.* Le couple lightmap/aomap sera appliqué à l'objet sol ainsi que tous les objets parentés à lui.
+
+- <span class="color-box" style="background-color: #ffd200"/> En jaune le type [lightmap](#lightmap) et le nom de cette lightmap
+- <span class="color-box" style="background-color: #00a8ff"/> En bleu le même nom reporté dans les propriétés de l'objet utilisant cette lightmap
+
+```note
+Etant donné que le couple lightmap/aomap est appliqué à toute l'arborescence d'objets à partir du parent sur lequel est déclaré `useLightmap`, il est possible d'empêcher son application en indiquant `none` dans `useLightmap` sur un objet enfant précis. C'est utilisé sur les objets en verre, tels que la vitre sur le support PDF, et le pied en verre du calendrier.
+```
+
 <span class="space"/>
 
+
+
+
 ### product
+![](images/props-product.png)
+L'objet de ce type sera utilisé pour afficher les médias fournis par l'API Kinoba. Les objets de type [product](#product) doivent également spécifié le champ `key_3d`
+
 <span class="space"/>
+
+
+
 
 ### product_standalone
 <span class="space"/>
+
+
+
 
 ### autres
 - envmap
