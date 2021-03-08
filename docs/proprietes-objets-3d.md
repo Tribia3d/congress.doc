@@ -92,7 +92,7 @@ S'applique sur une caméra positionnée dans la Zone.
 <span class="space"/>
 
 ### conference
-
+<!-- TODO -->
 
 <span class="space"/>
 
@@ -128,6 +128,7 @@ Afin de mieux gérer les zones où il est possible de se déplacer, il est préf
 <span class="space"/>
 
 ### lab
+<!-- TODO -->
 <span class="space"/>
 
 ### lightmap
