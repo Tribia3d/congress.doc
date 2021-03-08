@@ -14,8 +14,8 @@
 }
 
 .space {
-    content: '';
-    line-height: 3rem;
+    display: inline-block;
+    height: 3rem;
 }
 
 input[type=button],
