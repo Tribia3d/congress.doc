@@ -1,12 +1,8 @@
-<style>img {
-  float:right;
-}
+<style>img {float:right;}
 h1, h2, h3, h4, h5, h6 { clear:both;}
 </style>
 # Congress : Propriétés des objets 3D
 
-[1. Types d'objets](#1-types-dobjets)
-<!-- [2. ] -->
 
 ## 1. Types d'objets
 ![](images/props-types.png)
@@ -38,7 +34,11 @@ Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'
 
 ### booth
 ![](images/props-booth.png)
-L'objet sera traité comme un Booth. 
+L'objet sera traité comme un Booth par l'appli web, il sera cliquable (si l'uuid existe) et les éléments qui le composent seront eux aussi traités de manière particulière.
+
+Il est nécessaire de remplir le champ `UUID` pour pouvoir interagir avec le stand durant la visite. Cette donnée est à récupérer depuis la base de donnée.
+
+Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par l'objet 3d ayant le type [`booth_model`](#booth_model) et le même "nom" spécifié dans `boothModel` si il existe.
 
 
 ### booth_camera
