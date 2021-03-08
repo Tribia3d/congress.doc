@@ -82,10 +82,17 @@ L'utilisation des [booth_model](#booth_model) n'est pas du tout obligatoire.
 
 Mais lorsqu'il y a beaucoup de stands identiques, en plus de réduire le poids des fichiers exportés, cela permet de n'effectuer qu'une seule fois les modifications, le baking et les réglages des objets enfants.
 ```
-> Pour illustrer les 2 cas de figure :
-> ![](images/props-booth-without-model.png)
-> 
-> Ici le cas où on n'utilise pas de modèle. Le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas
+Pour illustrer les 2 cas de figure :
+
+### Sans modèle
+![](images/props-booth-without-model.png)
+
+Dans le cas où on n'utilise pas de modèle, le parent (Point) est directement défini comme [booth](#booth) et son `UUID` est spécifié. `useLightmap` contient le nom de la lightmap à appliquer sur les objets enfants, et `booth_tooltip` est coché tout en bas, ce qui permettra d'afficher le tooltip Kinoba avec la description et le bouton pour "accéder" au stand.
+
+### Avec modèle
+![](images/props-booth-with-model.png)
+
+Dans le cas où on utilise un modèle de stand
 
 
 
