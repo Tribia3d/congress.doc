@@ -71,12 +71,14 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 
 ## 3. Mise en place d'un stand
-En généra, la mise en place d'un stand se déroule en deux temps. On crée un "modèle de stand" auquel sont parentés tous les éléments de ce stand (meshes, caméras, etc.). Ensuite on positionne les stands sous forme de Points aux positions réelles où doivent se trouver les stands dans la zone. Au runtime les points seront remplacés par les modèles. Cela permet de réduire la taille du fichier 3d exporté, l'instanciation est réalisée par l'appli web.
+### Résumé
+En général, la mise en place d'un stand se déroule en deux temps. On crée un *modèle de stand* auquel sont parentés tous les éléments de ce stand (meshes, caméras, etc.). Ensuite on positionne les stands sous forme de Points aux positions réelles où doivent se trouver les stands dans la zone. Au runtime les points seront remplacés par les modèles. Cela permet de réduire la taille du fichier 3d exporté, l'instanciation est réalisée par l'appli web.
 
 Pour les stands particuliers (stands premium personnalisés) il n'est pas nécessaire d'utiliser de "modèle de stand".
 
 ```note
-Au moment du chargement d'une Zone (fichier GLB) les objets ayant le type [booth](#booth) 
+Au moment du chargement d'une Zone, les objets ayant le type [booth](#booth) ou le type [booth_model](#booth_model), sont triés. Pour chaque [booth](#booth), on cherche un objet [booth_model](#booth_model) ayant le même nom dans le champ `boothModel`. Si on trouve une correspondance, le modèle est instancié sur la cible. Si il n'y a pas de correspondance, l'objet [booth](#booth) reste tel quel.
+L'utilisation des [booth_model](#booth_model) n'est pas du tout obligatoire, elle permet juste de réduire le poids des fichiers lorsqu'il y a beaucoup de stands identiques. Accessoirement ça permet de réutiliser les lightmaps/aomaps du stand.
 ```
 
 ### Le modèle du stand
