@@ -121,7 +121,12 @@ S'applique sur une caméra positionnée dans la Zone.
 
 
 ### conference
-<!-- TODO -->
+![](images/props-conference.png)
+Un clic sur cet objet, redirige vers l'URL de la conférence en cours, ou vers la liste des conférences si aucune n'est en live.
+
+L'`UUID` est nécessaire pour savoir sur quel "plateau" se situe la conférence. *Avec l'implementation actuelle, il est nécessaire de modifier également le code pour que ça fonctionne...*
+
+Ce composant est dépendant de `front/src/router/modules/conferences.jsx` géré par Kinoba.
 
 <span class="space"/>
 
@@ -172,7 +177,28 @@ Afin de mieux gérer les zones où il est possible de se déplacer, il est préf
 
 
 ### lab
-<!-- TODO -->
+![](images/props-labs.png)
+Les Labs sont des composants particuliers de NOVAQ. 
+
+
+Le contenu devant être mis à jour durant le salon, les informations (liens vers images, vidéo) doit être contenu dans un fichier facilement modifiable (`public/assets/webgl/labs/labs-live-data.json`) au format suivant :
+```json
+[
+  {
+    "labUuid": "5f759e8a99c5ea0019dc35d6",
+    "labName": "Mobilité du futur",
+    "imageUri": "",
+    "videoUri": ""
+  },
+  {
+    "labUuid": "5f74836950e0fc0024d442c9",
+    "labName": "Comment moi, PME de la filière cosmétique, je peux être impliquée dans la RSE ?",
+    "imageUri": "",
+    "videoUri": "https://youtu.be/n3lg3H5RRN8"
+  },
+  //...
+]
+  ```
 
 <span class="space"/>
 
