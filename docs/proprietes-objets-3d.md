@@ -318,10 +318,24 @@ Et pour le **stand** :
 - <span class="color-box" style="background-color: #c87a00"/> UUID du stand
 - <span class="color-box" style="background-color: #00881a"/> Nom du modèle dans `boothModel`
 
+### 2.2 Hiérarchie du stand
 
+![](images/props-booth-hierarchy.png)
+Le stand est défini par son objet parent ayant le type **[booth](#booth)**.
+```note
+En cas d'utilisation d'un modèle de stand, au runtime l'objet [booth_model](#booth_model) est cloné en tant qu'enfant du dummy [booth](#booth) donc cela revient exactement au même, il y a juste un niveau de parentée supplémentaire.
+```
 
+Tous les objets faisant partie du stand doivent y être parentés : produits, caméras, contact, silhouettes, etc. Peu importe si ce sont des enfants direct ou non, ils peuvent très bien être parentés à des objets intermédiaires tant que ceux-ci sont eux-mêmes parentés à l'objet [booth](#booth).
 
-
+Détail de l'arborescence ci-contre :
+- <span class="color-box" style="background-color: #ffd200"/> L'objet parent [booth](#booth)
+- <span class="color-box" style="background-color: #ffd200"/> 
+- <span class="color-box" style="background-color: #ffd200"/>
+- <span class="color-box" style="background-color: #ffd200"/>
+- <span class="color-box" style="background-color: #ffd200"/>
+- <span class="color-box" style="background-color: #ffd200"/>
+- <span class="color-box" style="background-color: #ffd200"/>
 
 
 
