@@ -180,8 +180,13 @@ Afin de mieux gérer les zones où il est possible de se déplacer, il est préf
 
 ### lab
 ![](images/props-labs.png)
-Les Labs sont des composants particuliers de NOVAQ. 
+Un Lab est un composant particulier de NOVAQ. Il est composé d'un parent ayant le type [lab](#lab) (ici le contour avec le wirecolor vert) avec le champ `UUID` rempli. Et d'enfants qui serviront à ouvrir les overlays affichant les informations, images et vidéos ayant le champ `lab_button` réglé sur `infos`, `image` ou `video` (ici avec les wirecolors orange, rouge et bleu).
 
+<span style="color:darkorange;">Le pivot de l'objet parent doit être centré et orienté avec l'axe Y rentrant dans l'objet (comme le gizmo qu'on voit sur le lab du haut).</span>
+
+Dans la hiérarchie on peut voir un objet à l'intérieur des boutons. Comme les pictogrammes sur les boutons sont creux, ça permet d'empêcher de cliquer au travers, ils ont un matériau totalement transparent mais qui va capter les clics. Leur champ `lab_button` est défini de manière identique au bouton afin d'avoir la même action.
+
+L'objet `lab_a_support_images` (avec le wirecolor blanc), a un matériau statique directement appliqué dans l'éditeur 3d...
 
 Le contenu devant être mis à jour durant le salon, les informations (liens vers images, vidéo) doit être contenu dans un fichier facilement modifiable (`public/assets/webgl/labs/labs-live-data.json`) au format suivant :
 ```json
