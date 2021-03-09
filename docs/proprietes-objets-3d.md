@@ -322,7 +322,7 @@ Et pour le **stand** :
 
 Le stand est défini par son objet parent ayant le type **[booth](#booth)**.
 ```note
-En cas d'utilisation d'un modèle de stand, au runtime l'objet [booth_model](#booth_model) est cloné en tant qu'enfant du dummy [booth](#booth) donc cela revient exactement au même, il y a juste un niveau de parentée supplémentaire.
+En cas d'utilisation d'un modèle de stand, au runtime l'objet [booth_model](#booth_model) est cloné en tant qu'enfant du dummy [booth](#booth) donc cela revient exactement au même, il y a juste un degré de parenté supplémentaire.
 ```
 ![](images/props-booth-hierarchy.png)
 Tous les objets faisant partie du stand doivent y être parentés : produits, caméras, contact, silhouettes, etc. Peu importe si ce sont des enfants direct ou non, ils peuvent très bien être parentés à des objets intermédiaires tant que ceux-ci sont eux-mêmes parentés à l'objet [booth](#booth).
