@@ -57,6 +57,7 @@ Si le champ `boothModel` est spécifié, cet objet sera remplacé au runtime par
 
 
 ### booth_camera
+![](images/props-booth_camera.png)
 Point de vue lors de l'entrée sur un stand.
 
 Une ou plusieurs caméras peuvent être définies pour un stand. En cas de points de vue multiples, des sprites permettant de passer de l'une à l'autre seront affichées.
@@ -87,9 +88,7 @@ Afin d'afficher le tooltip Kinoba d'information sur le stand, on peut cocher la 
 
 ### booth_silhouette
 ![](images/props-booth_silhouette.png)
-Cet objet sera remplacé au runtime par un billboard représentant une silhouette (si un exposant est disponible). On utilisera un objet Point/Dummy positionné au niveau du sol et aux emplacements où l'on souhaite voir apparaître une silhouette.
-
-Il peut y en avoir plusieurs par stand.
+Cet objet sera remplacé au runtime par un billboard représentant une silhouette (si un exposant est disponible). On utilisera un objet Point/Dummy positionné au niveau du sol et aux emplacements où l'on souhaite voir apparaître une silhouette. Il peut y en avoir plusieurs par stand.
 
 <span class="space"/>
 
@@ -97,7 +96,10 @@ Il peut y en avoir plusieurs par stand.
 
 
 ### camera
+![](images/props-camera.png)
 C'est la caméra utilisée comme point de vue de départ lors de l'arrivée dans une Zone.
+
+Pour être 
 
 <span style="color:red;">**Elle est unique, et INDISPENSABLE au bon chargement de la Zone !**</span>
 
@@ -199,7 +201,22 @@ Etant donné que le couple lightmap/aomap est appliqué à toute l'arborescence 
 
 ### product
 ![](images/props-product.png)
-L'objet de ce type sera utilisé pour afficher les médias fournis par l'API Kinoba. Les objets de type [product](#product) doivent également spécifié le champ `key_3d`
+L'objet de ce type sera utilisé pour afficher les médias fournis par l'API Kinoba. Les objets de type [product](#product) doivent également spécifier le champ `key_3d` afin de savoir quels médias afficher sur tel ou tel objet.
+
+Les valeurs de `key_3d` sont susceptibles d'évoluer :
+- company_logo : le logo affiché dans les cercles sur les totems ou sur l'enseigne haute
+- company_totem : l'affiche du totem (au format vertical pour novaq et estp)
+- company_pdf_1 : page du porte documents (le document pdf qui sera affiché dans un viewer côté Kinoba)
+- company_video_1 : écran TV
+- innovation_1 :
+- innovation_2 :
+- innovation_3 : la présentation des produits de la société
+
+```note
+Les produits `innovation_N` sont particulier dans le sens où ils peuvent être composés de multiples médias, plusieurs images, pdf et vidéos. Dans ce cas des flèches sont ajoutées au runtime pour switcher de l'un à l'autre.
+```
+
+<span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
 
 <span class="space"/>
 
@@ -207,6 +224,12 @@ L'objet de ce type sera utilisé pour afficher les médias fournis par l'API Kin
 
 
 ### product_standalone
+Il s'agit d'un produit qui n'est pas rattaché à un stand particulier. L'objet sera cliquable (lors du déplacement dans les allées) et la caméra se déplacera en face de celui-ci, mais aucun bouton retour ne sera affiché, il faudra tourner manuellement la vue et cliquer sur le sol pour s'en éloigner.
+
+Le média affiché sera celui du matériau appliqué dans l'éditeur 3d...
+
+<span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
+
 <span class="space"/>
 
 
