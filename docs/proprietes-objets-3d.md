@@ -1,8 +1,10 @@
+# Congress : Propriétés des objets 3D
+
+Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaque objet en JSON. Cela permet à l'appli web de les trier et de les traiter différemment (clic, orientation, matériaux, etc.)
+
 <style>img {float:right;margin:1rem;}
 h1, h2, h3, h4, h5, h6 { clear:both;}
 </style>
-# Congress : Propriétés des objets 3D
-Toutes les propriétés réglées via l'outil maxscript sont stockées dans chaque objet en JSON. Cela permet à l'appli web de les trier et de les traiter différemment (clic, orientation, matériaux, etc.)
 
 ## 1. Types d'objets
 ![](images/props-types.png)
