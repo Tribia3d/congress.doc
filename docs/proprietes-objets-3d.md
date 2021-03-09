@@ -142,6 +142,10 @@ Il est nécessaire de renseigner le champ `UUID` avec l'uuid du stand en questio
 
 C'est ce qui est utilisé pour accéder aux stands depuis les signalétiques en entrée de Zone par exemple.
 
+```note
+Si le stand à atteindre se trouve sur une Zone différente, il y aura changement de Zone également.
+```
+
 <span class="space"/>
 
 
@@ -172,6 +176,8 @@ Il est nécessaire de renseigner le champ `UUID` avec l'uuid de la Zone en quest
 Lors du clic sur un objet de ce type, la caméra se déplace à la position cliquée à une hauteur de 150 cm. De plus sur desktop un sprite s'affiche à la position du curseur.
 
 Afin de mieux gérer les zones où il est possible de se déplacer, il est préférable d'appliquer ce type à un objet invisible (le matériau "invisible" est chargé au runtime depuis matLib.glb), se trouvant à peine au dessus (0.5 ou 1 cm) du sol visible. Comme on peut le voir sur l'image ci-dessus entourée en jaune.
+
+D'une manière générale, tout objet ayant ce type [ground](#ground) sera cliquable, et la caméra sera déplacée à 150 cm au dessus du point cliqué.
 
 <span class="space"/>
 
@@ -282,7 +288,7 @@ Le média affiché sera celui du matériau appliqué dans l'éditeur 3d...
 
 
 
-## 2. Mise en place d'un stand
+## 2. Mise en place d'un stand (Booth)
 
 ### 2.1 Fonctionnement
 En général, la mise en place d'un stand se déroule en deux temps. On crée un *modèle de stand* auquel sont parentés tous les éléments de ce stand (meshes, caméras, etc.). Ensuite on positionne les stands sous forme de Points aux positions réelles où doivent se trouver les stands dans la zone. Au runtime les points seront remplacés par les modèles. Cela permet de réduire la taille du fichier 3d exporté, l'instanciation est réalisée par l'appli web.
@@ -334,10 +340,11 @@ Détail de l'arborescence ci-contre :
 - <span class="color-box" style="background-color: #c6e29f"/> En vert on retrouve des objets particuliers permettant l'ouverture du **chat** et de l'overlay d'information sur le stand. Le premier est déclaré avec la case à cocher `booth_contact` et le second avec `booth_information` tout en bas de l'outil maxscript.
 - <span class="color-box" style="background-color: #b296c8"/> Enfin en violet on retrouve les points permettant le positionnement des silhouettes du type [booth_silhouette](#booth_silhouette).
 
+## 3. Mise en place d'une Zone
 
+Une Zone est assez simple, il n'y a besoin à minima que d'une [camera](#camera) et d'un sol cliquable [ground](#ground) pour pouvoir se déplacer. Viennent ensuite se rajouter les stands [booth](#booth), les objets [goto_zone](#goto_zone) (ex. les portes pour changer de Zone), [goto_position](#goto_position) / [camera_position](#camera_position) (ex. les gros textes permettant d'aller voir les thèses BD sur NOVAQ), [goto_booth](#goto_booth) (ex. les différents noms d'exposants sur les signalétiques en entrée de Zone). On y trouve aussi les [produt_standalone](#product_standalone) (ex. les affiches cliquables sur l'accueil ou les thèses en BD de NOVAQ), ou encore les [billboard](#billboard) (ex. les panneau au dessus de l'usine du futur de NOVAQ).
 
-
-
+![](images/props-zone-hierarchy.png)
 
 
 
