@@ -246,7 +246,7 @@ Les valeurs de `key_3d` sont susceptibles d'évoluer :
 - innovation_3 : la présentation des produits de la société
 
 ```note
-Les produits `innovation_N` sont particulier dans le sens où ils peuvent être composés de multiples médias, plusieurs images, pdf et vidéos. Dans ce cas des flèches sont ajoutées au runtime pour switcher de l'un à l'autre.
+Les produits `innovation_N` sont particuliers dans le sens où ils peuvent être composés de multiples médias, plusieurs images, pdf et vidéos. Dans ce cas des flèches sont ajoutées au runtime pour switcher de l'un à l'autre.
 ```
 
 <span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
