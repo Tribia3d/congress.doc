@@ -330,99 +330,20 @@ Tous les objets faisant partie du stand doivent y être parentés : produits, ca
 ![](images/props-booth-hierarchy.png)
 Détail de l'arborescence ci-contre :
 - <span class="color-box" style="background-color: #f2555b"/> L'objet parent [booth](#booth)
-- <span class="color-box" style="background-color: #ffd200"/> 
-- <span class="color-box" style="background-color: #ffd200"/> En bleu, ce sont les [products](#product), 
-- <span class="color-box" style="background-color: #ffd200"/>
-- <span class="color-box" style="background-color: #ffd200"/>
-- <span class="color-box" style="background-color: #ffd200"/>
-- <span class="color-box" style="background-color: #ffd200"/>
+- <span class="color-box" style="background-color: #f9af56"/> La caméra du stand [booth_camera](#booth_camera). Si il y en avait plusieurs il faudrait indiquer un nom dans `UUID`, la principale ayant impérativement comme nom **`default`**.
+- <span class="color-box" style="background-color: #7fd6f7"/> En bleu, ce sont les [products](#product), ayant le champ `key_3d` rempli. On notera le premier nommé `S_Standard_pdf` avec des sous-objets, afin qu'un clic sur le support ou la vitre soit associé à la même action d'ouverture de l'overlay PDF.
+- <span class="color-box" style="background-color: #c6e29f"/> En vert on retrouve des objets particuliers permettant l'ouverture du **chat** et de l'overlay d'information sur le stand. Le premier est déclaré avec la case à cocher `booth_contact` et le second avec `booth_information` tout en bas de l'outil maxscript.
+- <span class="color-box" style="background-color: #b296c8"/> Enfin en violet on retrouve les points permettant le positionnement des silhouettes du type [booth_silhouette](#booth_silhouette).
 
 
 
 
-sdfsdfsdf
-sdfsdf
-sdf
-sdf
-sd
-fs
-df
-sd
-f
-sd
-f
-sd
-f
-s
-df
-
-sd
-f
-sd
-f
-sd
-f
-s
-df
-
-sd
-fs
-df
-s
-df
-
-sd
-f
-sd
-fs
-df
-sf
-s
-df
-sd
-f
-sdf
 
 
-sdf
 
-sdf
 
-sdf
 
-sdf
 
-sdf
 
-sdf
 
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
 
