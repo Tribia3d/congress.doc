@@ -13,6 +13,7 @@ Les zones seront nommées selon leur UUID. Par exemple, pour la première zone (
 ## Recommandations pour la modélisation
 ### Général
 - Bien nommer les objets (c'est difficile de s'y retrouver avec des Box044, et autres PlaneXXX...). C'est long, mais beaucoup plus propre et pratique... C'est important pour les objets avec lesquels il y aura des interactions (sol, produits, tv, calendrier, etc.) et les objets "parents" (dummy, nom de groupes), pour les autres objets inactifs on peut laisser tel quel.
+- Si possible préférer l'utilisation des `Point` (et non des ~~`Dummy`~~) pour parenter les objets. On peut régler la taille et l'affichage des `Point`, les dummys sont figés une fois posés...
 
 ### Modé
 - <span style="color:red;">**PAS de scale au niveau des objets**</span>, uniquement sur la géométrie, sur les sous-objets.
