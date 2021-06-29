@@ -1,12 +1,12 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets (v0.5.06)
+## Propriétés des objets (v0.5.07)
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.06 le 10/12/2020)
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.07 le 29/06/2021)
 
 ![maxscript-description](images/maxscript-description.png)
-
+> (Capture d'une vieille version)
 - **type** :
     - `billboard` : (= silhouettes)
     - `booth` : défini cet objet comme un Stand. Il faudra également remplir `id` pour spécifier de quel stand il s'agit (et éventuellement `booth_model` si on veut instancier un modèle de stand sur le dummy).
