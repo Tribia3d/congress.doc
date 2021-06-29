@@ -74,6 +74,6 @@ Comme le champ `uuid` est également utilisé pour indiquer l'id de la zone vers
 
 Permet de copier la `position`, `rotation` et `scale` d'un objet d'une scène / fenêtre max dans le presse papier. Puis de les appliquer sur un autre objet dans une scène / fenêtre max différente (ou dans la même scène).
 
-![maxscript-copy-paste-transform](images/maxscript-copy-paste-transform.png)
+![maxscript-copy-paste-transform](images/maxscript-copy-paste-transform.PNG)
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_CopyPasteTransformSOLO.ms)
