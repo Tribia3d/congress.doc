@@ -7,6 +7,7 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
 
 ![maxscript-description](images/maxscript-description.png)
 > (Capture d'une vieille version)
+
 - **type** :
     - `billboard` : (= silhouettes)
     - `booth` : défini cet objet comme un Stand. Il faudra également remplir `id` pour spécifier de quel stand il s'agit (et éventuellement `booth_model` si on veut instancier un modèle de stand sur le dummy).
