@@ -4,7 +4,7 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.5.07" -- Fixed python import not working on Max 2021
+		local version = "0.5.07" -- add booth_silhouette + commented out python v3 import
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:816
@@ -80,8 +80,8 @@
             checkbox 'chkBoothInformation' "booth_information" pos:[178,711] width:100 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
             checkbox 'chkNoMarker' "no_marker" pos:[280,711] width:80 height:18 align:#left toolTip:"Affichera l'overlay informations du stand"
             
--- 			local pyJSON = python.import #json
-			local pyJSON = python.import("json")
+			local pyJSON = python.import #json
+			-- local pyJSON = python.import("json") -- pour python v3, rajouter b devant "json" ?
 			local selectedNode = undefined
 			
 			function valOrEmpty value = (
