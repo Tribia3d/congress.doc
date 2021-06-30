@@ -16,11 +16,8 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     
     - Redémarrer Max et exécuter le script, il ne doit pas y avoir d'erreur et apparaître dans la liste des outils de `Customize User Interface` dans la catégorie `TRIBIA`
     
-    ![maxscript-description](images/force-python-v2.png)
 ```
-
-
-
+![maxscript-description](images/force-python-v2.png)
 
 ![maxscript-description](images/maxscript-description.png)
 > (Capture d'une vieille version)
