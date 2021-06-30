@@ -82,6 +82,10 @@ Une fois les réglages effectués il n'y a plus qu'a cliquer sur `Bake Group`.
 
 **Attention, si les fichiers existent déjà, ils seront écrasés (à la fin du rendu) sans avertissement !** Il est possible d'annuler le rendu sans enregistrer (avant la fin bien sûr) en cliquant sur `Cancel` (et pas `Stop`) dans la fenêtre de rendu.
 
+```warning
+Il y a un problème avec les version de Corona supérieures à 5.x : les maps d'AO *Render to Texture* sont inversées. Il est toujours possible de les inverser sous Photoshop mais le résultat est très moyen. Pour l'instant, la seule vraie solution est de revenir à une version 5.x de Corona...
+```
+
 ## Retouche
 Il va falloir retoucher un peu les lightmaps et aomaps avant de pouvoir les utiliser. En effet l'aomap ne prend pas en compte l'éclairage ni la transparence, donc des zones éclairées seront quand même affectées par l'AO. Il faut "peindre" les zones sensées être éclairées pour supprimer l'effet de l'AO...
 
