@@ -4,13 +4,13 @@
 	toolTip:"Congress Object Properties"
 	buttontext:"CongressProp"
 	(
-		local version = "0.5.07" -- add booth_silhouette + commented out python v3 import
+		local version = "0.5.08" -- add video_texture
 		global congressObjectPropertiesRollout
 		try ( destroyDialog congressObjectPropertiesRollout ) catch()	
 		rollout congressObjectPropertiesRollout ("Congress Object Properties / babylonjs_tag ( " + version + " )") width:376 height:816
 		(
 
-			local typeList = #("", "billboard", "booth", "booth_camera", "booth_model", "booth_silhouette", "camera", "camera_position", "conference", "elevator", "elevator_camera", "envmap", "goto_booth", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_animated", "product_standalone")
+			local typeList = #("", "billboard", "booth", "booth_camera", "booth_model", "booth_silhouette", "camera", "camera_position", "conference", "elevator", "elevator_camera", "envmap", "goto_booth", "goto_position", "goto_zone", "ground", "lab", "lightmap", "product", "product_animated", "product_standalone", "video_texture")
 			local labButtonList = #("", "infos","image", "video")
 			local key3dList = #("","company_logo","company_totem","company_pdf_1","company_video_1","innovation_1","innovation_2","innovation_3")
 			
