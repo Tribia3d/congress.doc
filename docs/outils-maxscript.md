@@ -5,18 +5,12 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.07 le 29/06/2021)
 
-```warning
-**Nécessite Python v2 !** Actuellement c'est Python v3 qui est utilisé par défaut avec 3ds Max 2021+. Il faut ajouter une variable d'environnement pour forcer l'utilisation de la v2 :
-
-    - Rechercher `path` dans le **menu démarrer** et ouvrir `Modifier les variables d'environnement système`
-    
-    - En bas cliquer sur `Variables d'environnement...` puis sur `Nouvelle`
-    
-    - Mettre `ADSK_3DSMAX_PYTHON_VERSION` comme nom et `2` comme valeur puis `OK` successivement sur toutes les fenêtres précédentes
-    
-    - Redémarrer Max et exécuter le script, il ne doit pas y avoir d'erreur et apparaître dans la liste des outils de `Customize User Interface` dans la catégorie `TRIBIA`
-    
-```
+<span style="color:darkorange;">
+**Nécessite Python v2 !** Actuellement c'est Python v3 qui est utilisé par défaut avec 3ds Max 2021+. Il faut ajouter une variable d'environnement pour forcer l'utilisation de la v2 :</span>
+    - <span style="color:darkorange;">Rechercher `path` dans le **menu démarrer** et ouvrir `Modifier les variables d'environnement système`</span>
+    - <span style="color:darkorange;">En bas cliquer sur `Variables d'environnement...` puis sur `Nouvelle`</span>
+    - <span style="color:darkorange;">Mettre `ADSK_3DSMAX_PYTHON_VERSION` comme nom et `2` comme valeur puis `OK` successivement sur toutes les fenêtres précédentes</span>
+    - <span style="color:darkorange;">Redémarrer Max et exécuter le script, il ne doit pas y avoir d'erreur et apparaître dans la liste des outils de `Customize User Interface` dans la catégorie `TRIBIA`</span>
 ![maxscript-description](images/force-python-v2.png)
 
 ![maxscript-description](images/maxscript-description.png)
