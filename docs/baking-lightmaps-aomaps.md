@@ -3,7 +3,7 @@
 On va utiliser Flatiron pour déplier les UV2 et baker les maps.
 
 ```warning
-Il y a un problème avec les version de Corona supérieures à 5.x : les maps d'AO *Render to Texture* sont inversées. Il est toujours possible de les ré-inverser sous Photoshop, mais le résultat est très moyen. Pour l'instant, la seule vraie solution est de revenir à une version 5.x de Corona...
+Il y a un problème avec les version de **Corona 6 et supérieures** : les maps d'AO *Render to Texture* sont inversées. Il est toujours possible de les ré-inverser sous Photoshop, mais le résultat est très moyen. Pour l'instant, la seule vraie solution est de **revenir à une version 5.2** de Corona...
 ```
 
 ### Etapes :
