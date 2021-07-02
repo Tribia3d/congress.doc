@@ -86,6 +86,9 @@ Une fois les réglages effectués il n'y a plus qu'a cliquer sur `Bake Group`.
 
 **Attention, si les fichiers existent déjà, ils seront écrasés (à la fin du rendu) sans avertissement !** Il est possible d'annuler le rendu sans enregistrer (avant la fin bien sûr) en cliquant sur `Cancel` (et pas `Stop`) dans la fenêtre de rendu.
 
+## Baking des objets animés (Stand unique type Galis, Mediaproduct...)
+Pour les stands uniques type Galis / Mediaproduct, il est possible de baker des objets animés tels que les stands modulaires ou le container. Pour cela il suffit de faire l'unwrap des objets animés, exactement comme expliqué au dessus. Il n'y aura qu'un seul unwrap, par contre il y aura autant de lightmaps que de configurations. Un stand ayant 3 configurations (9, 12, 36 m²) aura 3 lightmaps. Il faudra effectuer un rendu stand ouvert dans chaque configuration (faire attention au moment du rendu de bien renommer les lightmaps sinon flatiron écrasera les maps). On ajoutera ensuite 3 cubes auquel appliquer les lightmaps, leur donner des noms différents (par ex. `lm_9`, `lm_12`, `lm_36`) dans le champ `lightmap` de l'outil maxscript. Et ensuite déclarer le parent des objets animés en tant que `product_animated`, les lightmaps seront à spécifier dans le fichier de config json.
+
 ## Retouche
 Il va falloir retoucher un peu les lightmaps et aomaps avant de pouvoir les utiliser. En effet l'aomap ne prend pas en compte l'éclairage ni la transparence, donc des zones éclairées seront quand même affectées par l'AO. Il faut "peindre" les zones sensées être éclairées pour supprimer l'effet de l'AO...
 
