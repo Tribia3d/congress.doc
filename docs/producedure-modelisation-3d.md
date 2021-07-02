@@ -34,8 +34,8 @@ Voir ici pour les propriétés prises en compte par l'exporteur GLTF : [https://
 ![vertex-colors](images/vertex-colors.png)
 - Si les matériaux sont mats, mettre `roughness = 1` **même si** `reflections = 0`. L'exporteur ne prend pas en compte `reflections` mais uniquement `metalness`.
 - Eviter les multi-matériaux (ça divise les objets selon leur matériau réel à l'export). Ca ne fonctionne pas non plus avec la biblio de matériaux du viewer.
-- N'utiliser QUE les <span style="color:red;">**PhysicalMat**</span> (pas de CoronaMat)
-- N'utiliser QUE les <span style="color:red;">**Bitmap**</span> (pas de CoronaBitmap)
+- <span style="color:red;">N'utiliser QUE les **PhysicalMat**</span> (pas de CoronaMat, voir [Outils Maxscript / Trouver les objets ayant un matériau CoronaMtl](outils-maxscript.md#trouver-les-objets-ayant-un-matériau-coronamtl))
+- <span style="color:red;">N'utiliser QUE les **Bitmap**</span> (pas de CoronaBitmap)
 - PAS de `Real-World Scale` pour les maps
 - Plus généralement NE PAS utiliser les maps spéciales de max ou corona, uniquement Bitmap
 - Ne pas utiliser CROP sur les maps, faire des UVW à la place
