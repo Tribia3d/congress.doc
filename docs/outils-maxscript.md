@@ -89,3 +89,10 @@ Permet de copier la `position`, `rotation` et `scale` d'un objet d'une scène / 
 ![maxscript-copy-paste-transform](images/maxscript-copy-paste-transform.PNG)
 
 [Outil téléchargeable ICI](maxscripts/TRIBIA_CopyPasteTransformSOLO.ms)
+
+## Trouver les objets ayant un matériau CoronaMtl
+Copier-coller cette ligne dans le listener de max, ça va sélectionner tous les objets ayant un CoronaMtl appliqué.
+```
+select (for o in objects where (o.material != undefined and classof o.material == CoronaMtl) collect o)
+```
+> TODO: améliorer pour détecter les CoronaMtl derrière un Multimaterial également...
