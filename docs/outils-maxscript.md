@@ -1,9 +1,9 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets (v0.5.08)
+## Propriétés des objets (v0.5.09)
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.08 le 30/06/2021)
+[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.09 le 06/09/2021)
 
 ```warning
 **Nécessite Python v2 !** Actuellement c'est Python v3 qui est utilisé par défaut avec 3ds Max 2021+. Il faut ajouter une variable d'environnement pour forcer l'utilisation de la v2 :
@@ -60,6 +60,7 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `transparent` : défini cet objet comme transparent, **non utilisé pour l'instant**
     - `do_not_scale` : utilisé pour les produits, cet objet (et ses enfants) ne sera pas mis à l'échelle en fonction du format de la texture (utilisé pour le support du pdf de stand)
     - `booth_contact` : au clic sur cet objet, le layer `contact` de kinoba sera ouvert (utilisé sur le calendrier et l'ipad)
+    - ...
 
 ## Vertex Colors
 
