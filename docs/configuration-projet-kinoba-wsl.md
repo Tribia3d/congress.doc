@@ -98,6 +98,92 @@ Installer les dépendances et seed la DB
 ./scripts/reset-db
 ```
 
+## Transfert des ports WSL vers Windows pour accès depuis LAN
+Créer un fichier PS1 :
+```powershell
+# Récupérer l'adresse IP de la machine Linux WSL
+$remoteport = bash.exe -c "ifconfig eth0 | grep 'inet '"
+$found = $remoteport -match '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}';
+
+if( $found ){
+  $remoteport = $matches[0];
+} else{
+  echo "Le script va se fermer car l'adresse IP de la machine WSL 2 est introuvable.";
+  exit;
+}
+
+# Tous les ports forwarder vers votre machine WSL 2
+$ports=@(80,443,3000,5000,5100,5200); #80,443,5000,5100 ne sont pas nécessaires dans le cas de pxf
+
+# Adresse IP sur laquelle écouter au niveau de la machine Windows 10
+$addr='0.0.0.0';
+$ports_a = $ports -join ",";
+
+# Supprimer la règle de pare-feu "WSL 2 Firewall Unlock"
+iex "Remove-NetFireWallRule -DisplayName 'WSL 2 Firewall Unlock' ";
+
+# Créer les règles de pare-feu (flux entrant et sortant) avec chacun des ports de $ports
+iex "New-NetFireWallRule -DisplayName 'WSL 2 Firewall Unlock' -Direction Outbound -LocalPort $ports_a -Action Allow -Protocol TCP";
+iex "New-NetFireWallRule -DisplayName 'WSL 2 Firewall Unlock' -Direction Inbound -LocalPort $ports_a -Action Allow -Protocol TCP";
+
+# Créer les règles de redirection de ports pour chacun des ports ($ports)
+for( $i = 0; $i -lt $ports.length; $i++ ){
+  $port = $ports[$i];
+  iex "netsh interface portproxy delete v4tov4 listenport=$port listenaddress=$addr";
+  iex "netsh interface portproxy add v4tov4 listenport=$port listenaddress=$addr connectport=$port connectaddress=$remoteport";
+}
+```
+Et le lancer depuis un terminal (en admin) avec :
+```powershell
+powershell -ep Bypass .\wsl-port-forwarding.ps1
+```
+
+## Modification ENV et RB pour accès depuis LAN
+Pour pouvoir accéder au back via websockets depuis une machine externe sur le LAN il faut changer `localhost` en `192.168.1.18` (IP de la machine hôte) et ajouter cette IP dans les whitelists.
+
+### `scripts/dev`
+```shell
+# lines 3-4
+export REACT_APP_API_BASE_URL=http://192.168.1.18:3000/
+export REACT_APP_ACTION_CABLE_URL=http://192.168.1.18:3000/cable
+```
+### `api/config/environments/development.rb`
+```rb
+# lines 83-87
+  config.action_cable.allowed_request_origins = [
+    'http://192.168.1.18:5200', # <<<<<< THIS
+    'http://localhost:5200',
+    'http://dev.phoenix-contact.kinoba.fr:5200',
+    'https://dev.phoenix-contact.kinoba.fr:5200'
+  ]
+```
+### `api/config/initializers/cors.rb`
+```rb
+# lines 3-22
+front_origins = if ENV['SENTRY_ENV'] == 'Dev' || ENV['SENTRY_DSN'].blank?
+                  [
+                    'http://192.168.1.18:5200', # <<<<<< THIS
+                    'http://localhost',
+                    'http://localhost:5200',
+                    'http://localhost:8282',
+                    'http://nginx',
+                    'http://dev.phoenix-contact.kinoba.fr:5200',
+                    'https://dev.phoenix-contact.kinoba.fr:5200'
+                  ]
+                elsif ENV['SENTRY_ENV'] == 'Recette'
+                  [
+                    'http://recette.dev.phoenix-contact.kinoba.fr.fr',
+                    'https://recette.dev.phoenix-contact.kinoba.fr.fr'
+                  ]
+                elsif ENV['SENTRY_ENV'] == 'Production'
+                  [
+                    'http://localhost:8080',
+                    'http://149.208.73.73:8080'
+                  ]
+                end
+
+```
+
 ## Lancer le serveur local
 ```shell
 ./scripts/dev
