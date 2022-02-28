@@ -147,6 +147,7 @@ Pour pouvoir accéder au back via websockets depuis une machine externe sur le L
 export REACT_APP_API_BASE_URL=http://192.168.1.18:3000/
 export REACT_APP_ACTION_CABLE_URL=http://192.168.1.18:3000/cable
 ```
+
 ### `api/config/environments/development.rb`
 ```rb
 # lines 83-87
@@ -157,6 +158,7 @@ export REACT_APP_ACTION_CABLE_URL=http://192.168.1.18:3000/cable
     'https://dev.phoenix-contact.kinoba.fr:5200'
   ]
 ```
+
 ### `api/config/initializers/cors.rb`
 ```rb
 # lines 3-22
@@ -188,4 +190,4 @@ front_origins = if ENV['SENTRY_ENV'] == 'Dev' || ENV['SENTRY_DSN'].blank?
 ```shell
 ./scripts/dev
 ```
-Accès au site via `http://localhost:5200`
+Accès au site via `http://192.168.1.18:5200` (IP machine hôte)
