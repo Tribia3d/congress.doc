@@ -1,10 +1,27 @@
 # Configuration les projets Kinoba sur WSL
 
 ## Prérequis
-Avoir WSL installé sur la machine
+- Avoir WSL installé sur la machine
+## Clonage du repo
+```warning
+Avant de cloner le repo, aller sur WSL et réglé les EOL sur `LF`, autrement les scripts ne s'exécuteront pas.
 
+`git config --global core.autocrlf false`
+```
+
+Cloner le repo sur le système de fichier WSL, ici par exemple :
+```shell
+# sous windows via Github Desktop
+\\wsl.localhost\Ubuntu-20.04\home\remi\web\phoenix-contact\
+
+# depuis le shell WSL
+~/web/phoenix-contact/
+/home/remi/web/phoenix-contact/
+```
+```note
+Il est possible de cloner le repo sur le système de fichier Windows classique (ie. `C:\web\...`) mais l'exécution sera beaucoup plus lente depuis WSL (`/mnt/c/web/`) et le hot reload de webpack ne fonctionnera pas !*
+```
 ## Ruby, rbenv, bundler, foreman...
-
 ```shell
 sudo apt-get update
 sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev software-properties-common libffi-dev
@@ -34,21 +51,18 @@ rbenv rehash
 ```shell
 sudo apt-get install ffmpeg imagemagick
 ```
-
 ## Postgresql
-- Installation
 ```shell
 sudo apt install postgresql postgresql-contrib
 sudo apt-get install libpq-dev
 sudo service postgresql restart
 ```
-- Création d'un utilisateur `developer`/`password` avec les droits `CREATEDB`
+### Création d'un utilisateur `developer`/`password` avec les droits `CREATEDB`
 ```shell
 sudo -i -u postgres
 CREATE USER developer WITH PASSWORD 'password';
 ALTER USER developer WITH CREATEDB;
 ```
-
 ## Redis
 ```shell
 sudo apt install redis-server
@@ -65,7 +79,6 @@ nvm install lts/fermium # v14.19.0
 ```shell
 npm install -g yarn
 ```
-
 ## Dépendances du projet
 
 Donner les droits en exécution pour tous les fichiers des dossiers du projet
