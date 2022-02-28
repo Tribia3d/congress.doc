@@ -4,9 +4,7 @@
 - Avoir WSL installé sur la machine
 ## Clonage du repo
 ```warning
-Avant de cloner le repo, aller sur WSL et réglé les EOL sur `LF`, autrement les scripts ne s'exécuteront pas.
-
-`git config --global core.autocrlf false`
+Avant de cloner le repo, aller sur WSL et réglé les EOL sur `LF` avec `git config --global core.autocrlf false`. Autrement les scripts ne s'exécuteront pas !
 ```
 
 Cloner le repo sur le système de fichier WSL, ici par exemple :
@@ -18,6 +16,7 @@ Cloner le repo sur le système de fichier WSL, ici par exemple :
 ~/web/phoenix-contact/
 /home/remi/web/phoenix-contact/
 ```
+
 ```note
 Il est possible de cloner le repo sur le système de fichier Windows classique (ie. `C:\web\...`) mais l'exécution sera beaucoup plus lente depuis WSL (`/mnt/c/web/`) et le hot reload de webpack ne fonctionnera pas !*
 ```
