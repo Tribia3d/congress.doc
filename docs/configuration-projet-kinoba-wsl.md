@@ -186,6 +186,9 @@ front_origins = if ENV['SENTRY_ENV'] == 'Dev' || ENV['SENTRY_DSN'].blank?
 
 ```
 
+## Modification version Ruby
+Dans le fichier `.ruby-version`, changer `api/.ruby-version` pour `3.0.3`
+
 ## Lancer le serveur local
 ```shell
 ./scripts/dev
