@@ -57,9 +57,21 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `material` : nom du matériau à appliquer sur cet objet. Si vide, l'objet gardera son matériau, sinon il sera remplacé.
 - **divers**
     - `booth_tooltip` : ouvrira le tooltip du stand au clic sur celui-ci
-    - `transparent` : défini cet objet comme transparent, **non utilisé pour l'instant**
+    - `no_title` : Ce produit n'aura pas de titre (uniquement innovation)
     - `do_not_scale` : utilisé pour les produits, cet objet (et ses enfants) ne sera pas mis à l'échelle en fonction du format de la texture (utilisé pour le support du pdf de stand)
     - `booth_contact` : au clic sur cet objet, le layer `contact` de kinoba sera ouvert (utilisé sur le calendrier et l'ipad)
+    - `limit_distance` : Cet objet sera interactif que lorsque la camera sera à une certaine distance de celui-ci
+    - `goto_pos` : L'objet cliqué positionnera la camera sur la caméra avec l'uuid spécifié (utilisé lorsqu'un objet possède déjà un type **autre que** type=goto_position)
+    - `booth_information` : Affichera l'overlay informations du stand (appel kinoba)
+    - `no_marker` : Si true, la puce de l'objet ne sera pas afficée (par ex pour un produit ou un stand)
+    - `collectable` : indique si l'objet est un collectable de la chasse au trésor
+    - `collectableId` : identifiant de l'objet chasse au tresor
+    - `highlight_object` : affiche un contour lorsque la souris passe sur l'objet
+    - `visibleFrom` : l'objet est invisible avant cette date (format timestamp)
+    - `visibleUntil` : l'objet est invisible après cette date (format timestamp)
+    - `` : 
+    - `` : 
+    - `` : 
     - ...
 
 ## Vertex Colors
