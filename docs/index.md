@@ -7,3 +7,5 @@
 [Baking lightmaps & aomaps](baking-lightmaps-aomaps.md)
 
 [LaBs](labs.md)
+
+[Produits customisables](customizable-products.md)

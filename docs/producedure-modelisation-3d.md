@@ -71,15 +71,27 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
     - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:darkorange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
 - **camera** : `{"type":"camera"}` Caméra de la zone (PhysicalCam)
-- **camera_position** : `{"type":"camera_position", "id":"camera_labs"}` Caméra cible pour des déplacements directs à l'intérieur d'une zone (PhysicalCam)
+- **camera_position** : `{"type":"camera_position", "cameraPositionId":"camera tableau N"}` Caméra cible pour des déplacements directs à l'intérieur d'une zone (PhysicalCam)
     - **id** : requis, permet de déterminer de quelle caméra il s'agit
-- **goto_zone** : `{"type":"goto_zone", "id":"865324a2-34cf-4274-833f-2657ede13fa5"}` A mettre sur les objets permettant d'accéder à d'autres zones
+- **goto_zone** : `{"type":"goto_zone", "gotoZoneId":"865324a2-34cf-4274-833f-2657ede13fa5"}` A mettre sur les objets permettant d'accéder à d'autres zones
     - **id** : requis, permet de déterminer sur quel stand aller
 - **goto_position** : `{"type":"goto_position", "id":"camera_labs"}` A mettre sur les objets permettant d'accéder à d'autres zones
     - **id** : requis, permet de déterminer vers quelle caméra se déplacer
 - **lightmap** : `{"type":"lightmap", "name":"nom-lightmap"}`
     - **name** : nom de la lightmap
 - **envmap** : idem lightmap, mais pour la réflexion / réfraction (TODO)
+- **product_customizable** : `{"type":"product_customizable", "productCustomizableId":"casque audio"}`
+
+### Goto Zone
+Sur le showroom standalone, la possibilité de changer de hall avait été retirée. Elle a été rajoutée pour les besoins de GMVirtuel.
+
+- Appliquer la propriété `goto_zone` à un objet ou une hiérarchie d'objets (sur le parent) et ajouter l'uuid de la zone (liste dans le fichier config.json du repo) dans `gotoZoneId` (la liste déroulante contient déjà les halls de GMVirtuel pour plus de simplicité).
+- Si besoin il est possible de cocher `limit_distance` pour empêcher de cliquer sur la porte par inadvertance lorsqu'on se trouve trop loin.
+- Si `limit_distance` est coché, il est possible de cocher `Goto Position` (dans `Misc`) et d'indiquer une caméra dans `Goto Camera Position` juste en dessous. Cela permet au lieu de changer de zone, de venir positionner la vue devant la porte en question. (La liste déroulante est censée contenir toutes les objets ayant le type `camera_position`.)
+- Enfin il est possible de jouer une animation lors de l'affichage de la confirmation de changement de zone (l'animation se lira en sens inverse si on masque l'overlay de confirmation).
+    - Pour cela il faut avoir animé les objets parentés à l'objet de base ayant le type `goto_zone`.
+    - Avoir créé cette animation dans l'outil Babylon (clic droit dans le viewport => Babylon... => Babylon Animation Groups). En ayant bien spécifié un nom pour cette animation, une frame de début et de fin, et ajouté les objets concerné dans la liste de droite avec l'objet parent en tête.
+    - Ensuite il suffit d'indiquer le nom de l'animation dans le champ `Goto Zone Animation Name`
 
 ### Autres propriétés
 Elles sont détaillées dans les paragraphes suivants. En plus du type de l'objet, il est possible de spécifier d'autres paramètres, le matériau à utiliser (`"material":"nom du matériau"`), l'instance par laquelle remplacer l'objet (`"replaceBy":"nom-source"`), la lightmap à utiliser (`"useLightmap":"nom-lightmap | lightmap_name"`), ouverture du tooltip du stand avec `{"booth_tooltip":true}`, etc.
@@ -131,6 +143,8 @@ Les objets supports pour affiches / logos devront avoir des dimensions carrés (
 ### Avertissement
 
 <span style="color:darkorange;">**La compression draco peut poser des problèmes de précision, particulièrement lorsque l'objet est loin du centre.** Les nombre à virgule flotante (float) possèdent un  nombre limité de chiffres significatifs. Pour les petits nombre pas de problème, la majorité se trouve après la virgule, on a donc une grande précision (par ex. 1.234567e1 = 12.34567 soit 5 chiffres après la virgule). Par contre dès qu'on s'éloigne du 0, alors les problèmes de précision appraissent (ex. 1.234567e5 = 123456.7 soit 1 chiffre après la virgule). Si l'unité de mesure est le mètre, alors lorsqu'on a un seul chiffre après la virgule, on aura une précision de 10 cm...</span>
+
+<span style="color:darkgreen;">**Il est maintenant possible de choisir la précision lors de l'export, dans le second onglet. => Donc choisir 20 pour Position, et laisser le reste par défaut**</span>
 
 ### Activer la compression Draco
 

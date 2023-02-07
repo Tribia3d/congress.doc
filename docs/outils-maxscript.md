@@ -1,9 +1,12 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Propriétés des objets (v0.5.09)
+## Outil Congress
+[Nouvel Outil téléchargeable ICI](maxscripts/maxscript-webgl-properties-congress-1.0.27.zip) (dernière mise à jour 1.0.27 le 06/02/2023)
 
-[Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.09 le 06/09/2021)
+## **--ANCIEN--** Propriétés des objets (v0.5.09)
+
+[***ANCIEN*** Outil téléchargeable ICI](maxscripts/TRIBIA_CongressUserProperties.ms) (dernière mise à jour 0.5.09 le 06/09/2021)
 
 ```warning
 **Nécessite Python v2 !** Actuellement c'est Python v3 qui est utilisé par défaut avec 3ds Max 2021+. Il faut ajouter une variable d'environnement pour forcer l'utilisation de la v2 :
@@ -30,8 +33,8 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `elevator` : 
     - `elevator_camera` : 
     - `goto_booth` : deplace la caméra sur un stand (= signalétique à l'entrée des zones)
-    - `goto_position` : défini cet objet comme cliquable pour se déplacer vers la caméra définie dans `id`
-    - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `id`
+    - `goto_position` : défini cet objet comme cliquable pour se déplacer vers la caméra définie dans `CameraPositionId`
+    - `goto_zone` : défini cet objet comme cliquable pour charger la zone définie dans `gotoZoneId`
     - `ground` : défini cet objet comme sol cliquable pour les déplacement dans la zone. **Nécessaire si on veut pouvoir se déplacer dans la zone**
     - `lab` : défini cet objet comme étant un lab
     - `lightmap` : nom de la lightmap contenue dans le matériau de cet objet. L'objet ne sera pas affiché et la lightmap sera copiée sur les matériaux des objets possédant la propriété `useLightmap` avec la même nom
