@@ -164,7 +164,15 @@ Permet de se déplacer vers une position caméra prédéfinie lors du clic sur c
 ### goto_zone
 Permet de charger une Zone différente lors du clic sur cet objet.
 
-Il est nécessaire de renseigner le champ `UUID` avec l'uuid de la Zone en question.
+Sur le showroom standalone, la possibilité de changer de hall avait été retirée. Elle a été rajoutée pour les besoins de GMVirtuel.
+
+- Appliquer la propriété `goto_zone` à un objet ou une hiérarchie d'objets (sur le parent) et ajouter l'uuid de la zone (liste dans le fichier config.json du repo) dans `gotoZoneId` (la liste déroulante contient déjà les halls de GMVirtuel pour plus de simplicité).
+- Si besoin il est possible de cocher `limit_distance` pour empêcher de cliquer sur la porte par inadvertance lorsqu'on se trouve trop loin.
+- Si `limit_distance` est coché, il est possible de cocher `Goto Position` (dans `Misc`) et d'indiquer une caméra dans `Goto Camera Position` juste en dessous. Cela permet au lieu de changer de zone, de venir positionner la vue devant la porte en question. (La liste déroulante est censée contenir toutes les objets ayant le type `camera_position`.)
+- Enfin il est possible de jouer une animation lors de l'affichage de la confirmation de changement de zone (l'animation se lira en sens inverse si on masque l'overlay de confirmation).
+    - Pour cela il faut avoir animé les objets parentés à l'objet de base ayant le type `goto_zone`.
+    - Avoir créé cette animation dans l'outil Babylon (clic droit dans le viewport => Babylon... => Babylon Animation Groups). En ayant bien spécifié un nom pour cette animation, une frame de début et de fin, et ajouté les objets concerné dans la liste de droite avec l'objet parent en tête.
+    - Ensuite il suffit d'indiquer le nom de l'animation dans le champ `Goto Zone Animation Name`
 
 <span class="space"/>
 
