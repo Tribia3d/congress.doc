@@ -1,8 +1,10 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Outil Congress
+## Outil Congress (1.0.27)
 [Nouvel Outil téléchargeable ICI](maxscripts/maxscript-webgl-properties-congress-1.0.27.zip) (dernière mise à jour 1.0.27 le 06/02/2023)
+
+![gltf_properties_congress](images/gltf_properties_congress.jpg)
 
 ## **--ANCIEN--** Propriétés des objets (v0.5.09)
 
