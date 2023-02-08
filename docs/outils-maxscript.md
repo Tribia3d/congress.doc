@@ -1,8 +1,10 @@
 # Outils Maxscript
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
-## Outil Congress (1.0.27)
-[Nouvel Outil téléchargeable ICI](maxscripts/maxscript-webgl-properties-congress-1.0.27.zip) (dernière mise à jour 1.0.27 le 06/02/2023)
+## Outil Congress
+- 1.0.28: [maxscript-webgl-properties-congress-1.0.28.zip](maxscripts/maxscript-webgl-properties-congress-1.0.28.zip)
+    - ajout des types `trigger` et `triggerable` ainsi que la propriété `triggerableId`
+- 1.0.27: [maxscript-webgl-properties-congress-1.0.27.zip](maxscripts/maxscript-webgl-properties-congress-1.0.27.zip) 
 
 ![gltf_properties_congress](images/gltf_properties_congress.jpg)
 
