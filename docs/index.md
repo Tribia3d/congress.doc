@@ -9,3 +9,5 @@
 [LaBs](labs.md)
 
 [Produits customisables](customizable-products.md)
+
+[Trigger & Triggerables](trigger-triggerables.md)
