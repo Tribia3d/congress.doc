@@ -1,6 +1,6 @@
 # Trigger & Triggerable
 
-La version où cette fonctionnalité a été introduite dans l'outil maxscript est `1.0.28`.
+Fonctionnalité introduite dans l'outil maxscript avec la version `1.0.28`.
 
 ## Principe
 Un objet de type `trigger` va permettre (au moment du clic) de déclencher des animations sur un objet `triggerable` et sa hiérarchie.
