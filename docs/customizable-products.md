@@ -3,13 +3,24 @@
 La version où cette fonctionnalité a été introduite dans l'outil maxscript est `1.0.26`.
 
 ## Modélisation
-- Ce peut etre un objet unique ou bien une hiérarchie
+- Ce peut etre un **objet unique** ou bien une **hiérarchie**
 - L'objet parent doit avoir le type `product_customizable` et un id dans `productCustomizableId` (uuid ou n'importe quoi d'autre tant que c'est unique)
 - Son pivot doit être centré et l'axe Z orienté vers la caméra
-- Les sous-objets modifiables doivent avoir la propriété `Product Customizable Element` cochée
+- Les **sous-objets** modifiables doivent avoir la propriété `Product Customizable Element` cochée
 - Pour les textures :
     - soit placer une objet par dessus et lui appliquer un matériau avec l'option Babylon `blend` et un png transparent
     - soit directement le matériau transparent sur l'objet, mais dans ce cas attention aux UVs et aux répétitions de la map
+
+![custom_product_correct](images/custom_product_correct.jpg)
+> Exemple de hiérarchie, objets parentés à un Point
+> - custom_casque_001  [`Point`, type=`product_customizable`]
+>   - custom_casque_arceau_int_001
+>   - custom_casque_mousse_blanc_001
+>   - custom_casque_logo_transp_001 [`Product Customizable Element` coché]
+>   - custom_casque_arceau_ext_001 [`Product Customizable Element` coché]
+>   - custom_casque_cercle_noir_001
+>   - custom_casque_coque_001
+>   - custom_casque_mousse_gris_001
 
 ## Configuration
 Cela se passe dans la partie `productCustomizables` et `customProps` du fichier de config `JSON`.
