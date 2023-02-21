@@ -2,9 +2,15 @@
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
 ## Outil Congress
+- 1.0.29: [maxscript-webgl-properties-congress-1.0.29.zip](maxscripts/maxscript-webgl-properties-congress-1.0.29.zip)
+    - ajout du type `product_customizable_element`
+    - suppression de la prop `productCustomizableElement` remplacée par (voir ligne suivante)
+    - ajout des props `productCustomizableColor` et `productCustomizableMap`
 - 1.0.28: [maxscript-webgl-properties-congress-1.0.28.zip](maxscripts/maxscript-webgl-properties-congress-1.0.28.zip)
     - ajout des types `trigger` et `triggerable` ainsi que la propriété `triggerableId`
 - 1.0.27: [maxscript-webgl-properties-congress-1.0.27.zip](maxscripts/maxscript-webgl-properties-congress-1.0.27.zip) 
+- 1.0.26
+    - ajout du type `product_customizable` et des props `productCustomizableId` et `productCustomizableElement`
 
 ![gltf_properties_congress](images/gltf_properties_congress.jpg)
 
