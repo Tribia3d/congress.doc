@@ -23,7 +23,7 @@ La version où cette fonctionnalité a été introduite dans l'outil maxscript e
 >   - custom_casque_mousse_gris_001
 
 ![custom_product_orientation](images/custom_product_orientation.jpg)
-> Orientation de l'objet parent, Y vers l'avant et Z vers le haut, autrement l'objet sera dans le mauvais sens une fois focus
+> Orientation de l'objet parent, Y vers l'arrière et Z vers le haut, autrement l'objet sera dans le mauvais sens une fois focus
 
 ## Configuration
 Cela se passe dans la partie `productCustomizables` et `customProps` du fichier de config `JSON`.
