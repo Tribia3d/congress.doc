@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 { clear:both;}
 - [lightmap](#lightmap)
 - [product](#product)
 - [product_standalone](#product_standalone)
+- [video_texture](#video_texture)
 - [autres](#autres)
 
 <span class="space"/>
@@ -279,6 +280,20 @@ Le média affiché sera celui du matériau appliqué dans l'éditeur 3d...
 
 <span class="space"/>
 
+
+
+
+## video_texture
+Il s'agit d'un objet dont le matériau sera remplacé par une texture vidéo. L'url de la vidéo en question est spécifiée dans le fichier json de config dans la partie `"videoTextures": [...]` correspondant à la prop `videoTextureId` indiquée sur l'objet 3D.
+
+```json
+"videoTextures": [
+  {"uuid":  "videoTextureTestA", "uri":  "assets/videos/videoA.mp4"},
+  {"uuid":  "videoTextureTestB", "uri":  "assets/videos/videoB.mp4"}
+]
+```
+
+<span class="space"/>
 
 
 

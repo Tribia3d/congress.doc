@@ -2,6 +2,9 @@
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
 ## Outil Congress
+- 1.0.30: [maxscript-webgl-properties-congress-1.0.30.zip](maxscripts/maxscript-webgl-properties-congress-1.0.30.zip)
+    - ajout du type `video_texture`
+    - ajout de la prop `videoTextureId`
 - 1.0.29: [maxscript-webgl-properties-congress-1.0.29.zip](maxscripts/maxscript-webgl-properties-congress-1.0.29.zip)
     - ajout du type `product_customizable_element`
     - suppression de la prop `productCustomizableElement` remplacée par (voir ligne suivante)
@@ -52,6 +55,8 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `product` : défini l'objet comme un produit, il faudra spécifier `media_type` et `key_3d`
     - `product_animated` : WIP
     - `product_standalone` : permet de deplacer la camera face à l'axe -y de l'objet (= thèses novaq)
+    - `video_texture` : va lire la vidéo dont l'url est spécifié dans `config.json` correspondante à `videoTextureId`
+    
 - **booth & goto_zone & goto_position & lab**
     - `id` : uuid du stand (ex `5efb49ef2bac05001bf10e54`) ou uuid de la zone à charger (ex `6795ec46-b54b-46fb-9059-003a5cadca5b` pour l'accueil), ou id caméra (`camera_position`), ou uuid lab
     - `boothModel` : si `type=booth_model` alors on défini le nom de ce modèle. Si `type=booth` on va copier le modèle à la position/rotation de cet objet.
