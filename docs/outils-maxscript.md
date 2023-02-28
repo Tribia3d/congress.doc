@@ -2,6 +2,8 @@
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
 ## Outil Congress
+- 1.0.31: [maxscript-webgl-properties-congress-1.0.31.zip](maxscripts/maxscript-webgl-properties-congress-1.0.31.zip)
+    - ajout de la prop `focusOnClick`
 - 1.0.30: [maxscript-webgl-properties-congress-1.0.30.zip](maxscripts/maxscript-webgl-properties-congress-1.0.30.zip)
     - ajout du type `video_texture`
     - ajout de la prop `videoTextureId`
@@ -79,7 +81,8 @@ Pour faciliter le réglage des propriétés des objets, il y a des petits script
     - `do_not_scale` : utilisé pour les produits, cet objet (et ses enfants) ne sera pas mis à l'échelle en fonction du format de la texture (utilisé pour le support du pdf de stand)
     - `booth_contact` : au clic sur cet objet, le layer `contact` de kinoba sera ouvert (utilisé sur le calendrier et l'ipad)
     - `limit_distance` : Cet objet sera interactif que lorsque la camera sera à une certaine distance de celui-ci
-    - `goto_pos` : L'objet cliqué positionnera la camera sur la caméra avec l'uuid spécifié (utilisé lorsqu'un objet possède déjà un type **autre que** type=goto_position)
+    - `goto_pos` : L'objet cliqué positionnera la camera sur la caméra avec le `cameraPositionId` spécifié (utilisé lorsqu'un objet possède déjà un type **autre que** type=goto_position)`
+    - `focusOnClick` : Déplace la caméra active devant l'objet (idem type product_standalone mais peut etre appliqué à un objet ayant déjà un type défini)
     - `booth_information` : Affichera l'overlay informations du stand (appel kinoba)
     - `no_marker` : Si true, la puce de l'objet ne sera pas afficée (par ex pour un produit ou un stand)
     - `collectable` : indique si l'objet est un collectable de la chasse au trésor
