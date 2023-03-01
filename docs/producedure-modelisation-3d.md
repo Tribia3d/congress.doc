@@ -64,9 +64,9 @@ Exemple : `babylonjs_tag = {"type":"booth", "id": "65356804-0d09-479c-ac5b-f0380
 - ~~**conference** : `{"type":"~conference", "id": "65356804-0d09-479c-ac5b-f03807d39087"}`~~
     - ~~**id** : requis, permet de déterminer de quel stand il s'agit~~
     - <span style="color:darkorange;">Pas encore implémenté</span>
-- **product** : `{"type":"product", "media_type": "texture", "key_3d":"poster N"}`
-    - **media_type** : ~~requis~~, type d'objet, `image`, `logo`, `video`, `pdf` => **PAS utilisé pour l'instant**
-    - **key_3d** : requis, permet de placer les produits issus de la bdd, `company_logo`, `company_totem`, `company_video_X`, `company_pdf_X`, `innovation_1`, `innovation_2`, `innovation_3`...
+- **product** : `{"type":"product", "key_3d":"company_logo"}`
+    - ~~**media_type** : ~~requis~~, type d'objet, `image`, `logo`, `video`, `pdf` => **PAS utilisé pour l'instant**~~
+    - **key_3d** (`Booth Key 3d`) : requis, permet de placer les produits issus de la bdd, `company_logo`, `company_totem`, `company_video_X`, `company_pdf_X`, `slider_1`, `slider_2`, `slider_N`...
 - **boothCamera** : `{"type":"boothCamera", "limits":"TODO..."}` Position, rotation, fov Caméra quand on entre dans un stand
     - **limits** : TODO: ajouter limites rotations (verticales / horizontales) <span style="color:darkorange;">Pas encore implémenté</span>
 - **ground** : `{"type":"ground"}` Sol cliquable pour se déplacer dans les zones
@@ -111,9 +111,9 @@ Certains objets vont être répétés à plusieurs endroits mais malgré tout un
 
 ## Placeholders pour les Stands (produits)
 Chaque Stand devra pouvoir afficher un logo, des affiches et des vidéos.
-Les objets pour lesquels remplacer les matériaux par ceux fournis par la base de données seront spécifiés avec le type `product`, un `media_type`, et un `key_3d` qui permettra de savoir sur quel objet afficher telle ou telle texture s'il y en a plusieurs.
+Les objets pour lesquels remplacer les matériaux par ceux fournis par la base de données seront spécifiés avec le type `booth_product`, et un `Booth Key 3d` (`key_3d`) qui permettra de savoir sur quel objet afficher telle ou telle texture s'il y en a plusieurs.
 
-Par exemple : `{"type":"product", "media_type": "texture", "key_3d":"innovation_1_image_1"}`
+Par exemple : `{"type":"product", "key_3d":"slider_1"}`
 
 Il y aura un mouvement de caméra lors du click sur ceux-ci, afin de placer la caméra correctement, il est nécessaire que le pivot des produits soit placé correctement. Au centre, et l'axe Y orienté vers l'arrière (-Y pointe vers le devant du produit), l'axe Z vers le haut, axe X vers la droite (en vue de face).
 

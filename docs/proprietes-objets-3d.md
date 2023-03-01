@@ -13,6 +13,7 @@ h1, h2, h3, h4, h5, h6 { clear:both;}
 - [booth](#booth)
 - [booth_camera](#booth_camera)
 - [booth_model](#booth_model)
+- [booth_product](#booth_product)
 - [booth_silhouette](#booth_silhouette)
 - [camera](#camera)
 - [camera_position](#camera_position)
@@ -247,21 +248,23 @@ Etant donné que le couple lightmap/aomap est appliqué à toute l'arborescence 
 
 
 
-### product
+### booth_product
 ![](images/props-product.png)
-L'objet de ce type sera utilisé pour afficher les médias fournis par l'API Kinoba. Les objets de type [product](#product) doivent également spécifier le champ `key_3d` afin de savoir quels médias afficher sur tel ou tel objet.
+> le type n'est plus `product` mais `booth_product` et `key_3d` devient `Booth Key 3d`!
 
-Les valeurs de `key_3d` sont susceptibles d'évoluer :
-- company_logo : le logo affiché dans les cercles sur les totems ou sur l'enseigne haute
-- company_totem : l'affiche du totem (au format vertical pour novaq et estp)
-- company_pdf_1 : page du porte documents (le document pdf qui sera affiché dans un viewer côté Kinoba)
-- company_video_1 : écran TV
-- innovation_1 :
-- innovation_2 :
-- innovation_3 : la présentation des produits de la société
+L'objet de ce type sera utilisé pour afficher les médias fournis par ~~l'API Kinoba~~ le fichier JSON de configuration. Les objets de type [booth_product](#booth_product) doivent également spécifier le champ `Booth Key 3d` (`key_3d`) afin de savoir quels médias afficher sur tel ou tel objet.
+
+Les valeurs de `Booth Key 3d` sont susceptibles d'évoluer :
+- *company_logo* : le logo affiché dans les cercles sur les totems ou sur l'enseigne haute
+- *company_totem* : l'affiche du totem (au format vertical pour novaq et estp)
+- *company_pdf_1* : page du porte documents (le document pdf qui sera affiché dans un overlay)
+- *company_video_1* : écran TV
+- *slider_1* :
+- *slider_2* :
+- *slider_N* : la présentation des produits de la société
 
 ```note
-Les produits `innovation_N` sont particuliers dans le sens où ils peuvent être composés de multiples médias, plusieurs images, pdf et vidéos. Dans ce cas des flèches sont ajoutées au runtime pour switcher de l'un à l'autre.
+Les produits `slider_N` sont particuliers dans le sens où ils peuvent être composés de multiples médias, plusieurs images, pdf et vidéos. Dans ce cas des flèches sont ajoutées au runtime pour switcher de l'un à l'autre.
 ```
 
 <span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
@@ -271,7 +274,25 @@ Les produits `innovation_N` sont particuliers dans le sens où ils peuvent être
 
 
 
+### product
+> il serait pertinent de renommer ce type `product_standalone`
+
+Il s'agit d'un produit qui n'est pas rattaché à un stand particulier. L'objet se comporte comme un produit de stand, lorsqu'on clique dessus la caméra se déplace et il n'est plus possible de se déplacer dans les allées. Il faudra cliquer sur le bouton de sortie pour retourner à la position précédente dans les allées.
+
+Il est nécessaire d'indiquer un `id` (qui correspondra à `uuid` dans la partie `products` du JSON de config).
+
+Plusieurs médias pourront être rattachés à ce produit, navigables via des flêches.
+
+<span style="color:darkorange;">Le pivot de l'objet doit être centré et orienté avec l'axe Y rentrant dans l'objet.</span>
+
+<span class="space"/>
+
+
+
+
 ### product_standalone
+> il serait pertinent de renommer ce type `poster` ou `focusable`
+
 Il s'agit d'un produit qui n'est pas rattaché à un stand particulier. L'objet sera cliquable (lors du déplacement dans les allées) et la caméra se déplacera en face de celui-ci, mais aucun bouton retour ne sera affiché, il faudra tourner manuellement la vue et cliquer sur le sol pour s'en éloigner.
 
 Le média affiché sera celui du matériau appliqué dans l'éditeur 3d...
@@ -294,6 +315,7 @@ Il s'agit d'un objet dont le matériau sera remplacé par une texture vidéo. L'
 ```
 
 <span class="space"/>
+
 
 
 

@@ -2,6 +2,10 @@
 Pour faciliter le réglage des propriétés des objets, il y a des petits scripts qui permettent de définir les paramètres sans trop se préoccuper de la forme du code requis.
 
 ## Outil Congress
+- 1.0.32: [maxscript-webgl-properties-congress-1.0.32.zip](maxscripts/maxscript-webgl-properties-congress-1.0.32.zip)
+    - ajout du type `booth_product`
+    - ajout de la prop `boothProductKey3d`
+    - suppression de la prop `productKey3d`
 - 1.0.31: [maxscript-webgl-properties-congress-1.0.31.zip](maxscripts/maxscript-webgl-properties-congress-1.0.31.zip)
     - ajout de la prop `focusOnClick`
 - 1.0.30: [maxscript-webgl-properties-congress-1.0.30.zip](maxscripts/maxscript-webgl-properties-congress-1.0.30.zip)

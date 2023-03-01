@@ -44,7 +44,24 @@ Les cibles (Dummy ou Point) doivent être positionnées et orientées à l'ident
 ### 2. Caméra
 Pour pouvoir pénétrer sur un stand, celui-ci doit posséder une caméra dans sa hiérarchie possédant la propriété `"type":"booth_camera"`.
 
-### 3. Produits
+### 3.1 Produits (dans Zone)
+
+**Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière** (Z vers le haut, X vers la droite). Pour cette raison il ne faudra PAS faire de ~~`Reset XForm`~~ sur les produits, ça va reset l'orientation du pivot. Autrement la caméra générée pour s'approcher du produit ne sera pas correctement alignée.
+
+![orientation-pivot-product](images/orientation-pivot-product.png)
+
+> Le pivot (en local) est orienté de telle façon que Y pointe vers l'arrière)
+
+Leurs propriétés sont du type :
+```json
+{"type":"product", "id":"XXXXXXXXXXX"}
+```
+- `type = product` Permet au viewer de savoir qu'il s'agit d'un produit / innovation
+- `id = XXXXXXXXX` Permet de retrouver les données du produit dans le JSON de config
+
+Les données affichées sont spécifiée dans le JSON de config, il peut y avoir plusieurs médias, pdf, image, vidéo youtube, iframe, etc.
+
+### 3.2 Produits (dans Stands)
 
 Les produits / innovations se présenteront sous forme de Plane carré pour pouvoir gérer les formats portrait et paysages plus facilement (ça peut changer selon les problèmes techniques qui peuvent survenir). **Leur pivot doit être au centre, avec l'axe Y pointant vers l'arrière** (Z vers le haut, X vers la droite). Pour cette raison il ne faudra PAS faire de ~~`Reset XForm`~~ sur les produits, ça va reset l'orientation du pivot.
 
@@ -54,13 +71,10 @@ Les produits / innovations se présenteront sous forme de Plane carré pour pouv
 
 Leurs propriétés sont du type :
 ```json
-{"type":"product","media_type":"texture","key_3d":"poster"}
+{"type":"booth_product", "key_3d":"slider_3"}
 ```
 - `type = product` Permet au viewer de savoir qu'il s'agit d'un produit / innovation
-- `media_type = texture` Permet au viewer d'afficher la texture sur l'objet (il y a aussi `pdf` et `video`)
-- `key_3d = poster` Clé générique qui permet au viewer de savoir quelle texture afficher (lien directement fourni par la bdd)
-
-**Ne pas se focaliser là dessus pour l'instant, ça va changer avec les nouveaux `key_3d` introduits par Kinoba...**
+- `key_3d = slider_3` Clé générique qui permet au viewer de savoir quelle texture afficher (lien directement fourni par ~~la bdd~~ le JSON de config)
 
 ### 4. Tooltips
 Avant de pénétrer sur les stands, on affichera un tooltip avec des informations. L'ouverture se fera lors du clic sur le totem et le logo du Stand. Pour pouvoir les repérer, il faut définir la propriété `booth_tooltip` à `true`. Cela fonctionne de manière récursive donc si un parent possède cette propriété, le clic sur un objet enfant déclenchera aussi l'ouverture du tooltip.
