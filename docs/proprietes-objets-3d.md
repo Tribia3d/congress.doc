@@ -307,6 +307,8 @@ Le média affiché sera celui du matériau appliqué dans l'éditeur 3d...
 ### video_texture
 Il s'agit d'un objet dont le matériau sera remplacé par une texture vidéo. L'url de la vidéo en question est spécifiée dans le fichier json de config dans la partie `"videoTextures": [...]` correspondant à la prop `videoTextureId` indiquée sur l'objet 3D.
 
+![](images/props-video-texture.png)
+
 ```json
 "videoTextures": [
   {"uuid":  "videoTextureTestA", "uri":  "assets/videos/videoA.mp4"},
